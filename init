@@ -14,8 +14,6 @@
  * @license http://www.yiiframework.com/license/
  */
 
-
-
 if (!extension_loaded('mcrypt')) {
     die('The mcrypt PHP extension is required by Yii2.');
 }
