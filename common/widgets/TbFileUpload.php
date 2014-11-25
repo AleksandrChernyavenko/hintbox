@@ -13,10 +13,10 @@ use yii\helpers\Html;
 class TbFileUpload extends BaseForm
 {
     public $defaultValue;
-    public $basePathLogo;
     public $object;
     public $showThumbnail;
     public $label;
+    public $src = '';
 
     public function init()
     {
@@ -33,7 +33,7 @@ class TbFileUpload extends BaseForm
                 'showThumbnail' => $this->showThumbnail,
                 'model' =>$this->model,
                 'attribute' =>$this->attribute,
-                'basePathLogo' => $this->basePathLogo,
+                'src' => $this->src ? $this->src : $this->model->$this->attribute,
             ]
         );
     }

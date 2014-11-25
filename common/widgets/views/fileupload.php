@@ -18,7 +18,7 @@ $attr = $model->{$attribute};
                             <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
                         <? else: ?>
                             <?=
-                            Html::img($basePathLogo  . $val, '', array('style' => 'width: 100%;')); ?>
+                            Html::img($src, '', array('style' => 'width: 100%;')); ?>
                         <? endif; ?>
                     <? } ?>
                 </div>

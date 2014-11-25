@@ -41,7 +41,7 @@ use kartik\select2\Select2;
     $form->field($model, 'image')->widget(\common\widgets\TbFileUpload::className(),
         [
             'attribute' => 'image',
-            'basePathLogo' => ''
+            'src' => $model->getSrc(),
         ]);
 
     ?>
