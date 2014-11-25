@@ -4,7 +4,6 @@ namespace mdm\admin\controllers;
 
 use Yii;
 use mdm\admin\models\BizRule;
-use yii\helpers\VarDumper;
 use yii\web\Controller;
 use mdm\admin\models\searchs\BizRule as BizRuleSearch;
 use yii\filters\VerbFilter;
@@ -70,7 +69,6 @@ class RuleController extends Controller
     public function actionCreate()
     {
         $model = new BizRule(null);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             MenuHelper::invalidate();
 

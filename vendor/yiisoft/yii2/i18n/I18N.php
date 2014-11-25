@@ -10,7 +10,6 @@ namespace yii\i18n;
 use Yii;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
-use yii\helpers\VarDumper;
 
 /**
  * I18N provides features related with internationalization (I18N) and localization (L10N).

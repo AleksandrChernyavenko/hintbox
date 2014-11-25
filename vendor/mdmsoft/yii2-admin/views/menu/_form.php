@@ -28,7 +28,7 @@ use mdm\admin\models\Menu;
         'clientOptions'=>[
             'source'=> Menu::getSavedRoutes()
         ]
-    ]); ?>
+    ]) ?>
 
     <?= $form->field($model, 'order')->input('number') ?>
 

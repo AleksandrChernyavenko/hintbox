@@ -156,8 +156,6 @@ class UploadedFile extends Object
      */
     public function saveAs($file, $deleteTempFile = true)
     {
-        echo __DIR__;
-        exit;
         if ($this->error == UPLOAD_ERR_OK) {
             if ($deleteTempFile) {
                 return move_uploaded_file($this->tempName, $file);
