@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "mdmsoft/yii2-admin": "dev-master",
-        "amnah/yii2-user": "dev-master"
+        "amnah/yii2-user": "dev-master",
+        "kartik-v/yii2-widget-select2": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
