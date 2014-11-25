@@ -5,9 +5,7 @@ use  \yii\helpers\Html;
  */
 $attr = $model->{$attribute};
 ?>
-начало
-
-        <div class="fileupload <?= ($attr instanceof CUploadedFile) ? 'fileupload-exists' : 'fileupload-new'; ?>" data-provides="fileupload">
+        <div class="fileupload <?= ($attr instanceof \yii\web\UploadedFile) ? 'fileupload-exists' : 'fileupload-new'; ?>" data-provides="fileupload">
             <? if (!isset($showThumbnail) || $showThumbnail): ?>
                 <div class="fileupload-new thumbnail">
                     <? $val = trim($model->{$attribute});
@@ -25,7 +23,7 @@ $attr = $model->{$attribute};
             <? endif; ?>
             <div class="fileupload-preview fileupload-exists thumbnail"
                  style="max-width: 200px; max-height: 150px; line-height: 20px;">
-                <? if ($attr instanceof CUploadedFile): ?>
+                <? if ($attr instanceof \yii\web\UploadedFile): ?>
                     <?= $attr->getName() ?>
                 <? endif; ?>
             </div>
@@ -37,4 +35,3 @@ $attr = $model->{$attribute};
                 <a href="#" class="btn fileupload-exists btn-gray" data-dismiss="fileupload">Удалить</a>
             </div>
         </div>
-конец
