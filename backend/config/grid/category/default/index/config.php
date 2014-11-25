@@ -20,6 +20,7 @@ return [
         'format' => 'raw',
         'value'=>function ($model) {
             /** @var $model \common\models\Category */
+
             return Html::img($model->getSrc());
         },
     ],

@@ -25,6 +25,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\db\ActiveRecord;
 use yii\helpers\FileHelper;
+use yii\helpers\VarDumper;
 use yii\web\UploadedFile;
 
 /**
@@ -352,6 +353,8 @@ class FileBehavior extends Behavior {
         // update model and db after insert for autoincrement PK in file url
         $schema = $model->getTableSchema();
         $modifications;
+
+
         foreach ($this->fileNameAttributes as $value) {
             if ($this->files[$value]) {
                 // get new value

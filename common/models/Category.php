@@ -43,6 +43,7 @@ class Category extends \yii\db\ActiveRecord
             'image' => [
                 'class' => \claudejanz\fileBehavior\FileBehavior::className(),
                 'paths' => '@static/category/images/{id}/',
+                'fileNameAttributes' => ['image'],
             ],
         ];
     }
@@ -54,7 +55,10 @@ class Category extends \yii\db\ActiveRecord
 
     public function getSrc()
     {
-        return \Yii::$app->urlManager->baseUrl . '/' .  $this->image;
+        return strtr(
+            $this->image,
+            ['@static'=> \Yii::$app->staticUrlManager->baseUrl]
+        );
     }
 
     /**
