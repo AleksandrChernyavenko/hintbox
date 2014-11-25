@@ -89,3 +89,23 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+/*  ---------------------------------------------------------      */
+
+.page-header{
+    padding: 17px 0 22px;
+    position: relative;
+}
+
+
+.logo-link
+{
+    width: 143px;
+    float: left;
+}
+
+.form-search
+{
+    width: 565px;
+    margin: 10px auto 0;
+}

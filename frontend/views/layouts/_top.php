@@ -9,35 +9,38 @@
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 
-NavBar::begin(
-    [
-        'brandLabel' => 'Главная',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]
-);
-$menuItems = [
-    ['label' => 'Home', 'url' => ['/site/index']],
-    ['label' => 'About', 'url' => ['/site/about']],
-    ['label' => 'Contact', 'url' => ['/site/contact']],
-];
-if (Yii::$app->user->isGuest) {
-    $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-} else {
-    $menuItems[] = [
-        'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-        'url' => ['/site/logout'],
-        'linkOptions' => ['data-method' => 'post']
-    ];
-}
-echo Nav::widget(
-    [
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]
-);
-NavBar::end();
+
+?>
+
+
+<header class="" data-section="header">
+
+    <section class="topContainer inner-container page-header clearfix">
+
+        <div class="container">
+
+            <!--  logo-->
+            <a href="/" class="image logo-link">
+                <img src="http://v5-static.ehowcdn.com/media/images/logos/logo-stamp.png" width="143" height="41" alt="eHow Logo">
+            </a>
+
+
+            <!-- form-search-->
+            <div class="form-search">
+                div]class="form-search"
+                форма поиска
+            </div>
+
+            <!-- userMenu-->
+            <div id="userMenu">
+                <a auth-register="" target="_self" class="register" href="/register">Регистрация</a>
+                <a auth-login="" target="_self" class="login" href="https://www.ehow.com/account/login">Войти</a>
+            </div>
+
+        </div>
+
+
+    </section>
+
+</header>
 
