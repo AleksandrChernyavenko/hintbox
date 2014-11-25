@@ -14,7 +14,7 @@ use yii\helpers\Html;
  * @property string $image
  * @property string $status
  */
-class Category extends \yii\db\ActiveRecord
+class Category extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -33,6 +33,7 @@ class Category extends \yii\db\ActiveRecord
             [['parent_id', 'name'], 'required'],
             [['parent_id'], 'integer'],
             [['image', 'status'], 'string'],
+            [['status'], 'enumValidation'],
             [['name'], 'string', 'max' => 255],
             [['image'], 'file', 'extensions' => 'jpg, gif, png'],
         ];
