@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "*",
         "mdmsoft/yii2-admin": "dev-master",
         "amnah/yii2-user": "dev-master",
-        "kartik-v/yii2-widget-select2": "*"
+        "kartik-v/yii2-widget-select2": "*",
+        "mihaildev/yii2-ckeditor": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
