@@ -8,13 +8,10 @@ use mihaildev\elfinder\InputFile;
 use kartik\select2\Select2;
 
 
-use mihaildev\ckeditor\CKEditor;
-use mihaildev\elfinder\ElFinder;
 /* @var $this yii\web\View */
 /* @var $model common\models\Category */
 /* @var $form yii\widgets\ActiveForm */
 
-ini_set('display_errors',true);
 
 ?>
 
@@ -36,13 +33,18 @@ ini_set('display_errors',true);
         ]
 
     ); ?>
+
+
     <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
-
-    <?
-    $form->field($model, 'name')->widget(CKEditor::className(), [
-  'editorOptions' => ElFinder::ckeditorOptions('/category/elfinder',[/* Some CKEditor Options */]),
-]);
+    <?=
+    $form->field($model, 'image')->widget(\common\widgets\TbFileUpload::className(),
+        [
+            'form' => $form,
+            'model' => $model,
+            'attribute' => 'photo',
+            'basePathLogo' => '/S/'
+        ]);
 
     ?>
 
