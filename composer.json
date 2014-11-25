@@ -21,7 +21,8 @@
         "mdmsoft/yii2-admin": "dev-master",
         "amnah/yii2-user": "dev-master",
         "kartik-v/yii2-widget-select2": "*",
-        "mihaildev/yii2-ckeditor": "*"
+        "mihaildev/yii2-ckeditor": "*",
+        "mihaildev/yii2-elfinder": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
