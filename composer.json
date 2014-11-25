@@ -22,7 +22,8 @@
         "amnah/yii2-user": "dev-master",
         "kartik-v/yii2-widget-select2": "*",
         "mihaildev/yii2-ckeditor": "*",
-        "mihaildev/yii2-elfinder": "*"
+        "mihaildev/yii2-elfinder": "*",
+        "claudejanz/yii2-file-behavior": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
