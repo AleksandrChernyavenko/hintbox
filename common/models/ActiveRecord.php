@@ -7,8 +7,6 @@
  */
 namespace common\models;
 
-use yii\helpers\VarDumper;
-
 class ActiveRecord extends \yii\db\ActiveRecord
 {
     public function enumValidation($attribute,$params)
