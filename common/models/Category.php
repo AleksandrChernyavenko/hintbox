@@ -33,7 +33,17 @@ class Category extends \yii\db\ActiveRecord
             [['parent_id', 'name'], 'required'],
             [['parent_id'], 'integer'],
             [['image', 'status'], 'string'],
-            [['name'], 'string', 'max' => 255]
+            [['name'], 'string', 'max' => 255],
+            [['image'], 'file', 'extensions' => 'jpg, gif, png'],
+        ];
+    }
+
+    public function behaviors() {
+        return [
+            'image' => [
+                'class' => \claudejanz\fileBehavior\FileBehavior::className(),
+                'paths' => '@static/category/images/{id}/',
+            ],
         ];
     }
 
