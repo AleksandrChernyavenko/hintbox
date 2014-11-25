@@ -31,7 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'parent_id',
             'name',
-            'image:ntext',
+            'image',
+            [
+              'label'=>$model->getAttributeLabel('image'),
+              'value' => $model->getSrc() ? Html::img($model->getSrc()) : YesNo::getLabel(''),
+                'format'=>'raw',
+            ],
             'status',
         ],
     ]) ?>
