@@ -8,7 +8,6 @@
 
 namespace common\widgets;
 use yii\helpers\Html;
-use yii\helpers\VarDumper;
 
 
 class TbFileUpload extends BaseForm
@@ -21,19 +20,13 @@ class TbFileUpload extends BaseForm
 
     public function init()
     {
-        VarDumper::dump($this,3,3);
-        exit;
-//        Yii::app()->clientScript->registerPackage('file-upload');
-//        Yii::app()->clientScript->registerScript('form-components', "
-//			if (jQuery().datepicker) {
-//                $('.date-picker').datepicker({format:'dd.mm.yyyy', });
-//            }
-//		", \CClientScript::POS_READY);
+        $this->registerAssets();
     }
 
     public function run()
     {
-        $this->render('fileupload', [
+
+        echo $this->render('fileupload', [
                 'labelBtn' => $this->label,
                 'label' => $this->model->getAttributeLabel($this->attribute),
                 'fileField' => Html::activeFileInput($this->model, $this->attribute),
@@ -44,4 +37,14 @@ class TbFileUpload extends BaseForm
             ]
         );
     }
+
+    public function registerAssets()
+    {
+        $view = $this->getView();
+
+
+        TbFileUploadAsset::register($view);
+    }
+
+
 }

@@ -5,12 +5,9 @@ use  \yii\helpers\Html;
  */
 $attr = $model->{$attribute};
 ?>
-<div class="control-group <?= ($model->hasErrors($attribute)) ? 'error' : '' ?>">
-    <label class="control-label"><?= $label ?></label>
+начало
 
-    <div class="controls">
-        <div class="fileupload <?= ($attr instanceof CUploadedFile) ? 'fileupload-exists' : 'fileupload-new'; ?>"
-             data-provides="fileupload">
+        <div class="fileupload <?= ($attr instanceof CUploadedFile) ? 'fileupload-exists' : 'fileupload-new'; ?>" data-provides="fileupload">
             <? if (!isset($showThumbnail) || $showThumbnail): ?>
                 <div class="fileupload-new thumbnail">
                     <? $val = trim($model->{$attribute});
@@ -33,14 +30,11 @@ $attr = $model->{$attribute};
                 <? endif; ?>
             </div>
             <div>
-                                       <span class="btn btn-file"><span
+                                       <span class="btn btn-file btn-gray"><span
                                                class="fileupload-new"><?= isset($labelBtn) ? $labelBtn : 'Загрузить изображение' ?></span>
                                        <span class="fileupload-exists">Изменить</span>
                                            <?= $fileField; ?></span>
-                <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Удалить</a>
+                <a href="#" class="btn fileupload-exists btn-gray" data-dismiss="fileupload">Удалить</a>
             </div>
         </div>
-        <?= Html::error($model, $attribute, array('class' => 'help-block error')) ?>
-    </div>
-</div>
------------
+конец
