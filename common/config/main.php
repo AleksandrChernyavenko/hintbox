@@ -34,12 +34,6 @@ return [
             'showScriptName' => true,
         ],
 
-        'staticUrlManager' => [
-            'class' => 'yii\web\UrlManager',
-            'showScriptName' => true,
-            'hostInfo' => 'static.hint-box.rus',
-            'baseUrl' => 'http://static.hint-box.rus/',
-        ],
 
         'user' => [
             'class' => 'amnah\yii2\user\components\User',
