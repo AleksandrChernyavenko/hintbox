@@ -31,15 +31,27 @@ AppAsset::register($this);
 
         <div class="container">
 
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+         <div class="row">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+         </div>
 
-        <?= Alert::widget() ?>
+        <div class="row"> <?= Alert::widget() ?> </div>
 
-            <section>
-                <?= $content ?>
-            </section>
+
+            <div class="row">
+
+                <div class="col-md-10">
+                    <?= $content ?>
+                </div>
+
+                <div class="col-md-2">
+                    правая менюшка с виждетами
+                </div>
+
+
+            </div>
 
 
         </div>
