@@ -3,7 +3,7 @@
 namespace frontend\modules\category\controllers;
 
 use common\controllers\MainController;
-use common\models\Category;
+use frontend\models\Category;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
@@ -27,96 +27,32 @@ class DefaultController extends MainController
     }
 
     /**
-     * Lists all Category models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $dataProvider = new ActiveDataProvider(
-            [
-                'query' => Category::find(),
-            ]
-        );
-
-
-        return $this->render(
-            'index',
-            [
-                'dataProvider' => $dataProvider,
-                'gridConfigColumns' => require Yii::getAlias("@backend/config/grid/{$this->getActionUniqueId()}/config.php"),
-            ]
-        );
-    }
-
-    /**
      * Displays a single Category model.
      * @param integer $id
      * @return mixed
      */
     public function actionView($id, $title = '')
     {
-        return $this->render(
-            'view',
+        $category = $this->findModel($id);
+        if($title != $category->getSlug())
+        {
+            $this->redirect($category->getAbsoluteUrl());
+        }
+
+        $dataProvider = new ActiveDataProvider(
             [
-                'model' => $this->findModel($id),
+                'query' => Category::find(),
             ]
         );
-    }
 
-    /**
-     * Creates a new Category model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Category();
-
-        if ($model->loadWithFiles(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render(
-                'create',
-                [
-                    'model' => $model,
-                ]
-            );
-        }
-    }
-
-    /**
-     * Updates an existing Category model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->loadWithFiles(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render(
-                'update',
-                [
-                    'model' => $model,
-                ]
-            );
-        }
-    }
-
-    /**
-     * Deletes an existing Category model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        return $this->render(
+            'index',
+            [
+                'dataProvider' => $dataProvider,
+                'model' => $category,
+                'gridConfigColumns' => require Yii::getAlias("@frontend/config/grid/{$this->getActionUniqueId()}/config.php"),
+            ]
+        );
     }
 
     /**

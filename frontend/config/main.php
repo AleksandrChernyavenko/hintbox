@@ -6,6 +6,11 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 
+if(YII_DEBUG)
+{
+    ini_set('display_error',1);
+}
+
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
