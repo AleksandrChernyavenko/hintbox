@@ -19,23 +19,49 @@ use yii\bootstrap\NavBar;
 
         <div class="container">
 
-            <!--  logo-->
-            <a href="/" class="image logo-link">
-                <img src="http://v5-static.ehowcdn.com/media/images/logos/logo-stamp.png" width="143" height="41" alt="eHow Logo">
-            </a>
+
+            <div class="masthead">
+
+                <div class="row top_header">
+
+                    <div class="col-md-2">
+                        <!--  logo-->
+                        <a href="<?= Yii::$app->getUrlManager()->baseUrl ?>" class="image logo-link">
+                            <img src="<?= Yii::$app->staticUrlManager->baseUrl ?>/shared/logo.png" width="143" height="41" alt="Logo">
+                        </a>
+                    </div>
 
 
-            <!-- form-search-->
-            <div class="form-search">
-                div]class="form-search"
-                форма поиска
+                    <div class="col-md-6">
+                        <!-- form-search-->
+                        <div class="form-search">
+                            div]class="form-search"
+                            форма поиска
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <!-- userMenu-->
+                        <div id="userMenu">
+                            <a auth-register="" target="_self" class="register" href="/register">Регистрация</a>
+                            <a auth-login="" target="_self" class="login" href="https://www.ehow.com/account/login">Войти</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <ul class="nav nav-justified">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
             </div>
 
-            <!-- userMenu-->
-            <div id="userMenu">
-                <a auth-register="" target="_self" class="register" href="/register">Регистрация</a>
-                <a auth-login="" target="_self" class="login" href="https://www.ehow.com/account/login">Войти</a>
-            </div>
 
         </div>
 
