@@ -25,5 +25,12 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
+
+    'modules'=>[
+        'category' => [
+            'class' => 'frontend\modules\category\Category',
+        ],
+    ],
+
     'params' => $params,
 ];

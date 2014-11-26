@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use dosamigos\transliterator\TransliteratorHelper;
 use Yii;
 use yii\helpers\Html;
 
@@ -74,5 +75,10 @@ class Category extends ActiveRecord
             'image' => 'Картинка',
             'status' => 'Статус',
         ];
+    }
+
+    public function getSlug()
+    {
+           return TransliteratorHelper::process($this->name,'','en');
     }
 }
