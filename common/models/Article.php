@@ -13,8 +13,6 @@ use Yii;
  * @property string $description
  * @property string $article_decs
  * @property string $content
- * @property string $related_articles_down
- * @property string $related_articles_rigth
  * @property string $origin_url
  * @property string $status
  * @property string $default_image
@@ -38,7 +36,7 @@ class Article extends \common\models\ActiveRecord
     {
         return [
             [['category_id'], 'integer'],
-            [['article_decs', 'content', 'related_articles_down', 'related_articles_rigth', 'status', 'default_image'], 'string'],
+            [['article_decs', 'content', 'status', 'default_image'], 'string'],
             [['create', 'update'], 'safe'],
             [['title', 'description', 'origin_url'], 'string', 'max' => 255]
         ];
@@ -56,8 +54,6 @@ class Article extends \common\models\ActiveRecord
             'description' => 'Краткое описание для поисковиков',
             'article_decs' => 'Краткое описание',
             'content' => 'Содержание',
-            'related_articles_down' => 'Связанные статьи снизу',
-            'related_articles_rigth' => 'Связанные статьи справа',
             'origin_url' => 'Url оригинала',
             'status' => 'Статус',
             'default_image' => 'Картинка по умолчанию',

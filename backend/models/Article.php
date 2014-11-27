@@ -8,7 +8,20 @@
 
 namespace backend\models;
 
+use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
+
 class Article extends \common\models\Article
 {
+
+    public function rules()
+    {
+        return ArrayHelper::merge(
+            parent::rules(),
+            [
+                [['title','category_id'], 'required'],
+            ]
+        );
+    }
 
 }

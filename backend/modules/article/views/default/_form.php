@@ -25,10 +25,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'related_articles_down')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'related_articles_rigth')->textarea(['rows' => 6]) ?>
-
     <?= $form->field($model, 'origin_url')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'active' => 'Active', 'delete' => 'Delete', 'archive' => 'Archive', 'in_progress' => 'In progress', ], ['prompt' => '']) ?>

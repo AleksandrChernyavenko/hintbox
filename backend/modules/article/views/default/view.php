@@ -34,8 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'description',
             'article_decs:ntext',
             'content:ntext',
-            'related_articles_down:ntext',
-            'related_articles_rigth:ntext',
             'origin_url:url',
             'status',
             'default_image:ntext',
