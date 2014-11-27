@@ -35,6 +35,10 @@ return [
             ]
         ],
 
+        'Article' => [
+            'class' => 'backend\modules\article\Article',
+        ],
+
         'category' => [
             'class' => 'backend\modules\category\Category',
 
