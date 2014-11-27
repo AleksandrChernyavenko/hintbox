@@ -2,7 +2,7 @@
 
 namespace backend\modules\category;
 
-class Category extends \yii\base\Module
+class CategoryModule extends \yii\base\Module
 {
     public $controllerNamespace = 'backend\modules\category\controllers';
 

@@ -12,7 +12,10 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= $form->field($model, 'category_id')->dropDownList(
+        \yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(), 'id', 'name'),
+        ['prompt'=>'Выберите категорию']
+    ); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
 

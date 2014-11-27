@@ -40,7 +40,7 @@ return [
         ],
 
         'category' => [
-            'class' => 'backend\modules\category\Category',
+            'class' => 'backend\modules\category\CategoryModule',
 
             'controllerMap' => [
                 'elfinder' => [
