@@ -35,7 +35,7 @@ return [
             ]
         ],
 
-        'Article' => [
+        'article' => [
             'class' => 'backend\modules\article\Article',
         ],
 
