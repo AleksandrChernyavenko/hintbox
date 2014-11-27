@@ -3,7 +3,7 @@
 namespace backend\modules\article\controllers;
 
 use Yii;
-use common\models\Article;
+use backend\models\Article;
 use yii\data\ActiveDataProvider;
 use common\controllers\MainController;
 use yii\web\NotFoundHttpException;

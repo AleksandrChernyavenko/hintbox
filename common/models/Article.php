@@ -51,18 +51,18 @@ class Article extends \common\models\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_id' => 'Category ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'article_decs' => 'Article Decs',
-            'content' => 'Content',
-            'related_articles_down' => 'Related Articles Down',
-            'related_articles_rigth' => 'Related Articles Rigth',
-            'origin_url' => 'Origin Url',
-            'status' => 'Status',
-            'default_image' => 'Default Image',
-            'create' => 'Create',
-            'update' => 'Update',
+            'category_id' => 'Категория',
+            'title' => 'Заголовок',
+            'description' => 'Краткое описание для поисковиков',
+            'article_decs' => 'Краткое описание',
+            'content' => 'Содержание',
+            'related_articles_down' => 'Связанные статьи снизу',
+            'related_articles_rigth' => 'Связанные статьи справа',
+            'origin_url' => 'Url оригинала',
+            'status' => 'Статус',
+            'default_image' => 'Картинка по умолчанию',
+            'create' => 'Дата создания',
+            'update' => 'Дата редактирования',
         ];
     }
 }
