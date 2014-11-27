@@ -35,7 +35,7 @@ AppAsset::register($this);
                 ['label' => 'Главная', 'url' => ['/site/index']],
                 ['label' => 'Меню', 'url' => ['/admin/default/index']],
                 ['label' => 'Пользователи', 'url' => ['/site/login']],
-                ['label' => 'Статьи', 'url' => ['/site/login']],
+                ['label' => 'Статьи', 'url' => ['/article/default/index']],
                 ['label' => 'Категории', 'url' => ['/category/default/index']],
             ];
             if (Yii::$app->user->isGuest) {

@@ -10,9 +10,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CategoryController implements the CRUD actions for Article model.
+ * DefaultController implements the CRUD actions for Article model.
  */
-class ArticleController extends MainController
+class DefaultController extends MainController
 {
     public function behaviors()
     {
