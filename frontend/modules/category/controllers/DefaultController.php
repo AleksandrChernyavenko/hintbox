@@ -42,6 +42,9 @@ class DefaultController extends MainController
         $dataProvider = new ActiveDataProvider(
             [
                 'query' => Category::find(),
+                'pagination' => [
+                    'pageSize' => 20,
+               ],
             ]
         );
 
@@ -50,7 +53,6 @@ class DefaultController extends MainController
             [
                 'dataProvider' => $dataProvider,
                 'model' => $category,
-                'gridConfigColumns' => require Yii::getAlias("@frontend/config/grid/{$this->getActionUniqueId()}/config.php"),
             ]
         );
     }

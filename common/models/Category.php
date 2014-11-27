@@ -57,6 +57,10 @@ class Category extends ActiveRecord
 
     public function getSrc()
     {
+        if(!$this->image) {
+            return 'http://placehold.it/300';
+        }
+
         return strtr(
             $this->image,
             ['@static'=> \Yii::$app->staticUrlManager->baseUrl]

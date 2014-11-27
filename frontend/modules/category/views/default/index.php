@@ -20,9 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::img($model->getSrc()); ?>
     </p>
 
-    <?= GridView::widget([
+    <?= \frontend\widgets\ArticleList::widget([
         'dataProvider' => $dataProvider,
-        'columns' => $gridConfigColumns,
+        'itemView' => '_index',
     ]); ?>
 
 </div>
