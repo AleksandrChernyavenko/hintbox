@@ -2,7 +2,7 @@
 
 namespace backend\modules\article;
 
-class Article extends \yii\base\Module
+class ArticleModule extends \yii\base\Module
 {
     public $controllerNamespace = 'backend\modules\article\controllers';
 

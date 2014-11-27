@@ -36,7 +36,7 @@ return [
         ],
 
         'article' => [
-            'class' => 'backend\modules\article\Article',
+            'class' => 'backend\modules\article\ArticleModule',
         ],
 
         'category' => [
