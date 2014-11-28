@@ -10,20 +10,45 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="article-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Вы уверенны что хотите удалить данный елемент?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+<div class="article-view" id="article">
+
+    <h1><?= Html::encode($model->title) ?></h1>
+
+    <hr>
+
+    <div class="description">
+        <?= $model->description ?>
+    </div>
+
+    <div class="article_decs">
+        <?= $model->article_decs ?>
+    </div>
+
+    <div class="content">
+        <?= $model->content ?>
+    </div>
+
+    <div class="origin_url">
+        <?= $model->origin_url ?>
+    </div>
+
+    <div class="status">
+        <?= $model->status ?>
+    </div>
+
+    <div class="default_image">
+        <?= $model->default_image ?>
+    </div>
+
+    <div class="create">
+        <?= $model->create ?>
+    </div>
+
+    <div class="update">
+        <?= $model->update ?>
+    </div>
 
     <?= ExtDetailView::widget([
         'model' => $model,
@@ -37,7 +62,6 @@ $this->params['breadcrumbs'][] = $this->title;
                    return $model->category->getLink();
                 },
             ],
-//            'category_id'=>function($model) { return $model->id; },
             'title',
             'description',
             'article_decs:ntext',

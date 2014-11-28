@@ -122,3 +122,19 @@ a.desc:after {
     box-shadow: inset 0 3px 7px rgba(0, 0, 0, .15);
 }
 
+
+#article H2 {
+    color: #4A3C31;
+    font-size: 1.45em;
+    /* background: url(../images/module_caps.png) no-repeat 0 -92px; */
+    margin: 0 0 10px -20px;
+    padding-top: 0;
+    padding-left: 40px;
+    line-height: 42px;
+    /*height: 54px;*/
+    /* width: 799px; */
+    clear: both;
+    background-color: beige;
+    position: relative;
+}
+
