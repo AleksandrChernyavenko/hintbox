@@ -7,18 +7,25 @@
  * @var $model \frontend\models\Article
  */
 
+$imageClass = [
+    'img-rounded'=>'img-rounded',
+    'img-rounded'=>'img-rounded',
+    'img-rounded'=>'img-rounded',
+    'img-rounded'=>'img-rounded',
+    'img-rounded'=>'img-rounded',
+    'img-rounded'=>'img-rounded',
+
+    'img-circle'=>'img-circle',
+]
+
 ?>
-<div class="row">
-
-    <div class="thumbnail related-thumbnail"">
-        <a href="<?= $model->getAbsoluteUrl(); ?>">
-            <img src="<?= $model->getSrc(); ?>" alt="" >
-            <div class="text">
-                <p>
-                    <?= $model->getTextToPrew() ?>
-                </p>
-            </div>
-        </a>
-    </div>
-
+<div class="thumbnail related-thumbnail">
+    <a href="<?= $model->getAbsoluteUrl(); ?>">
+        <img src="<?= $model->getSrc(); ?>" alt="" class="<?= array_rand($imageClass,1); ?>"  >
+        <div class="text">
+            <p>
+                <?= $model->getTextToPrew() ?>
+            </p>
+        </div>
+    </a>
 </div>

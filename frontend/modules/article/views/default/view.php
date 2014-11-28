@@ -50,8 +50,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $model->update ?>
     </div>
 
-    <?
-        echo \frontend\widgets\RelatedArticleWidget::widget();
-    ?>
+    <?= \frontend\widgets\RelatedArticleWidget::widget(); ?>
 
 </div>

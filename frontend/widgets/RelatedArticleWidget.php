@@ -17,8 +17,8 @@ class RelatedArticleWidget extends Widget
 
     public $countRelated = 8;
 
-    public $htmlTemplate = '<div class="row"><div class="col-md-3">{element}</div><div class="col-md-3">{element}</div><div class="col-md-3">{element}</div><div class="col-md-3">{element}</div></div><div class="row"><div class="col-md-3">{element}</div><div
-        class="col-md-3">{element}</div><div class="col-md-3">{element}</div><div class="col-md-3">{element}</div></div>';
+    public $htmlTemplate = '<div class="wrapper"><div class="row"><div class="col-md-3">{element}</div><div class="col-md-3">{element}</div><div class="col-md-3">{element}</div><div class="col-md-3">{element}</div></div><div class="row"><div class="col-md-3">{element}</div><div
+        class="col-md-3">{element}</div><div class="col-md-3">{element}</div><div class="col-md-3">{element}</div></div></div>';
 
     public function getRelatedArticles($count)
     {

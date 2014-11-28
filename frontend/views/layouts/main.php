@@ -47,7 +47,12 @@ AppAsset::register($this);
                 </div>
 
                 <div class="col-md-2">
-                    правая менюшка с виждетами
+                    <?= \frontend\widgets\RelatedArticleWidget::widget(
+                        [
+                            'countRelated'=>6,
+                            'htmlTemplate'=>'<div class="wrapper"><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div></div>',
+                        ]
+                    ); ?>
                 </div>
 
 
