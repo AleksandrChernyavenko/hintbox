@@ -25,4 +25,19 @@ class ActiveRecord extends \yii\db\ActiveRecord
             $this->addError($attribute, "Выбрано недопустимое значение для {$label}");
         }
     }
+
+
+    /**
+     * возвращает класс модель из backend или frontend в зависимости от того откуда вызывается relations
+     * https://github.com/yiisoft/yii2/issues/2858
+     * @param $className
+     * @return mixed
+     */
+    public static function getBackendOrFrontendModelClass($className)
+    {
+        $calledClass = static::className();
+        $nsPosition = strrpos($calledClass, '\\');
+        $calledNS = substr($calledClass, 0, $nsPosition);
+        return forward_static_call([$calledNS . '\\'.$className, 'className']);
+    }
 }

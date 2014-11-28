@@ -6,7 +6,6 @@ use Yii;
 use backend\models\Article;
 use yii\data\ActiveDataProvider;
 use common\controllers\MainController;
-use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 

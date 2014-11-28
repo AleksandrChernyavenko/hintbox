@@ -18,6 +18,8 @@ use Yii;
  * @property string $default_image
  * @property string $create
  * @property string $update
+ *
+ * @property-read \common\models\Category $category
  */
 class Article extends \common\models\ActiveRecord
 {
@@ -60,5 +62,10 @@ class Article extends \common\models\ActiveRecord
             'create' => 'Дата создания',
             'update' => 'Дата редактирования',
         ];
+    }
+
+    public function getCategory()
+    {
+        return $this->hasOne(self::getBackendOrFrontendModelClass('Category'),['id'=>'category_id']);
     }
 }

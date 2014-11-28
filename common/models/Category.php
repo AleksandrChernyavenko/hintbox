@@ -81,6 +81,11 @@ class Category extends ActiveRecord
         ];
     }
 
+    public function getIdName()
+    {
+        return $this->id.', '.$this->name;
+    }
+
     public function getSlug()
     {
            return TransliteratorHelper::process($this->name,'','en');

@@ -1,10 +1,10 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use common\widgets\ExtDetailView;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\Article */
+/** @var $this yii\web\View */
+/** @var $model \backend\models\Article */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
@@ -15,21 +15,29 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверенны что хотите удалить данный елемент?',
                 'method' => 'post',
             ],
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?= ExtDetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
-            'category_id',
+            [
+                'attribute'=>'category_id',
+                'format'=>'raw',
+                'value'=> function ($model, $index) {
+                    /** @var $model \backend\models\Article */
+                   return $model->category->getLink();
+                },
+            ],
+//            'category_id'=>function($model) { return $model->id; },
             'title',
             'description',
             'article_decs:ntext',

@@ -9,7 +9,6 @@
 namespace backend\models;
 
 use yii\helpers\ArrayHelper;
-use yii\helpers\VarDumper;
 
 class Article extends \common\models\Article
 {
