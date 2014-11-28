@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 use mihaildev\ckeditor\CKEditor;
-use mihaildev\elfinder\ElFinder;
+use common\widgets\ElFinder;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Article */
@@ -27,17 +27,7 @@ use mihaildev\elfinder\ElFinder;
     <?= $form->field($model, 'article_decs')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-            'editorOptions' => ElFinder::ckeditorOptions('/category/elfinder',[
-                    'roots' => [
-                        [
-                            'baseUrl'=>'@web',
-                            'basePath'=>'@backend/web',
-                            'path' => 'images/uploads',
-                            'name' => 'Glo12321321bal'
-                        ],
-
-                    ]
-                ]),
+            'editorOptions' => ElFinder::ckeditorOptions(['/article/elfinder/manager','article_id'=>$model->id],[]),
         ]);
     ?>
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>

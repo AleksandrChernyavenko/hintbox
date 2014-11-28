@@ -82,6 +82,7 @@ class DefaultController extends MainController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        Yii::$app->getSession()->set('update_article_id',$model->id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

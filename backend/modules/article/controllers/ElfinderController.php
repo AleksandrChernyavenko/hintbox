@@ -1,49 +1,31 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Администратор
- * Date: 20.01.14
- * Time: 13:26
+ * User: Александр Чернявенко
+ * Date: 28.11.2014
+ * Time: 13:08
  */
-
-namespace mihaildev\elfinder;
+namespace backend\modules\article\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\helpers\VarDumper;
 use yii\web\Controller as BaseController;
 use yii\web\JsExpression;
 
+class ElfinderController extends \mihaildev\elfinder\Controller
+{
 
-
-/**
- * Class Controller
- * @package mihaildev\elfinder
- * @property array $options
- */
-
-
-class Controller extends BaseController{
-    public $roots = [];
-    public $access = ['@'];
-    public $disabledCommands = ['netmount'];
-
-    public function behaviors()
-    {
-      return [
-        'access' => [
-          'class' => AccessControl::className(),
-          'rules' => [
-            [
-              'allow' => true,
-              'roles' => $this->access,
-            ],
-          ],
-        ],
-      ];
-    }
-
+    public $roots = [
+        'article_update' => [
+            'baseUrl'=>'@static',
+            'basePath'=>'@static/article',
+            'path' => 'images/{update_article_id}',
+            'name' => 'Текущая категория'
+        ]
+    ];
 
     private $_options;
 
@@ -53,6 +35,32 @@ class Controller extends BaseController{
             return $this->_options;
 
         $this->_options['roots'] = [];
+
+        $update_article_id = Yii::$app->getSession()->get('update_article_id');
+        $article_id_getParam = Yii::$app->request->get('article_id', Yii::$app->request->post('article_id'));
+
+
+
+
+        if(!(int)$update_article_id || !(int)$article_id_getParam)
+        {
+            return $this->_options;
+        }
+        else
+        {
+            if( (int)$update_article_id != (int)$article_id_getParam)
+            {
+                return $this->_options;
+            }
+
+            $this->roots['article_update']['path'] = strtr(
+                $this->roots['article_update']['path'],
+                [
+                    '{update_article_id}'=>$update_article_id,
+                ]
+            );
+        }
+
 
         foreach($this->roots as $root){
             if(is_string($root))
@@ -72,25 +80,21 @@ class Controller extends BaseController{
         return $this->_options;
     }
 
-    public function actionConnect(){
-       return $this->renderFile(__DIR__."/views/connect.php", ['options'=>$this->getOptions()]);
-    }
-
     public function actionManager(){
 
         $options = [
             'url'=> Url::toRoute('connect'),
             'customData' => [
                 Yii::$app->request->csrfParam => Yii::$app->request->csrfToken,
-                'article_id' => Yii::$app->request->get('article_id', Yii::$app->request->post('article_id')),
+                'article_id'=>  Yii::$app->request->get('article_id', Yii::$app->request->post('article_id')),
             ],
             'resizable' => false
         ];
 
         if(isset($_GET['CKEditor'])){
             $options['getFileCallback'] = new JsExpression('function(file){ '.
-            'window.opener.CKEDITOR.tools.callFunction('.Json::encode($_GET['CKEditorFuncNum']).', file.url); '.
-            'window.close(); }');
+                'window.opener.CKEDITOR.tools.callFunction('.Json::encode($_GET['CKEditorFuncNum']).', file.url); '.
+                'window.close(); }');
 
             $options['lang'] = $_GET['langCode'];
         }
@@ -108,7 +112,7 @@ class Controller extends BaseController{
         if(isset($_GET['callback'])){
             if(isset($_GET['multiple']))
                 $options['commandsOptions']['getfile']['multiple'] = true;
-            
+
             $options['getFileCallback'] = new JsExpression('function(file){ '.
                 'if (window!=window.top) {var parent = window.parent;}else{var parent = window.opener;}'.
                 'if(parent.ElFinderFileCallback.callFunction('.Json::encode($_GET['callback']).', file))'.
@@ -122,12 +126,8 @@ class Controller extends BaseController{
             $options['commands'] = new JsExpression('ElFinderGetCommands('.Json::encode($this->disabledCommands).')');
 
 
-        return $this->renderFile(__DIR__."/views/manager.php", ['options'=>$options]);
+        return $this->renderFile(parent::getDIR()."/views/manager.php", ['options'=>$options]);
     }
 
-    public function getDIR()
-    {
-        return __DIR__;
-    }
 
-} 
+}
