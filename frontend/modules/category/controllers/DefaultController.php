@@ -3,6 +3,7 @@
 namespace frontend\modules\category\controllers;
 
 use common\controllers\MainController;
+use frontend\models\Article;
 use frontend\models\Category;
 use Yii;
 use yii\data\ActiveDataProvider;
@@ -41,7 +42,7 @@ class DefaultController extends MainController
 
         $dataProvider = new ActiveDataProvider(
             [
-                'query' => Category::find(),
+                'query' => Article::find()->andWhere('category_id = :category_id',[':category_id'=>$category->id]),
                 'pagination' => [
                     'pageSize' => 20,
                ],

@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use dosamigos\transliterator\TransliteratorHelper;
 use Yii;
 
 /**
@@ -43,6 +44,19 @@ class Article extends \common\models\ActiveRecord
             [['status'], 'enumValidation'],
             [['title', 'description', 'origin_url'], 'string', 'max' => 255]
         ];
+    }
+
+    public function getSrc()
+    {
+        if(!$this->default_image) {
+            return 'http://placehold.it/300';
+        }
+        return \Yii::$app->staticUrlManager->baseUrl . "/images/article/{$this->id}/".$this->default_image;
+    }
+
+    public function getSlug()
+    {
+        return TransliteratorHelper::process($this->title,'','en');
     }
 
     /**
