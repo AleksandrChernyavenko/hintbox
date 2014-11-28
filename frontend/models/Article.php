@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\helpers\Url;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "article".
@@ -28,5 +29,29 @@ class Article extends \common\models\Article
     public function getAbsoluteUrl()
     {
         return Url::toRoute(['article/default/view','id'=>$this->id,'title'=>$this->getSlug()],true);
+    }
+
+    public function getTextToPrew()
+    {
+        $arrayKeyWord = [
+            'Как',
+            'Что',
+            'Почему',
+            'Чем',
+        ];
+        $titleArray = explode(' ', $this->title);
+
+
+        $first_word = array_shift($titleArray);
+        $html = $first_word;
+        if(in_array($first_word,$arrayKeyWord))
+        {
+            $html .= '<br>';
+        }
+
+        $html .= ' <span>'.implode(' ', $titleArray).'</span>';
+
+
+        return $html;
     }
 }
