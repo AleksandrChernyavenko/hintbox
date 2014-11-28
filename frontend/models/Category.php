@@ -22,5 +22,14 @@ class Category extends \common\models\Category
         return Url::to(['/category/default/view','id'=>$this->id,'title'=>$this->getSlug()]);
     }
 
+    /**
+     * возвращает ссылку на категорию в формате {id, name}
+     * @return string
+     */
+    public function getLink()
+    {
+        return Html::a($this->id.', '.$this->name,['/category/default/view','id'=>$this->id]);
+    }
+
 
 }

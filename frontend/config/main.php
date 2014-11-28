@@ -35,6 +35,9 @@ return [
         'category' => [
             'class' => 'frontend\modules\category\Category',
         ],
+        'article' => [
+            'class' => 'frontend\modules\article\ArticleModule',
+        ],
     ],
 
     'params' => $params,

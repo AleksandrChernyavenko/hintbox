@@ -28,7 +28,7 @@ class Article extends \common\models\Article
 
     public function getAbsoluteUrl()
     {
-        return Url::toRoute(['article/default/view','id'=>$this->id,'title'=>$this->getSlug()],true);
+        return Url::toRoute(['/article/default/view','id'=>$this->id,'title'=>$this->getSlug()],true);
     }
 
     public function getTextToPrew()
