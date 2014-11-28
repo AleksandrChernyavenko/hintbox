@@ -6,6 +6,7 @@ use Yii;
 use backend\models\Article;
 use yii\data\ActiveDataProvider;
 use common\controllers\MainController;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -61,6 +62,8 @@ class DefaultController extends MainController
     public function actionCreate()
     {
         $model = new Article();
+        $model->scenario  = Article::SCENARIO_CREATE;
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

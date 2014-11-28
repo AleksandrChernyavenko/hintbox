@@ -19,7 +19,7 @@ class Article extends \common\models\Article
         return ArrayHelper::merge(
             parent::rules(),
             [
-                [['title','category_id'], 'required'],
+                [['title','category_id'], 'required', 'on' => [self::SCENARIO_CREATE]],
             ]
         );
     }

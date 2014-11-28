@@ -9,6 +9,10 @@ namespace common\models;
 
 class ActiveRecord extends \yii\db\ActiveRecord
 {
+
+    const SCENARIO_CREATE = 'create';
+
+
     public function enumValidation($attribute,$params)
     {
         $columns = $this->getTableSchema()->columns;
