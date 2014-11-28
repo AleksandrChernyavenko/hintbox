@@ -20,7 +20,7 @@ class ElfinderController extends \mihaildev\elfinder\Controller
 
     public $roots = [
         'article_update' => [
-            'baseUrl'=>'@static',
+            'baseUrl'=>'http://static.hint-box.rus/article',
             'basePath'=>'@static/article',
             'path' => 'images/{update_article_id}',
             'name' => 'Текущая категория'
