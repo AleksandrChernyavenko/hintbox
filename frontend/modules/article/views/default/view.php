@@ -50,28 +50,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $model->update ?>
     </div>
 
-    <?= ExtDetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            [
-                'attribute'=>'category_id',
-                'format'=>'raw',
-                'value'=> function ($model, $index) {
-                    /** @var $model \backend\models\Article */
-                   return $model->category->getLink();
-                },
-            ],
-            'title',
-            'description',
-            'article_decs:ntext',
-            'content:ntext',
-            'origin_url:url',
-            'status',
-            'default_image:ntext',
-            'create',
-            'update',
-        ],
-    ]) ?>
+    <?
+        echo \frontend\widgets\RelatedArticleWidget::widget();
+    ?>
 
 </div>
