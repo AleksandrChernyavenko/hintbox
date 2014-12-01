@@ -60,7 +60,7 @@ foreach ($mainCategorys as $cat) {
 
 
 echo NavX::widget([
-        'options'=>['class'=>'nav nav-justified'],
+        'options'=>['class'=>'nav navbar-nav'],
         'items' => $items,
 //        'items' => [
 //            ['label' => 'Action', 'url' => '#'],
