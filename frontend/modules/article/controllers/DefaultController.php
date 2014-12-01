@@ -48,8 +48,15 @@ class DefaultController extends MainController
      */
     public function actionView($id,$title = '')
     {
+        $model = $this->findModel($id);
+
+        if($title != $model->getSlug())
+        {
+            $this->redirect($model->getAbsoluteUrl());
+        }
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
