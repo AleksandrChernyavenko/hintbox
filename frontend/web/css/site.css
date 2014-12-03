@@ -233,3 +233,51 @@ img.main_page_category_list
 .footer A {
     color: #617561;
 }
+
+
+div.thumbnail div.text {
+    min-width: 120px;
+    min-height: 30px;
+}
+
+div.col-md-10 div.thumbnail img {
+    min-width: 120px;
+    min-height: 120px;
+
+    width: 100%;
+
+    max-width: 250px;
+    max-height: 250px;
+}
+
+div.thumbnail a
+{
+    text-decoration: none;
+}
+
+div.thumbnail div.text
+{
+    text-decoration: none;
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 4px;
+    margin-top: 1px;
+}
+
+div.thumbnail div.text:hover
+{
+    background-color: #fff;;
+}
+
+div.thumbnail p
+{
+    color: #fff;
+    margin: 7px;
+    font-size: 16px;
+}
+
+div.thumbnail p:hover
+{
+    color: green;
+}
+
