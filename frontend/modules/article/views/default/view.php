@@ -31,27 +31,6 @@ $this->title = $model->title;
         <?= $model->content ?>
         </div>
 
-        <div class="origin_url">
-        <?= $model->origin_url ?>
-        </div>
-
-        <div class="status">
-        <?= $model->status ?>
-        </div>
-
-        <div class="default_image">
-        <?= $model->default_image ?>
-        </div>
-
-        <div class="create">
-        <?= $model->create ?>
-        </div>
-
-        <div class="update">
-        <?= $model->update ?>
-        </div>
-
-
     </div>
 
     <div class="article_inner">
