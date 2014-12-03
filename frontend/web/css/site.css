@@ -255,6 +255,11 @@ div.thumbnail a
     text-decoration: none;
 }
 
+div.thumbnail a:hover
+{
+    color: #008000;
+}
+
 div.thumbnail div.text
 {
     text-decoration: none;
@@ -262,17 +267,23 @@ div.thumbnail div.text
     border: 1px solid green;
     border-radius: 4px;
     margin-top: 1px;
+    padding: 7px;
 }
 
 div.thumbnail div.text:hover
 {
-    background-color: #fff;;
+    background-color: #fff;
+    color: green;
+}
+
+div.thumbnail div.text:hover p
+{
+    color: green;
 }
 
 div.thumbnail p
 {
     color: #fff;
-    margin: 7px;
     font-size: 16px;
 }
 
