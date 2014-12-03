@@ -7,49 +7,55 @@ use common\widgets\ExtDetailView;
 /** @var $model \backend\models\Article */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 
-<div class="article-view" id="article">
+<div class="article-view drop-shadow-article" id="article">
+    <div class="article_inner">
 
-    <h1><?= Html::encode($model->title) ?></h1>
+        <h1><?= Html::encode($model->title) ?></h1>
 
-    <hr>
+        <hr>
 
-    <div class="description">
+        <div class="description">
         <?= $model->description ?>
-    </div>
+        </div>
 
-    <div class="article_decs">
+        <div class="article_decs">
         <?= $model->article_decs ?>
-    </div>
+        </div>
 
-    <div class="content">
+        <div class="content">
         <?= $model->content ?>
-    </div>
+        </div>
 
-    <div class="origin_url">
+        <div class="origin_url">
         <?= $model->origin_url ?>
-    </div>
+        </div>
 
-    <div class="status">
+        <div class="status">
         <?= $model->status ?>
-    </div>
+        </div>
 
-    <div class="default_image">
+        <div class="default_image">
         <?= $model->default_image ?>
-    </div>
+        </div>
 
-    <div class="create">
+        <div class="create">
         <?= $model->create ?>
-    </div>
+        </div>
 
-    <div class="update">
+        <div class="update">
         <?= $model->update ?>
+        </div>
+
+
     </div>
 
-    <?= \frontend\widgets\RelatedArticleWidget::widget(); ?>
+    <div class="article_inner">
+        <?= \frontend\widgets\RelatedArticleWidget::widget(); ?>
+    </div>
 
 </div>

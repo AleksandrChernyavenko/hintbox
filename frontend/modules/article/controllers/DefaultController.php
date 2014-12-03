@@ -6,6 +6,7 @@ use Yii;
 use frontend\models\Article;
 use yii\data\ActiveDataProvider;
 use common\controllers\MainController;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -55,6 +56,8 @@ class DefaultController extends MainController
             $this->redirect($model->getAbsoluteUrl());
         }
 
+        $this->setMetadata($model);
+
         return $this->render('view', [
             'model' => $model,
         ]);
@@ -74,5 +77,45 @@ class DefaultController extends MainController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    protected function setMetadata($model)
+    {
+        /**
+         * @var $model \frontend\models\Article
+         * @var $category \frontend\models\Category
+         */
+        $category = $model->category;
+
+        $view = Yii::$app->getView();
+        $breadcrumbs = &$view->params['breadcrumbs'];
+
+        if($category)
+        {
+
+            //добавляем родительские категории
+            while($parentCategory = $category->parent)
+            {
+                $breadcrumbs[] = [
+                    'label'=>$category->name,
+                    'url'=>$category->getAbsoluteUrl(),
+                ];
+            }
+
+            //добавляем тукущую категорию
+            $breadcrumbs[] = [
+                'label'=>$category->name,
+                'url'=>$category->getAbsoluteUrl(),
+            ];
+        }
+
+        $breadcrumbs[] = $model->title;
+
+
+        //pageTitle
+        $view->title = $model->title . ' | '.Yii::$app->params['siteName'];
+        $view->registerMetaTag([
+                'description'=>$model->description,
+            ]);
     }
 }

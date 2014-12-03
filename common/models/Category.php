@@ -14,6 +14,8 @@ use yii\helpers\Html;
  * @property string $name
  * @property string $image
  * @property string $status
+ *
+ * @property-read \common\models\Category $parent
  */
 class Category extends ActiveRecord
 {
@@ -89,5 +91,14 @@ class Category extends ActiveRecord
     public function getSlug()
     {
            return TransliteratorHelper::process($this->name,'','en');
+    }
+
+
+    /**
+     * @return \common\models\Category
+     */
+    public function getParent()
+    {
+        return $this->hasOne(self::getBackendOrFrontendModelClass('Category'),['id'=>'parent_id']);
     }
 }
