@@ -41,9 +41,9 @@
 
                     <div class="col-md-4">
                         <!-- userMenu-->
-                        <div id="userMenu">
-                            <a auth-register="" target="_self" class="register" href="/register">Регистрация</a>
-                            <a auth-login="" target="_self" class="login" href="https://www.ehow.com/account/login">Войти</a>
+                        <div id="userMenu" class="pull-right">
+                            <a auth-register="" target="_self" class="register btn btn-success" href="/register">Регистрация</a>
+                            <a auth-login="" target="_self" class="login btn btn-info" href="/login">Войти</a>
                         </div>
 
                     </div>
