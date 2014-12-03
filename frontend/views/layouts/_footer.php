@@ -12,7 +12,13 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">&copy; My Company <?= date('Y') ?></div>
+            <div class="col-md-4">
+                <h4>Как сделать все что пожелаете: <br> на сайте <?= Yii::$app->params['siteName'] ?></h4>
+                &copy; 2014 -  <?= date('Y') ?>.
+                При копировании материалов ссылка на данный сайт обязательна
+
+
+            </div>
             <div class="col-md-8">
                 <h4>
                     Популярные категории
