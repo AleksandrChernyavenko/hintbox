@@ -31,5 +31,28 @@ class Category extends \common\models\Category
         return Html::a($this->id.', '.$this->name,['/category/default/view','id'=>$this->id]);
     }
 
+    public function getTextToPrew()
+    {
+        $arrayKeyWord = [
+            'Как',
+            'Что',
+            'Почему',
+            'Чем',
+        ];
+        $titleArray = explode(' ', $this->name);
+
+
+        $first_word = array_shift($titleArray);
+        $html = $first_word;
+        if(in_array($first_word,$arrayKeyWord))
+        {
+            $html .= '<br>';
+        }
+
+        $html .= ' <span>'.implode(' ', $titleArray).'</span>';
+
+
+        return $html;
+    }
 
 }

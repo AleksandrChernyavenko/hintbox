@@ -6,23 +6,18 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Categories';
-$this->params['breadcrumbs'][] = $this->title;
-
-
 
 ?>
 <div class="category-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>Категория <?= Html::encode($model->name) ?> <?= Html::img($model->getSrc(), ['style'=>'width: 25px;']); ?></h1>
 
-    <p>
-        <?= Html::img($model->getSrc()); ?>
-    </p>
+    <hr>
+
 
     <?= \frontend\widgets\ArticleList::widget([
-        'dataProvider' => $dataProvider,
-        'itemView' => '_index',
-    ]); ?>
+            'dataProvider' => $dataProvider,
+            'itemView' => '_index',
+        ]); ?>
 
 </div>

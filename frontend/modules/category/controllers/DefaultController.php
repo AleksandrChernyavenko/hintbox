@@ -27,10 +27,12 @@ class DefaultController extends MainController
         ];
     }
 
+
     /**
-     * Displays a single Category model.
-     * @param integer $id
-     * @return mixed
+     * @param        $id
+     * @param string $title
+     * @return string
+     * @throws NotFoundHttpException
      */
     public function actionView($id, $title = '')
     {
@@ -39,6 +41,8 @@ class DefaultController extends MainController
         {
             $this->redirect($category->getAbsoluteUrl());
         }
+
+        $this->setMetadata($category);
 
         $dataProvider = new ActiveDataProvider(
             [
@@ -56,6 +60,36 @@ class DefaultController extends MainController
                 'model' => $category,
             ]
         );
+    }
+
+    protected function setMetadata($model)
+    {
+        /**
+         * @var $model \frontend\models\Category
+         */
+
+        $view = Yii::$app->getView();
+        $breadcrumbs = &$view->params['breadcrumbs'];
+
+
+
+        //добавляем родительские категории
+        while($parentCategory = $model->parent)
+        {
+            $breadcrumbs[] = [
+                'label'=>$parentCategory->name,
+                'url'=>$parentCategory->getAbsoluteUrl(),
+            ];
+        }
+
+        $breadcrumbs[] = $model->name;
+
+
+        //pageTitle
+        $view->title = $model->name . ' | '.Yii::$app->params['siteName'];
+        $view->registerMetaTag([
+                'description'=>'Статьи в категории '.$model->name,
+            ]);
     }
 
     /**

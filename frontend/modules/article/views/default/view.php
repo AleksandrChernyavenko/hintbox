@@ -6,9 +6,6 @@ use common\widgets\ExtDetailView;
 /** @var $this yii\web\View */
 /** @var $model \backend\models\Article */
 
-$this->title = $model->title;
-//$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
-//$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 
