@@ -89,7 +89,7 @@ foreach ($mainCategorys as $cat) {
 
 
 echo NavX::widget([
-        'options'=>['class'=>'nav navbar-nav'],
+        'options'=>['class'=>'nav navbar-nav nav-grey_menu'],
         'items' => $items,
 //        'items' => [
 //            ['label' => 'Action', 'url' => '#'],
