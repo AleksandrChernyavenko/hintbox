@@ -35,6 +35,7 @@ class ToNewSiteMigrateController extends \yii\console\Controller
         switch($userSelect)
         {
             case(1):
+                $this->replaceArticleContentImageLink();
                 break;
             case(2):
                 $this->replaceArticleContentImageLink();
