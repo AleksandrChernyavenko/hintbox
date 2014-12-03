@@ -28,13 +28,42 @@ $otherCategorys = array_slice($category, $countElement);
 
 $items = [];
 
+
+$template = <<<TEMPLATE
+<div class="btn-group main_page_row_list padding-15">
+    <div class="thumbnail">
+        <a href="{href}">
+            <img src="{src}" alt="" class="main_page_category_list">
+
+            <div class="text">{text}</div>
+        </a>
+    </div>
+</div>
+TEMPLATE;
+
+$html = '';
+foreach ($otherCategorys as $cat) {
+    $item = [
+        'label' => $cat->name,
+        'url' => $cat->getAbsoluteUrl(),
+    ];
+
+    $html .= strtr($template,
+        [
+            '{href}'=>$cat->getAbsoluteUrl(),
+            '{src}'=>$cat->getSrc(),
+            '{text}'=>$cat->getTextToPrew(),
+        ]
+
+    );
+}
+
 $html = <<<HTML
-<div class="jumbotron">
+<div class="container">
         <h1>Congratulations!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        {$html}
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
 HTML;
 

@@ -8,17 +8,13 @@
 
 /** @var $model \frontend\models\Article */
 
-//\yii\helpers\VarDumper::dump($index,3,3);
-//\yii\helpers\VarDumper::dump($key,3,3);
-//\yii\helpers\VarDumper::dump($model,3,3);
 
 ?>
 
 <div class="thumbnail">
     <a href="<?= $model->getAbsoluteUrl(); ?>">
-        <img src="<?= $model->getSrc(); ?>" alt="">
+        <img src="<?= $model->getSrc(); ?>" alt="" class="main_page_category_list">
 
-<!--        <div class="text"><p>Как <br><span>водить скутер</span></p></div>-->
         <div class="text"><p><?= $model->getTextToPrew(); ?></p></div>
     </a>
 </div>

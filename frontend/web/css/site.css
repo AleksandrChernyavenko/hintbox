@@ -168,3 +168,13 @@ a.desc:after {
 .content img{
     max-width: 100%;
 }
+
+img.main_page_category_list
+{
+    max-height: 150px;
+}
+
+.padding-15
+{
+    padding: 15px;
+}
