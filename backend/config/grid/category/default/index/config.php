@@ -21,7 +21,9 @@ return [
         'value'=>function ($model) {
             /** @var $model \common\models\Category */
 
-            return Html::img($model->getSrc());
+            return Html::img($model->getSrc(), [
+                    'style'=>'width: 80px;height: 80px;'
+                ]);
         },
     ],
     'status',
