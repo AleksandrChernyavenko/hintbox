@@ -20,12 +20,12 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="background-color-header">
     <?php $this->beginBody() ?>
 
     <?= $this->render('_top', []) ?>
 
-    <div class="wrap">
+    <div class="wrap background-color-content">
 
 
 
@@ -42,7 +42,7 @@ AppAsset::register($this);
 
             <div class="row">
 
-                <div class="col-md-10 drop-shadow-article">
+                <div class="col-md-10 drop-shadow-article background-color-white">
                     <?= $content ?>
                 </div>
 

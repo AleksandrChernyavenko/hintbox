@@ -22,6 +22,8 @@ class Article extends \common\models\Article
         return ArrayHelper::merge(
             parent::rules(),
             [
+                [['default_image'],'required'],
+                [['default_image'],'prevImageValidate'],
                 [['title','category_id'], 'required', 'on' => [self::SCENARIO_CREATE]],
             ]
         );
@@ -57,6 +59,11 @@ class Article extends \common\models\Article
         }
 
         return parent::beforeSave($insert);
+    }
+
+    public function prevImageValidate($attribute,$params)
+    {
+        $this->addError($attribute, 'Файл не существует');
     }
 
 }

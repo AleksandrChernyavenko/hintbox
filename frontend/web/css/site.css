@@ -185,6 +185,19 @@ img.main_page_category_list
     height: 100%;
 }
 
+.logo-link img.logo_image_name
+{
+    width: 525px;
+    height: 100%;
+    float: left;
+}
+
+.logo-link img.logo_image
+{
+    width: 143px;
+    float: left;
+}
+
 .nav-grey_menu
 {
     background-color: #eee;
@@ -294,4 +307,16 @@ div.thumbnail p:hover
 .article-full-view
 {
     min-height: 650px;
+}
+
+.background-color-header {
+    background-color: #B06356
+}
+
+.background-color-content {
+    background-color: #EB9573;
+}
+
+.background-color-white {
+    background-color: #ffffff;
 }

@@ -11,7 +11,7 @@
 ?>
 
 
-<header class="" data-section="header">
+<header class="background-color-header" data-section="header">
 
     <section class="topContainer inner-container page-header clearfix">
 
@@ -22,15 +22,17 @@
 
                 <div class="row top_header">
 
-                    <div class="col-md-2">
-                        <!--  logo-->
-                        <a href="<?= Yii::$app->getUrlManager()->baseUrl ?>" class="image logo-link">
-                            <img src="<?= Yii::$app->staticUrlManager->baseUrl ?>/shared/logo.png" width="143" height="41" alt="Logo">
+                    <div class="col-md-8">
+
+                        <a href="<?= \yii\helpers\BaseUrl::home(true) ?>" class="image logo-link">
+                             <img src="<?= Yii::$app->staticUrlManager->baseUrl ?>/shared/logo.gif" class="logo_image">
+
+                             <img src="<?= Yii::$app->staticUrlManager->baseUrl ?>/shared/logo_name.jpg" class="logo_image_name"  alt="Logo">
                         </a>
                     </div>
 
 
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         <!-- form-search-->
                         <div class="form-search">
                             div]class="form-search"
@@ -39,7 +41,7 @@
                     </div>
 
 
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <!-- userMenu-->
                         <div id="userMenu" class="pull-right">
                             <a auth-register="" target="_self" class="register btn btn-success" href="/register">Регистрация</a>
