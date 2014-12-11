@@ -242,12 +242,11 @@ div.thumbnail div.text {
 
 div.col-md-10 div.thumbnail img {
     min-width: 120px;
-    min-height: 120px;
 
     width: 100%;
 
     max-width: 250px;
-    max-height: 250px;
+    height: 250px;
 }
 
 div.thumbnail a
