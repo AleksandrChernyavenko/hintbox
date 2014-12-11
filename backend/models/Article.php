@@ -43,8 +43,6 @@ class Article extends \common\models\Article
     {
         $this->status = StatusEnum::STATUS_DELETED;
         $this->save();
-        VarDumper::dump($this,3,3);
-        exit;
         return true;
     }
 

@@ -291,3 +291,7 @@ div.thumbnail p:hover
     color: green;
 }
 
+.article-full-view
+{
+    min-height: 650px;
+}

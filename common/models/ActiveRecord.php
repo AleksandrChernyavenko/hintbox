@@ -7,6 +7,8 @@
  */
 namespace common\models;
 
+use common\enums\StatusEnum;
+
 class ActiveRecord extends \yii\db\ActiveRecord
 {
 
@@ -24,6 +26,23 @@ class ActiveRecord extends \yii\db\ActiveRecord
             $label = $this->getAttributeLabel($attribute);
             $this->addError($attribute, "Выбрано недопустимое значение для {$label}");
         }
+    }
+
+    public static function getEnumClientValues($column_name)
+    {
+        $columns = self::getTableSchema()->columns;
+        $column = $columns[$column_name];
+        $enumValues = $column->enumValues;
+
+        $items = [];
+        foreach ($enumValues as $value) {
+            $items[$value] = StatusEnum::getClientValue($value);
+        }
+
+        return $items;
+
+
+
     }
 
 

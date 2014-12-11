@@ -30,11 +30,10 @@ use common\widgets\ElFinder;
             'editorOptions' => ElFinder::ckeditorOptions(['/article/elfinder/manager','article_id'=>$model->id],[]),
         ]);
     ?>
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'origin_url')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'active' => 'Active', 'delete' => 'Delete', 'archive' => 'Archive', 'in_progress' => 'In progress', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->dropDownList($model::getEnumClientValues('status'), ['prompt' => '']) ?>
 
     <?= $form->field($model, 'default_image')->textarea(['rows' => 6]) ?>
 

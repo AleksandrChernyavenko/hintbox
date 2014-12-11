@@ -10,7 +10,7 @@ use common\widgets\ExtDetailView;
 
 
 <div class="article-view" id="article">
-    <div class="article_inner">
+    <div class="article_inner article-full-view">
 
         <h1><?= Html::encode($model->title) ?></h1>
 
