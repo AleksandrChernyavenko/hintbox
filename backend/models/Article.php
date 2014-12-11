@@ -8,8 +8,9 @@
 
 namespace backend\models;
 
-use yii\base\Exception;
+use common\enums\StatusEnum;
 use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 use yii\helpers\ArrayHelper;
 use yii\helpers\VarDumper;
 
@@ -31,11 +32,20 @@ class Article extends \common\models\Article
         return [
             [
                 'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created',
-                'updatedAtAttribute' => 'updated',
-                'value' => new Exception('NOW()'),
+                'createdAtAttribute' => 'create',
+                'updatedAtAttribute' => 'update',
+                'value' => new Expression('NOW()'),
             ],
         ];
+    }
+
+    public function delete()
+    {
+        $this->status = StatusEnum::STATUS_DELETED;
+        $this->save();
+        VarDumper::dump($this,3,3);
+        exit;
+        return true;
     }
 
 

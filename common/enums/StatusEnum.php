@@ -16,6 +16,7 @@ class StatusEnum extends AbstractEnum
     const STATUS_VISIBLE = 'visible';
     const STATUS_INVISIBLE = 'invisible';
     const STATUS_MODERATED = 'moderate';
+    const STATUS_ARCHIVED= 'archived';
 
     public static function getValues()
     {

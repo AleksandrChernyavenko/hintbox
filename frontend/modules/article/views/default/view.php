@@ -9,7 +9,7 @@ use common\widgets\ExtDetailView;
 ?>
 
 
-<div class="article-view drop-shadow-article" id="article">
+<div class="article-view" id="article">
     <div class="article_inner">
 
         <h1><?= Html::encode($model->title) ?></h1>
