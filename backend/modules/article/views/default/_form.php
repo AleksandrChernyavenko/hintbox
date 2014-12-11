@@ -27,7 +27,10 @@ use common\widgets\ElFinder;
     <?= $form->field($model, 'article_decs')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-            'editorOptions' => ElFinder::ckeditorOptions(['/article/elfinder/manager','article_id'=>$model->id],[]),
+            'editorOptions' => ElFinder::ckeditorOptions(['/article/elfinder/manager','article_id'=>$model->id],[
+                    'disableNativeSpellChecker' => false,
+                ]),
+
         ]);
     ?>
 
