@@ -18,6 +18,10 @@ $this->registerJs("
 
     (function($) {
           $(document).ready(function() {
+
+                      $('#imageId').width( $('#imageId').get(0).naturalWidth);
+                      $('#imageId').height( $('#imageId').get(0).naturalHeight);
+
                   $( '#jCropContainer tbody' ).on('click', 'a.tableImagejCropHref', function() {
                       var href = '$pachUrl' + $( this ).attr('href');
                       $('#imageId').attr('src', href);
@@ -37,11 +41,11 @@ $this->registerJs("
 <div id="jCropContainer">
     <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-8">
 
             <?= \common\widgets\jcrop\jCrop::widget([
                 // Image URL
-                'url' =>  \Yii::$app->staticUrlManager->baseUrl . "/images/article/{$model->id}/".$model->default_image,
+                'url' =>  \Yii::$app->staticUrlManager->baseUrl . "/images/article/{$model->id}/".$model->default_image. '?'.rand(1,100000000),
                 // options for the IMG element
                 'imageOptions' => [
                     'id' => 'imageId',
@@ -91,8 +95,8 @@ $this->registerJs("
 
         </div>
 
-        <div class="col-md-6">
-            все картинки
+        <div class="col-md-4">
+            все картинки размером дольше  <?= $model::MIN_IMAGE_LENGTH; ?> px
 
             <?
             $model->renderTableOfImage();
