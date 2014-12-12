@@ -1,9 +1,9 @@
 /**
  * Javascript for EJcrop extension.
  *
- * @copyright © Digitick <www.digitick.net> 2011
+ * @copyright ï¿½ Digitick <www.digitick.net> 2011
  * @license GNU Lesser General Public License v3.0
- * @author Ianaré Sévi
+ * @author Ianarï¿½ Sï¿½vi
  * @author Jacques Basseck
  * 
  */
@@ -50,6 +50,7 @@ function ejcrop_cancelCrop(jcrop) {
 }
 
 function ejcrop_initWithButtons(id, options) {
+
     var jcrop = {};
 
     function ajaxRequest(id) {
@@ -68,11 +69,14 @@ function ejcrop_initWithButtons(id, options) {
             type: "post",
             url: options.ajaxUrl,
             data: ajaxData,
-            success: function(msg) {
-                if (msg != 'error') {
-                    // change the image source
-                    $('#thumb_' + id + '> img').attr('src', msg);
+            success: function(response) {
+                if (response.status != 'error') {
+                    $('#' + id ).attr('src', response.src);
                     ejcrop_reinitThumb(id);
+                }
+                else
+                {
+                    alert(response.msg);
                 }
             }
         });
@@ -86,7 +90,7 @@ function ejcrop_initWithButtons(id, options) {
         }
         jcrop.id.enable();
         var dim = jcrop.id.getBounds();
-        
+
         if(options.selection)
             jcrop.id.ui.selection.addClass('jcrop-selection');
         if(options.theme)
@@ -105,5 +109,21 @@ function ejcrop_initWithButtons(id, options) {
 
     $('body').delegate('#cancel_' + id, 'click', function(e) {
         jcrop.id.release();
+        jcrop.id.destroy();
+        delete jcrop.id;
     });
+
+    $( '#jCropContainer tbody' ).on('click', 'a.tableImagejCropHref', function() {
+
+        if (jcrop.id) {
+            jcrop.id.release();
+            jcrop.id.destroy();
+            delete jcrop.id;
+        }
+
+
+
+
+    });
+
 }

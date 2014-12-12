@@ -34,7 +34,6 @@ $this->registerJs("
     <div class="row">
 
         <div class="col-md-6">
-            главная картинка
 
             <?= \common\widgets\jcrop\jCrop::widget([
                 // Image URL
@@ -42,13 +41,14 @@ $this->registerJs("
                 // options for the IMG element
                 'imageOptions' => [
                     'id' => 'imageId',
-                    'width' => 400,
+                    'width' => '100%',
                     'data-imageName'=>$model->default_image,
                     'alt' => 'Crop this image'
                 ],
                 // Jcrop options (see Jcrop documentation [http://deepliquid.com/content/Jcrop_Manual.html])
                 'jsOptions' => array(
                     'minSize' => [204, 204],
+                    'setSelect' => [0, 0, 250, 250],
                     'aspectRatio' => 1,
                     'onRelease' => new yii\web\JsExpression("function() {ejcrop_cancelCrop(this);}"),
                     //customization
@@ -74,11 +74,11 @@ $this->registerJs("
                     )
                 ),
                 // URL to send request to (unused if no buttons)
-                'ajaxUrl' => 'controller/ajaxcrop',
+                'ajaxUrl' => \yii\helpers\Url::to(['/article/default/ajaxcrop'],true),
                 // Additional parameters to send to the AJAX call (unused if no buttons)
                 'ajaxParams' => [
-                    'someParam' => 'someValue',
-                    'someParam2' => new yii\web\JsExpression("function() {
+                    'articleId'=>$model->id,
+                    'fileName' => new yii\web\JsExpression("function() {
                                 return  $('#imageId').attr('data-imageName');
                      }"),
                 ],

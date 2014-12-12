@@ -19,7 +19,11 @@ class jCropAsset extends AssetBundle
     public $depends = [
         'yii\web\JqueryAsset',
     ];
-    
+
+    public $publishOptions = [
+        'forceCopy'=>YII_DEBUG,
+    ];
+
      public function registerAssetFiles($view) {
         $this->css[] = 'css/jquery.Jcrop' . (!YII_DEBUG ? '.min' : '') . '.css';
         $this->js[] = 'js/jquery.Jcrop' . (!YII_DEBUG ? '.min' : '') . '.js';

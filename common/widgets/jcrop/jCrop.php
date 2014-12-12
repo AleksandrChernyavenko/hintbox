@@ -2,10 +2,10 @@
 
 /**
  * @copyright Copyright (c) 2014 Newerton Vargas de Araujo
- * @link http://newerton.com.br
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @package yii2-jcrop
- * @version 1.0.0
+ * @link      http://newerton.com.br
+ * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @package   yii2-jcrop
+ * @version   1.0.0
  */
 
 namespace common\widgets\jcrop;
@@ -20,9 +20,10 @@ use yii\web\JsExpression;
  * it using PHP's GD functions.
  *
  * @author Newerton Vargas de Araujo <contato@newerton.com.br>
- * @since 1.0
+ * @since  1.0
  */
-class jCrop extends Widget {
+class jCrop extends Widget
+{
 
     /**
      * @var string URL of the picture to crop.
@@ -57,7 +58,8 @@ class jCrop extends Widget {
     /**
      * @inheritdoc
      */
-    public function init() {
+    public function init()
+    {
         parent::init();
 
 
@@ -70,7 +72,8 @@ class jCrop extends Widget {
     /**
      * @inheritdoc
      */
-    public function run() {
+    public function run()
+    {
 
         $output = Html::img($this->url, $this->imageOptions);
 
@@ -97,7 +100,8 @@ class jCrop extends Widget {
     /**
      * Registers required script for the plugin to work as DatePicker
      */
-    public function registerClientScript($registerJs = true) {
+    public function registerClientScript($registerJs = true)
+    {
         $view = $this->getView();
 
         jCropAsset::register($view);
@@ -114,17 +118,19 @@ class jCrop extends Widget {
             $js = "jQuery('#{$this->id}').Jcrop({$options});";
         }
 
-        if ($registerJs)
+        if ($registerJs) {
             $view->registerJs($js);
+        }
     }
 
     /**
      * Get the HTML options for the buttons.
-     * 
+     *
      * @param string $name button name
-     * @return array HTML options 
+     * @return array HTML options
      */
-    protected function getHtmlOptions($name, $display = 'none') {
+    protected function getHtmlOptions($name, $display = 'none')
+    {
         if (isset($this->buttons[$name]['htmlOptions'])) {
             if (isset($this->buttons[$name]['htmlOptions']['id'])) {
                 throw new InvalidConfigException("'id' for jcrop '{$name}' button may not be set manually.");

@@ -6,9 +6,9 @@ use Yii;
 use backend\models\Article;
 use yii\data\ActiveDataProvider;
 use common\controllers\MainController;
-use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
  * DefaultController implements the CRUD actions for Article model.
@@ -92,6 +92,65 @@ class DefaultController extends MainController
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionAjaxcrop()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $articleId = Yii::$app->getRequest()->post('articleId');
+        $fileName = Yii::$app->getRequest()->post('fileName');
+
+        if(!$articleId || !$fileName)
+        {
+            return [
+                'status'=>'error',
+                'msg'=>'Не найденна картинка',
+                'src'=>'',
+            ];
+        }
+
+        $file = \Yii::getAlias('@static/images/article/'.$articleId.'/').$fileName;
+        if(!file_exists($file))
+        {
+            return [
+                'status'=>'error',
+                'msg'=>'Не найден файл',
+                'src'=>'',
+            ];
+        }
+
+        $imageId_x = Yii::$app->getRequest()->post('imageId_x');
+        $imageId_x2 = Yii::$app->getRequest()->post('imageId_x2');
+        $imageId_y = Yii::$app->getRequest()->post('imageId_y');
+        $imageId_y2 = Yii::$app->getRequest()->post('imageId_y2');
+        $imageId_h = Yii::$app->getRequest()->post('imageId_h');
+        $imageId_w = Yii::$app->getRequest()->post('imageId_w');
+
+        if(!$imageId_x || !$imageId_x2 || !$imageId_y || !$imageId_y2 || !$imageId_h || !$imageId_w)
+        {
+            return [
+                'status'=>'error',
+                'msg'=>'Ошибка js. Один из параметров не получен',
+                'src'=>'',
+            ];
+        }
+
+        if($imageId_h != $imageId_w)
+        {
+            return [
+                'status'=>'error',
+                'msg'=>'Ширина и высота не совпадают',
+                'src'=>'',
+            ];
+        }
+
+
+        return [
+            'status'=>'error',
+            'msg'=>'Неожиданная ошибка. Попробуйте еще раз',
+            'src'=>'',
+        ];
     }
 
     /**
