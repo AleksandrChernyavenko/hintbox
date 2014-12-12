@@ -71,7 +71,15 @@ function ejcrop_initWithButtons(id, options) {
             data: ajaxData,
             success: function(response) {
                 if (response.status != 'error') {
-                    $('#' + id ).attr('src', response.src);
+                    $('#' + id ).attr('src', response.src + '?' +  (Math.random() * (1000000 - 2 + 1) + 2)  );
+                    $('#hidden_default_image' ).val(response.fileName);
+
+                    if (jcrop.id) {
+                        jcrop.id.release();
+                        jcrop.id.destroy();
+                        delete jcrop.id;
+                    }
+
                     ejcrop_reinitThumb(id);
                 }
                 else

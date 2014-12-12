@@ -18,12 +18,13 @@ use yii\helpers\VarDumper;
 class Article extends \common\models\Article
 {
 
+    const MIN_IMAGE_LENGTH = 204;
+
     public function rules()
     {
         return ArrayHelper::merge(
             parent::rules(),
             [
-                [['default_image'],'required'],
                 [['default_image'],'prevImageValidate'],
                 [['title','category_id'], 'required', 'on' => [self::SCENARIO_CREATE]],
             ]
@@ -64,7 +65,19 @@ class Article extends \common\models\Article
 
     public function prevImageValidate($attribute,$params)
     {
-        $this->addError($attribute, 'Файл не существует');
+        if(!$this->$attribute)
+        {
+            $this->addError($attribute, 'Пустое поле');
+        }
+        elseif(!file_exists( \Yii::getAlias('@static/images/article/'.$this->id.'/'.$this->$attribute))) {
+            $this->addError($attribute, 'Файл не существует');
+        }
+        else {
+            $imageSize = getimagesize( \Yii::getAlias('@static/images/article/'.$this->id.'/'.$this->$attribute));
+            if($imageSize[0] != $imageSize[1]) {
+                 $this->addError($attribute, 'Картинка предпросмотра имеет разную высоту и ширину');
+            }
+        }
     }
 
 
@@ -77,7 +90,10 @@ class Article extends \common\models\Article
             if (($files[$i] != ".") && ($files[$i] != "..")) { // Текущий каталог и родительский пропускаем
                 $file = $dir.$files[$i];
                 if(is_file($file) && exif_imagetype($file)) {
-                    $filesList[] =  $files[$i];
+                    $imageSize = getimagesize( $dir.$files[$i]);
+                    if($imageSize[0] > self::MIN_IMAGE_LENGTH && $imageSize[1] > self::MIN_IMAGE_LENGTH) {
+                        $filesList[] =  $files[$i];
+                    }
                 }
             }
         }

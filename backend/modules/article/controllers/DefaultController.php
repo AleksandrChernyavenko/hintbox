@@ -156,9 +156,10 @@ class DefaultController extends MainController
         if($image->crop($imageId_h, $imageId_w, $imageId_x, $imageId_y)->save(\Yii::getAlias('@static/images/article/'.$articleId.'/'.$defaultname)))
         {
             return [
-                'status'=>'error',
-                'msg'=>"Все прошло успешно imageId_h = $imageId_h; imageId_w = $imageId_w; imageId_x = $imageId_x;, imageId_y = $imageId_y;",
-                'src'=>$defaultname,
+                'status'=>'success',
+                'msg'=>"Все прошло успешно",
+                'src'=>\Yii::$app->staticUrlManager->baseUrl . "/images/article/{$articleId}/".$defaultname,
+                'fileName'=>$defaultname,
             ];
         }
 

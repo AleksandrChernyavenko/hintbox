@@ -39,7 +39,7 @@ use common\widgets\ElFinder;
 
     <?= $form->field($model, 'status')->dropDownList($model::getEnumClientValues('status'), ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'default_image')->hiddenInput() ?>
+    <?= $form->field($model, 'default_image')->hiddenInput(['id'=>'hidden_default_image']) ?>
 
     <?php
         echo $this->render('_jCrop',[ 'model'=>$model]);

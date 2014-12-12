@@ -51,7 +51,7 @@ $this->registerJs("
                 ],
                 // Jcrop options (see Jcrop documentation [http://deepliquid.com/content/Jcrop_Manual.html])
                 'jsOptions' => array(
-                    'minSize' => [204, 204],
+                    'minSize' => [$model::MIN_IMAGE_LENGTH, $model::MIN_IMAGE_LENGTH],
                     'setSelect' => [0, 0, 250, 250],
                     'aspectRatio' => 1,
                     'onRelease' => new yii\web\JsExpression("function() {ejcrop_cancelCrop(this);}"),
