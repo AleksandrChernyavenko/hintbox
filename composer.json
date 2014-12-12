@@ -25,8 +25,7 @@
         "mihaildev/yii2-elfinder": "*",
         "claudejanz/yii2-file-behavior": "dev-master",
         "kartik-v/yii2-nav-x": "*",
-        "2amigos/yii2-transliterator-helper": "*",
-        "newerton/yii2-jcrop": "dev-master"
+        "2amigos/yii2-transliterator-helper": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
