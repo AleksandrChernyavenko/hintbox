@@ -10,7 +10,7 @@ use yii\grid\GridView;
 ?>
 <div class="category-index">
 
-    <h1>Категория <?= Html::encode($model->name) ?> <?= Html::img($model->getSrc(), ['style'=>'width: 25px;']); ?></h1>
+    <h1> <?= Html::img($model->getSrc(), ['style'=>'width: 30px;height: 30px;']); ?> <?= Html::encode($model->name) ?></h1>
 
     <hr>
 
