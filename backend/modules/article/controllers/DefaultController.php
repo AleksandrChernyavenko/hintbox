@@ -6,6 +6,7 @@ use Yii;
 use backend\models\Article;
 use yii\data\ActiveDataProvider;
 use common\controllers\MainController;
+use yii\helpers\FileHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\Response;
@@ -127,7 +128,8 @@ class DefaultController extends MainController
         $imageId_h = Yii::$app->getRequest()->post('imageId_h');
         $imageId_w = Yii::$app->getRequest()->post('imageId_w');
 
-        if(!$imageId_x || !$imageId_x2 || !$imageId_y || !$imageId_y2 || !$imageId_h || !$imageId_w)
+
+        if(is_null($imageId_x) || is_null($imageId_x2) || is_null($imageId_y) || is_null($imageId_y2) || is_null($imageId_h) || is_null($imageId_w))
         {
             return [
                 'status'=>'error',
@@ -145,11 +147,26 @@ class DefaultController extends MainController
             ];
         }
 
+        /**
+         * @var \yii\image\drivers\Image $image
+         */
+        $image = Yii::$app->image->load($file);
+
+        $defaultname = 'prev_article_image.png';
+        if($image->crop($imageId_h, $imageId_w, $imageId_x, $imageId_y)->save(\Yii::getAlias('@static/images/article/'.$articleId.'/'.$defaultname)))
+        {
+            return [
+                'status'=>'error',
+                'msg'=>"Все прошло успешно imageId_h = $imageId_h; imageId_w = $imageId_w; imageId_x = $imageId_x;, imageId_y = $imageId_y;",
+                'src'=>$defaultname,
+            ];
+        }
+
 
         return [
             'status'=>'error',
             'msg'=>'Неожиданная ошибка. Попробуйте еще раз',
-            'src'=>'',
+            'src'=>$image->crop($imageId_h, $imageId_w)->render(),
         ];
     }
 

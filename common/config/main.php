@@ -33,8 +33,10 @@ return [
             'class' => 'yii\web\UrlManager',
             'showScriptName' => true,
         ],
-
-
+        'image' => [
+            'class' => 'yii\image\ImageDriver',
+            'driver' => 'GD',  //GD or Imagick
+        ],
         'user' => [
             'class' => 'amnah\yii2\user\components\User',
             'enableAutoLogin' => true,

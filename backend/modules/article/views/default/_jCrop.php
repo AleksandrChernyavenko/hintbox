@@ -22,6 +22,10 @@ $this->registerJs("
                       var href = '$pachUrl' + $( this ).attr('href');
                       $('#imageId').attr('src', href);
                       $('#imageId').attr('data-imageName',  $( this ).attr('href'));
+
+                      $('#imageId').width( $('#imageId').get(0).naturalWidth);
+                      $('#imageId').height( $('#imageId').get(0).naturalHeight);
+
                       return false;
                 });
 

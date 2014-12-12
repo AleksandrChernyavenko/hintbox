@@ -95,8 +95,13 @@ function ejcrop_initWithButtons(id, options) {
             jcrop.id.ui.selection.addClass('jcrop-selection');
         if(options.theme)
             jcrop.id.ui.holder.addClass('jcrop-' + options.theme);
-        
-        jcrop.id.animateTo([dim[0] / 4, dim[1] / 4, dim[0] / 2, dim[1] / 2]);
+
+        var height = $('#' + id).height();
+        var width = $('#' + id).width();
+
+        var min_side_length = height > width ? width : height;
+
+        jcrop.id.animateTo([0, 0, min_side_length, min_side_length]);
     });
 
     $('body').delegate('#crop_' + id, 'click', function(e) {
