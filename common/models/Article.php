@@ -50,7 +50,7 @@ class Article extends \common\models\ActiveRecord
     public function getSrc()
     {
         if(!$this->default_image) {
-            return 'http://placehold.it/300';
+            return 'http://placehold.it/204';
         }
         return \Yii::$app->staticUrlManager->baseUrl . "/images/article/{$this->id}/".$this->default_image;
     }
