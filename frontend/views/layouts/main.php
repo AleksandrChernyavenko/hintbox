@@ -46,11 +46,11 @@ AppAsset::register($this);
                     <?= $content ?>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-2 rigth-col">
                     <?= \frontend\widgets\RelatedArticleWidget::widget(
                         [
-                            'countRelated'=>6,
-                            'htmlTemplate'=>'<div class="wrapper"><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div></div>',
+                            'countRelated'=>4,
+                            'htmlTemplate'=>'<div class="row related_article drop-shadow-article background-color-white">Случайные статьи</div><div class="wrapper"><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div></div>',
                         ]
                     ); ?>
                 </div>

@@ -320,3 +320,21 @@ div.thumbnail p:hover
 .background-color-white {
     background-color: #ffffff;
 }
+
+.top_header {
+    margin-bottom: 12px;
+}
+
+
+.related_article
+{
+    text-align: center;
+    padding: 6px;
+    margin-bottom: 5px;
+    margin-left: -10px;
+}
+
+.rigth-col
+{
+    padding-left: 20px;
+}

@@ -9,7 +9,6 @@ namespace frontend\widgets;
 
 use frontend\models\Article;
 use yii\base\Widget;
-use yii\helpers\VarDumper;
 
 class RelatedArticleWidget extends Widget
 {

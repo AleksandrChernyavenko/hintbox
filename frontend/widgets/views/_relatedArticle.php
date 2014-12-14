@@ -20,6 +20,8 @@ $imageClass = [
 
 ?>
 <div class="thumbnail related-thumbnail">
+
+
     <a href="<?= $model->getAbsoluteUrl(); ?>">
         <img src="<?= $model->getSrc(); ?>" alt="" class="img-rounded"  >
         <div class="text">

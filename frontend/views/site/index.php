@@ -10,6 +10,9 @@ use yii\grid\GridView;
 ?>
 <div class="category-index">
 
+    <h1> Список категорий </h1>
+
+    <hr>
 
     <?= \frontend\widgets\ArticleList::widget([
             'dataProvider' => $dataProvider,
