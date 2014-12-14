@@ -16,10 +16,6 @@ use common\widgets\ExtDetailView;
 
         <hr>
 
-        <div class="description">
-        <?= $model->description ?>
-        </div>
-
         <div class="article_decs">
         <?= $model->article_decs ?>
         </div>
