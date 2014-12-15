@@ -7,6 +7,7 @@ use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $dataProvider \backend\models\ArticleSearch */
 
 $this->title = 'Articles';
 $this->params['breadcrumbs'][] = $this->title;
@@ -25,6 +26,8 @@ $columns = [
         'format'=>'raw',
         'width'=>'170px',
         'filterWidgetOptions'=>[
+            'type'=>\kartik\date\DatePicker::TYPE_RANGE,
+            'attribute2'=>'create_end',
             'pluginOptions'=>['format'=>'yyyy-mm-dd']
         ],
     ],
