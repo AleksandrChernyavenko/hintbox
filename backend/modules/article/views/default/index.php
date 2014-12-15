@@ -24,13 +24,41 @@ $columns = [
         'attribute'=>'date_start',
         'filterType'=>GridView::FILTER_DATE,
         'format'=>'raw',
-        'width'=>'170px',
+        'width'=>'270px',
         'filterWidgetOptions'=>[
             'type'=>5,
             'attribute2'=>'date_end',
             'pluginOptions'=>['format'=>'yyyy-mm-dd']
         ],
     ],
+
+    [
+        'attribute'=>'category_id',
+        'filterType'=>GridView::FILTER_SELECT2,
+        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
+        'value'=>function ($model, $key, $index, $widget) {
+
+            $category = $model->category;
+
+            if(!$category)
+            {
+                return 'Не выбранна';
+            }
+            return Html::a($category->name, '#', [
+                    'title'=>'View author detail',
+                    'onclick'=>'alert("This will open the author page.\n\nDisabled for this demo!")'
+                ]);
+        },
+        'format'=>'raw',
+        'width'=>'270px',
+        'filterWidgetOptions'=>[
+            'pluginOptions'=>['allowClear'=>true],
+        ],
+        'filterInputOptions'=>[
+            'placeholder'=>'Все категории'
+        ],
+    ],
+
     [
         'class'=>'kartik\grid\BooleanColumn',
         'attribute'=>'status',
@@ -61,8 +89,28 @@ $columns = [
         'gridOptions'=>[
             'dataProvider'=>$dataProvider,
             'filterModel'=>$searchModel,
-            'panel'=>['heading'=>'<h3 class="panel-title">Library</h3>'],
+            'panel'=>['heading'=>'<h3 class="panel-title">Все записи</h3>'],
+
+            'showPageSummary'=>true,
+            'floatHeader'=>true,
+            'pjax'=>true,
+
+            'panel'=>[
+                'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i>  Library</h3>',
+                'before' =>  '<div style="padding-top: 7px;"><em>* The table header sticks to the top in this demo as you scroll</em></div>',
+                'after' => false
+            ],
+            'toolbar' =>  [
+                ['content'=>
+                    Html::button('<i class="glyphicon glyphicon-plus"></i>', ['type'=>'button', 'title'=>'Add Book', 'class'=>'btn btn-success', 'onclick'=>'alert("This will launch the book creation form.\n\nDisabled for this demo!");']) . ' '.
+                    Html::a('<i class="glyphicon glyphicon-repeat"></i>', ['/'], ['data-pjax'=>0, 'class' => 'btn btn-default', 'title'=>'Reset Grid'])
+                ],
+                ['content'=>'{dynagridFilter}{dynagridSort}{dynagrid}'],
+                '{export}',
+            ]
+
         ],
+
 
         'options'=>['id'=>'dynagrid-1'] // a unique identifier is important
 
