@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\enums\StatusEnum;
 use dosamigos\transliterator\TransliteratorHelper;
 use Yii;
 use yii\helpers\Html;
@@ -105,5 +106,12 @@ class Category extends ActiveRecord
     public function getParent()
     {
         return $this->hasOne(self::getBackendOrFrontendModelClass('Category'),['id'=>'parent_id']);
+    }
+
+
+    public function delete()
+    {
+        $this->status = StatusEnum::STATUS_DELETED;
+        return $this->save();
     }
 }

@@ -63,8 +63,8 @@ class ArticleSearch extends Article
         $query->andFilterWhere([
                 'id' => $this->id,
                 'category_id' => $this->category_id,
-                'create' => $this->create,
-                'update' => $this->update,
+                'created' => $this->created,
+                'updated' => $this->updated,
             ]);
 
 

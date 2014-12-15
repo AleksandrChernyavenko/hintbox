@@ -7,6 +7,9 @@
  */
 namespace  backend\models;
 
+use common\enums\StatusEnum;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 use yii\helpers\Html;
 
 class Category extends \common\models\Category
@@ -31,4 +34,5 @@ class Category extends \common\models\Category
             ],
         ];
     }
+
 }

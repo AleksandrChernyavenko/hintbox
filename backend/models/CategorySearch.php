@@ -62,19 +62,14 @@ class CategorySearch extends Category
 
         $query->andFilterWhere([
                 'id' => $this->id,
-                'category_id' => $this->category_id,
-                'create' => $this->create,
-                'update' => $this->update,
+                'parent_id' => $this->parent_id,
+                'created' => $this->created,
+                'updated' => $this->updated,
             ]);
 
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'article_decs', $this->article_decs])
-            ->andFilterWhere(['like', 'content', $this->content])
-            ->andFilterWhere(['like', 'origin_url', $this->origin_url])
-            ->andFilterWhere(['like', 'status', $this->status])
-            ->andFilterWhere(['like', 'default_image', $this->default_image]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'status', $this->status]);
 
         $query->andFilterWhere($this->getDateRangeFilter('create'));
 

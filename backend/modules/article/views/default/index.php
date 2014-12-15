@@ -15,7 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 $columns = [
-    ['class'=>'kartik\grid\SerialColumn', 'order'=>DynaGrid::ORDER_FIX_LEFT],
     'id',
     'title',
     'description',
@@ -25,6 +24,11 @@ $columns = [
         'filterType'=>GridView::FILTER_DATE,
         'format'=>'raw',
         'width'=>'270px',
+
+        'value'=>function ($model, $key, $index, $widget) {
+                return $model->created;
+            },
+
         'filterWidgetOptions'=>[
             'type'=>5,
             'attribute2'=>'date_end',
