@@ -65,9 +65,19 @@ return [
     ],
 
     'modules' => [
+
         'user' => [
             'class' => 'amnah\yii2\user\Module',
         ],
+        'dynagrid' => [
+            'class' => '\kartik\dynagrid\Module',
+            // other module settings
+        ],
+        'gridview' => [
+            'class' => '\kartik\grid\Module',
+            // other module settings
+        ],
+
     ],
 
 ];
