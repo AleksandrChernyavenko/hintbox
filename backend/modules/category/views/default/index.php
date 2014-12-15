@@ -5,7 +5,8 @@ use kartik\dynagrid\DynaGrid;
 use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $dataProvider \backend\models\Category */
+/* @var $dataProvider \backend\models\CategorySearch */
 
 $this->title = 'Categories';
 $this->params['breadcrumbs'][] = $this->title;
@@ -41,8 +42,6 @@ $columns = [
             },
     ],
 
-
-
     [
         'attribute'=>'parent_id',
         'filterType'=>GridView::FILTER_SELECT2,
@@ -70,11 +69,29 @@ $columns = [
         ],
     ],
 
+
     [
-        'class'=>'kartik\grid\BooleanColumn',
         'attribute'=>'status',
-        'vAlign'=>'middle',
+        'filterType'=>GridView::FILTER_SELECT2,
+        'format'=>'raw',
+        'width'=>'270px',
+        'filterWidgetOptions'=>[
+            'options'=> [
+                'multiple'=>true,
+            ],
+            'data'=>[
+                \common\enums\CategoryStatusEnum::getClientValues()
+            ],
+            'pluginOptions' => [
+
+            ]
+        ],
+        'value'=>function ($model, $key, $index, $widget) {
+                $model->status = 'active, deleted';
+                return $model->status;
+            },
     ],
+
     [
         'class'=>'kartik\grid\ActionColumn',
         'dropdown'=>false,
