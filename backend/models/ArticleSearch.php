@@ -8,9 +8,11 @@
 
 namespace backend\models;
 
+use common\traits\DateRangeTrait;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\helpers\ArrayHelper;
 use yii\helpers\VarDumper;
 
 /**
@@ -18,15 +20,16 @@ use yii\helpers\VarDumper;
  */
 class ArticleSearch extends Article
 {
+    use DateRangeTrait;
     /**
      * @inheritdoc
      */
     public function rules()
     {
-        return [
+        return ArrayHelper::merge([
             [['id', 'category_id'], 'integer'],
             [['title', 'description', 'article_decs', 'content', 'origin_url', 'status', 'default_image', 'create', 'update'], 'safe'],
-        ];
+        ], self::traitRules());
     }
 
     /**
@@ -47,7 +50,7 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
-        $query = Article::find();
+        $query = self::find();
 
         $dataProvider = new ActiveDataProvider([
                 'query' => $query,
@@ -64,6 +67,7 @@ class ArticleSearch extends Article
                 'update' => $this->update,
             ]);
 
+
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'article_decs', $this->article_decs])
@@ -71,6 +75,8 @@ class ArticleSearch extends Article
             ->andFilterWhere(['like', 'origin_url', $this->origin_url])
             ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'default_image', $this->default_image]);
+
+        $query->andFilterWhere($this->getDateRangeFilter('create'));
 
         return $dataProvider;
     }

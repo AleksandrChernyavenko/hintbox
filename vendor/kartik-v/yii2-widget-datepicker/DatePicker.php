@@ -214,7 +214,7 @@ class DatePicker extends \kartik\base\InputWidget
         }        
         if ($this->type == self::TYPE_RANGE) {
             Html::addCssClass($this->_container, 'input-daterange');
-            $this->initDisability($this->options2);
+//            $this->initDisability($this->options2);
             if (isset($this->form)) {
                 Html::addCssClass($this->options, 'form-control kv-field-from');
                 Html::addCssClass($this->options2, 'form-control kv-field-to');

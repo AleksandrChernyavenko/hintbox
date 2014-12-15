@@ -21,13 +21,13 @@ $columns = [
     'description',
     'article_decs',
     [
-        'attribute'=>'create',
+        'attribute'=>'date_start',
         'filterType'=>GridView::FILTER_DATE,
         'format'=>'raw',
         'width'=>'170px',
         'filterWidgetOptions'=>[
-            'type'=>\kartik\date\DatePicker::TYPE_RANGE,
-            'attribute2'=>'create_end',
+            'type'=>5,
+            'attribute2'=>'date_end',
             'pluginOptions'=>['format'=>'yyyy-mm-dd']
         ],
     ],
