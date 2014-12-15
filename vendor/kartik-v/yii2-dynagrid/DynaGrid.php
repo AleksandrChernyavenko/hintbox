@@ -244,7 +244,7 @@ class DynaGrid extends \yii\base\Widget
     protected $_requestSubmit;
 
     /**
-     * @var kartik\dynagrid\models\DynaGridConfig model
+     * @var \kartik\dynagrid\models\DynaGridConfig model
      */
     protected $_model;
 
