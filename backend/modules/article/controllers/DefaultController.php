@@ -2,6 +2,7 @@
 
 namespace backend\modules\article\controllers;
 
+use backend\models\ArticleSearch;
 use Yii;
 use backend\models\Article;
 use yii\data\ActiveDataProvider;
@@ -38,8 +39,11 @@ class DefaultController extends MainController
             'query' => Article::find(),
         ]);
 
+        $searchModel = new ArticleSearch();
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
