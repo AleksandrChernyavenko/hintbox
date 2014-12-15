@@ -17,8 +17,8 @@ use Yii;
  * @property string $origin_url
  * @property string $status
  * @property string $default_image
- * @property string $create
- * @property string $update
+ * @property string $created
+ * @property string $updated
  *
  * @property-read \common\models\Category $category
  */
@@ -40,7 +40,7 @@ class Article extends \common\models\ActiveRecord
         return [
             [['category_id'], 'integer'],
             [['article_decs', 'content', 'status', 'default_image'], 'string'],
-            [['create', 'update'], 'safe'],
+            [['created', 'updated'], 'safe'],
             [['status'], 'enumValidation'],
             [['origin_url'], 'unique'],
             [['title', 'description', 'origin_url'], 'string', 'max' => 255]
@@ -75,8 +75,8 @@ class Article extends \common\models\ActiveRecord
             'origin_url' => 'Url оригинала',
             'status' => 'Статус',
             'default_image' => 'Картинка по умолчанию',
-            'create' => 'Дата создания',
-            'update' => 'Дата редактирования',
+            'created' => 'Дата создания',
+            'updated' => 'Дата редактирования',
         ];
     }
 

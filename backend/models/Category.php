@@ -19,4 +19,16 @@ class Category extends \common\models\Category
     {
         return Html::a($this->id.', '.$this->name,['/category/default/view','id'=>$this->id]);
     }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'updated',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
 }

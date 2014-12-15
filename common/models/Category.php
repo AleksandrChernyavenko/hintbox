@@ -14,6 +14,8 @@ use yii\helpers\Html;
  * @property string $name
  * @property string $image
  * @property string $status
+ * @property string $created
+ * @property string $updated
  *
  * @property-read \common\models\Category $parent
  */
@@ -38,6 +40,7 @@ class Category extends ActiveRecord
             [['image', 'status'], 'string'],
             [['status'], 'enumValidation'],
             [['name'], 'string', 'max' => 255],
+            [['created', 'updated'], 'safe'],
             [['image'], 'file', 'extensions' => 'jpg, gif, png'],
         ];
     }
@@ -80,6 +83,8 @@ class Category extends ActiveRecord
             'name' => 'Название категории',
             'image' => 'Картинка',
             'status' => 'Статус',
+            'created' => 'Дата создания',
+            'updated' => 'Дата редактирования',
         ];
     }
 
