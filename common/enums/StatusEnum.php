@@ -17,6 +17,7 @@ class StatusEnum extends AbstractEnum
     const STATUS_INVISIBLE = 'invisible';
     const STATUS_MODERATED = 'moderate';
     const STATUS_ARCHIVED= 'archived';
+    const STATUS_IN_PROGRESS= 'in_progress';
 
     public static function getValues()
     {
@@ -52,6 +53,8 @@ class StatusEnum extends AbstractEnum
             self::STATUS_VISIBLE => 'Виден',
             self::STATUS_INVISIBLE => 'Не виден',
             self::STATUS_MODERATED => 'На модерации',
+            self::STATUS_ARCHIVED => 'В архиве',
+            self::STATUS_IN_PROGRESS => 'В работе',
         ];
     }
 
