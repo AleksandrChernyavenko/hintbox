@@ -28,7 +28,7 @@ class ArticleSearch extends Article
     {
         return ArrayHelper::merge([
             [['id', 'category_id'], 'integer'],
-            [['title', 'description', 'article_decs', 'content', 'origin_url', 'status', 'default_image', 'create', 'update'], 'safe'],
+            [['title', 'description', 'article_decs', 'content', 'origin_url', 'status', 'default_image', 'created', 'updated'], 'safe'],
         ], self::traitRules());
     }
 
@@ -76,7 +76,8 @@ class ArticleSearch extends Article
             ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'default_image', $this->default_image]);
 
-        $query->andFilterWhere($this->getDateRangeFilter('create'));
+        $query->andFilterWhere($this->getDateRangeFilter('created'));
+        $query->andFilterWhere($this->getDateRangeFilter('updated'));
 
         return $dataProvider;
     }
