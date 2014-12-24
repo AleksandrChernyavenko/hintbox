@@ -26,7 +26,10 @@ use common\widgets\ExtDetailView;
 
     </div>
 
-    <div class="article_inner">
+    <br>
+
+    <div class="related_in_article_bottom">
+        <h3>Вам также может быть интересно :</h3>
         <?= \frontend\widgets\RelatedArticleWidget::widget(); ?>
     </div>
 

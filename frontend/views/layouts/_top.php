@@ -35,8 +35,7 @@
                     <div class="col-md-2">
                         <!-- form-search-->
                         <div class="form-search">
-                            div]class="form-search"
-                            форма поиска
+
                         </div>
                     </div>
 

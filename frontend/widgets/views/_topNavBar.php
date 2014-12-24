@@ -35,7 +35,11 @@ $template = <<<TEMPLATE
         <a href="{href}">
             <img src="{src}" alt="" class="main_page_category_list">
 
-            <div class="text">{text}</div>
+            <div class="text">
+                <p>
+                    {text}
+                </p>
+             </div>
         </a>
     </div>
 </div>

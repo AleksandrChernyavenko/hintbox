@@ -179,17 +179,11 @@ img.main_page_category_list
     padding: 15px;
 }
 
-.logo-link img
-{
-    width: 100%;
-    height: 100%;
-}
-
 .logo-link img.logo_image_name
 {
     width: 525px;
-    height: 100%;
     float: left;
+    min-height: 5px;
 }
 
 .logo-link img.logo_image
@@ -337,4 +331,17 @@ div.thumbnail p:hover
 .rigth-col
 {
     padding-left: 20px;
+}
+
+#userMenu a{
+    margin: 4px;
+}
+
+
+.related_in_article_bottom
+{
+    background-color: #FEA;
+    padding: 9px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
 }
