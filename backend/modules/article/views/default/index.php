@@ -15,6 +15,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 $columns = [
+    [
+        'attribute'=>'created',
+        'filterType'=>'\common\widgets\intervalDatepicker\IntervalDatepicker',
+        'format'=>'raw',
+        'width'=>'270px',
+
+        'value'=>function ($model, $key, $index, $widget) {
+            return $model->created;
+        },
+
+        'filterWidgetOptions'=>[
+            'pluginOptions'=>['format'=>'yyyy-mm-dd']
+        ],
+    ],
     'id',
     'title',
     'description',
@@ -36,32 +50,33 @@ $columns = [
         ],
     ],
 
-    [
-        'attribute'=>'category_id',
-        'filterType'=>GridView::FILTER_SELECT2,
-        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
-        'value'=>function ($model, $key, $index, $widget) {
 
-            $category = $model->category;
-
-            if(!$category)
-            {
-                return 'Не выбранна';
-            }
-            return Html::a($category->name, '#', [
-                    'title'=>'View author detail',
-                    'onclick'=>'alert("This will open the author page.\n\nDisabled for this demo!")'
-                ]);
-        },
-        'format'=>'raw',
-        'width'=>'270px',
-        'filterWidgetOptions'=>[
-            'pluginOptions'=>['allowClear'=>true],
-        ],
-        'filterInputOptions'=>[
-            'placeholder'=>'Все категории'
-        ],
-    ],
+//    [
+//        'attribute'=>'category_id',
+//        'filterType'=>GridView::FILTER_SELECT2,
+//        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
+//        'value'=>function ($model, $key, $index, $widget) {
+//
+//            $category = $model->category;
+//
+//            if(!$category)
+//            {
+//                return 'Не выбранна';
+//            }
+//            return Html::a($category->name, '#', [
+//                    'title'=>'View author detail',
+//                    'onclick'=>'alert("This will open the author page.\n\nDisabled for this demo!")'
+//                ]);
+//        },
+//        'format'=>'raw',
+//        'width'=>'270px',
+//        'filterWidgetOptions'=>[
+//            'pluginOptions'=>['allowClear'=>true],
+//        ],
+//        'filterInputOptions'=>[
+//            'placeholder'=>'Все категории'
+//        ],
+//    ],
 
     [
         'class'=>'kartik\grid\BooleanColumn',
