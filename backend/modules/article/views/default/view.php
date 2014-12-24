@@ -37,16 +37,18 @@ $this->params['breadcrumbs'][] = $this->title;
                    return $model->category->getLink();
                 },
             ],
-//            'category_id'=>function($model) { return $model->id; },
             'title',
-            'description',
             'article_decs:ntext',
             'content:ntext',
             'origin_url:url',
             'status',
-            'default_image:ntext',
-            'create',
-            'update',
+            [
+                'label'=>$model->getAttributeLabel('image'),
+                'value' => $model->getSrc() ? Html::img($model->getSrc(),['class'=>'small_img_100']) : \common\helpers\YesNo::getLabel(''),
+                'format'=>'raw',
+            ],
+            'created',
+            'updated',
         ],
     ]) ?>
 

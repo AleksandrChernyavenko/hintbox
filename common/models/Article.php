@@ -42,7 +42,7 @@ class Article extends \common\models\ActiveRecord
             [['article_decs', 'content', 'status', 'default_image'], 'string'],
             [['created', 'updated'], 'safe'],
             [['status'], 'enumValidation'],
-            [['origin_url'], 'unique'],
+            [['origin_url','title'], 'unique'],
             [['title', 'description', 'origin_url'], 'string', 'max' => 255]
         ];
     }

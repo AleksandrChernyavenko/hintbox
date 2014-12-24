@@ -22,7 +22,6 @@ use common\widgets\ElFinder;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'article_decs')->textarea(['rows' => 6]) ?>
 

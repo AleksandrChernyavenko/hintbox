@@ -97,3 +97,13 @@ a.desc:after {
     padding: 2px;
 
 }
+
+.small_img_100
+{
+    width: 100px;
+}
+
+.small_img_50
+{
+    width: 50px;
+}

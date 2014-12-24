@@ -42,7 +42,7 @@ AppAsset::register($this);
 
             <div class="row">
 
-                <div class="col-md-10 drop-shadow-article background-color-white">
+                <div class="col-md-10 drop-shadow-article background-color-white main-page-container">
                     <?= $content ?>
                 </div>
 

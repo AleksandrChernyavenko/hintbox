@@ -36,8 +36,8 @@ class Article extends \common\models\Article
         return [
             [
                 'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'create',
-                'updatedAtAttribute' => 'update',
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'updated',
                 'value' => new Expression('NOW()'),
             ],
         ];
@@ -84,6 +84,7 @@ class Article extends \common\models\Article
     public function getListOfImage()
     {
         $dir = \Yii::getAlias('@static/images/article/'.$this->id.'/'); // Папка с изображениями
+        FileHelper::createDirectory($dir);
         $files = scandir($dir); // Берём всё содержимое директории
         $filesList = [];
         for ($i = 0; $i < count($files); $i++) { // Перебираем все файлы
