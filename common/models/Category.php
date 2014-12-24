@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\enums\StatusEnum;
 use dosamigos\transliterator\TransliteratorHelper;
 use Yii;
 use yii\helpers\Html;
@@ -14,6 +15,8 @@ use yii\helpers\Html;
  * @property string $name
  * @property string $image
  * @property string $status
+ * @property string $created
+ * @property string $updated
  *
  * @property-read \common\models\Category $parent
  */
@@ -38,6 +41,7 @@ class Category extends ActiveRecord
             [['image', 'status'], 'string'],
             [['status'], 'enumValidation'],
             [['name'], 'string', 'max' => 255],
+            [['created', 'updated'], 'safe'],
             [['image'], 'file', 'extensions' => 'jpg, gif, png'],
         ];
     }
@@ -80,6 +84,8 @@ class Category extends ActiveRecord
             'name' => 'Название категории',
             'image' => 'Картинка',
             'status' => 'Статус',
+            'created' => 'Дата создания',
+            'updated' => 'Дата редактирования',
         ];
     }
 
@@ -100,5 +106,12 @@ class Category extends ActiveRecord
     public function getParent()
     {
         return $this->hasOne(self::getBackendOrFrontendModelClass('Category'),['id'=>'parent_id']);
+    }
+
+
+    public function delete()
+    {
+        $this->status = StatusEnum::STATUS_DELETED;
+        return $this->save();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace backend\modules\category\controllers;
 
+use backend\models\CategorySearch;
 use common\controllers\MainController;
 use Yii;
 use common\models\Category;
@@ -32,14 +33,13 @@ class DefaultController extends MainController
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Category::find(),
-        ]);
+        $searchModel = new CategorySearch();
 
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'gridConfigColumns'=> require Yii::getAlias("@backend/config/grid/{$this->getActionUniqueId()}/config.php"),
+            'searchModel' => $searchModel,
         ]);
     }
 

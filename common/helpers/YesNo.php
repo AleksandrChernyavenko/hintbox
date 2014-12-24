@@ -7,6 +7,7 @@
  * Time: 16:13
  */
 
+namespace common\helpers;
 
 class YesNo
 {

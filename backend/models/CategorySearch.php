@@ -18,7 +18,7 @@ use yii\helpers\VarDumper;
 /**
  * ArticleSearch represents the model behind the search form about `backend\models\Article`.
  */
-class ArticleSearch extends Article
+class CategorySearch extends Category
 {
     use DateRangeTrait;
     /**
@@ -27,8 +27,8 @@ class ArticleSearch extends Article
     public function rules()
     {
         return ArrayHelper::merge([
-            [['id', 'category_id'], 'integer'],
-            [['title', 'description', 'article_decs', 'content', 'origin_url', 'status', 'default_image', 'create', 'update'], 'safe'],
+            [['id', 'parent_id'], 'integer'],
+            [['name', 'image', 'status'], 'safe'],
         ], self::traitRules());
     }
 
@@ -62,21 +62,24 @@ class ArticleSearch extends Article
 
         $query->andFilterWhere([
                 'id' => $this->id,
-                'category_id' => $this->category_id,
+                'parent_id' => $this->parent_id,
                 'created' => $this->created,
                 'updated' => $this->updated,
             ]);
 
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'article_decs', $this->article_decs])
-            ->andFilterWhere(['like', 'content', $this->content])
-            ->andFilterWhere(['like', 'origin_url', $this->origin_url])
-            ->andFilterWhere(['like', 'status', $this->status])
-            ->andFilterWhere(['like', 'default_image', $this->default_image]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['in', 'status', $this->status]);
+
+//        VarDumper::dump($this->status,3,3);
+        $this->status = implode(', ', ['active', 'deleted']);
+//
+//        VarDumper::dump($this->status,3,3);
+//        exit;
 
         $query->andFilterWhere($this->getDateRangeFilter('create'));
+
+
 
         return $dataProvider;
     }

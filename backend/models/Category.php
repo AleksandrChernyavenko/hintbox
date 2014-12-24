@@ -7,6 +7,9 @@
  */
 namespace  backend\models;
 
+use common\enums\StatusEnum;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 use yii\helpers\Html;
 
 class Category extends \common\models\Category
@@ -19,4 +22,17 @@ class Category extends \common\models\Category
     {
         return Html::a($this->id.', '.$this->name,['/category/default/view','id'=>$this->id]);
     }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created',
+                'updatedAtAttribute' => 'updated',
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+
 }
