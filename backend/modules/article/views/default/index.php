@@ -33,22 +33,6 @@ $columns = [
     'title',
     'description',
     'article_decs',
-    [
-        'attribute'=>'date_start',
-        'filterType'=>GridView::FILTER_DATE,
-        'format'=>'raw',
-        'width'=>'270px',
-
-        'value'=>function ($model, $key, $index, $widget) {
-                return $model->created;
-            },
-
-        'filterWidgetOptions'=>[
-            'type'=>5,
-            'attribute2'=>'date_end',
-            'pluginOptions'=>['format'=>'yyyy-mm-dd']
-        ],
-    ],
 
 
 //    [

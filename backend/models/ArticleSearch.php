@@ -63,7 +63,6 @@ class ArticleSearch extends Article
         $query->andFilterWhere([
                 'id' => $this->id,
                 'category_id' => $this->category_id,
-                'created' => $this->created,
                 'updated' => $this->updated,
             ]);
 
@@ -77,7 +76,10 @@ class ArticleSearch extends Article
             ->andFilterWhere(['like', 'default_image', $this->default_image]);
 
         $query->andFilterWhere($this->getDateRangeFilter('created'));
-        $query->andFilterWhere($this->getDateRangeFilter('updated'));
+//
+//        VarDumper::dump($query,3,3);
+//        VarDumper::dump($this,3,3);
+//        exit;
 
         return $dataProvider;
     }

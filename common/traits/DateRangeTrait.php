@@ -7,23 +7,27 @@
  */
 namespace common\traits;
 
+use yii\helpers\VarDumper;
+
 trait DateRangeTrait
 {
-    public $date_start;
-    public $date_end;
-
     public static function traitRules()
     {
         return [
-            [['date_start', 'date_end'], 'safe'],
         ];
     }
 
     public function getDateRangeFilter($dateAttr)
     {
-        if($this->date_start && $this->date_end)
+        $date_range = explode(' - ',$this->$dateAttr);
+
+        if(!empty($date_range[0]) && !empty($date_range[1]))
         {
-            return ['BETWEEN', $dateAttr, $this->date_start, $this->date_end];
+            $format = 'd.m.Y';
+            list($start, $end) = explode(' - ', $this->$dateAttr);
+            $start = \DateTime::createFromFormat($format, $start);
+            $end = \DateTime::createFromFormat($format, $end);
+            return ['BETWEEN', $dateAttr, $start->format('Y-m-d 00:00:00'), $end->format('Y-m-d 23:59:59')];
         }
         else {
             return [];
