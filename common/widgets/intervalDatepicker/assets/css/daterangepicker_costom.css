@@ -17,3 +17,17 @@
 .daterangepicker .calendar.left {
     display: block !important;
 }
+form.dpc-menu.tools .input-prepend {
+    width: 100%;
+}
+
+form.dpc-menu.tools .input-prepend input.date-range {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 34px;
+    left: -28px;
+    padding-left: 30px !important;
+    width: 100% !important;
+    cursor: pointer;
+}

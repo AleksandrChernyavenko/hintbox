@@ -8,8 +8,8 @@
 }
 
 .daterangepicker.opensright .ranges, .daterangepicker.opensright .calendar {
-    /*float: right;*/
-    margin: 4px;
+  /*float: right;*/
+  margin: 4px;
 }
 
 .daterangepicker .ranges {
@@ -31,13 +31,13 @@
 }
 
 .daterangepicker .calendar.left {
-    float: left;
-    display: inline-block;
+  float: left;
+  display: inline-block;
 }
 
 .daterangepicker .calendar.right {
-    float: right;
-    display: inline-block;
+  float: right;
+  display: inline-block;
 }
 
 .daterangepicker .calendar th, .daterangepicker .calendar td {
@@ -224,32 +224,32 @@
 
 @media (max-width: 690px) {
 
-    .daterangepicker, .datarangepicker > .row-fluid:first-child {
-        width: 310px !important;
-        min-width: 310px !important;
-    }
+  .daterangepicker, .datarangepicker > .row-fluid:first-child {
+    width: 310px !important;
+    min-width: 310px !important;
+  }
 
-    .daterangepicker .ranges {
-        width: 95px !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
+  .daterangepicker .ranges {
+    width: 95px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 
-    .daterangepicker .ranges ul li {
-        padding: 3px 5px;
-    }
+  .daterangepicker .ranges ul li {
+    padding: 3px 5px;
+  }
 
-    .daterangepicker .calendar {
-        width: 197px !important;
-        font-size: 12px;
-    }
+  .daterangepicker .calendar {
+    width: 197px !important;
+    font-size: 12px;
+  }
 
-    .daterangepicker .calendar table td, .daterangepicker .calendar table th {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
+  .daterangepicker .calendar table td, .daterangepicker .calendar table th {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
-    .daterangepicker select.timezone {
-        width: 209px !important;
-    }
+  .daterangepicker select.timezone {
+    width: 209px !important;
+  }
 }

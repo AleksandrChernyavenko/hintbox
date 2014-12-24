@@ -696,7 +696,7 @@
                 html += '<th></th>';
 
             if (!minDate || minDate.isBefore(calendar[1][1])) {
-                html += '<th class="prev available"><i class="icon-arrow-left"></i></th>';
+                html += '<th class="prev available"><i class="glyphicon glyphicon-chevron-left"></i></th>';
             } else {
                 html += '<th></th>';
             }
@@ -709,7 +709,7 @@
 
             html += '<th colspan="5" style="width: auto">' + dateHtml + '</th>';
             if (!maxDate || maxDate.isAfter(calendar[1][1])) {
-                html += '<th class="next available"><i class="icon-arrow-right"></i></th>';
+                html += '<th class="next available"><i class="glyphicon glyphicon-chevron-right"></i></th>';
             } else {
                 html += '<th></th>';
             }

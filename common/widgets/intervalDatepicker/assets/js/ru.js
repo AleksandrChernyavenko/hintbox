@@ -11,8 +11,8 @@ var pluralRules = [
 
 function plural(word, num) {
     var forms = word.split('_'),
-    minCount = Math.min(pluralRules.length, forms.length),
-    i = -1;
+        minCount = Math.min(pluralRules.length, forms.length),
+        i = -1;
 
     while (++i < minCount) {
         if (pluralRules[i](num)) {
@@ -40,26 +40,26 @@ function relativeTimeWithPlural(number, withoutSuffix, key) {
 
 function monthsCaseReplace(m, format) {
     var months = {
-        'nominative': 'январь_февраль_март_апрель_май_июнь_июль_август_сентябрь_октябрь_ноябрь_декабрь'.split('_'),
-        'accusative': 'января_февраля_марта_апреля_мая_июня_июля_августа_сентября_октября_ноября_декабря'.split('_')
-    },
+            'nominative': 'январь_февраль_март_апрель_май_июнь_июль_август_сентябрь_октябрь_ноябрь_декабрь'.split('_'),
+            'accusative': 'января_февраля_марта_апреля_мая_июня_июля_августа_сентября_октября_ноября_декабря'.split('_')
+        },
 
-    nounCase = (/D[oD]? *MMMM?/).test(format) ?
-        'accusative' :
-        'nominative';
+        nounCase = (/D[oD]? *MMMM?/).test(format) ?
+            'accusative' :
+            'nominative';
 
     return months[nounCase][m.month()];
 }
 
 function weekdaysCaseReplace(m, format) {
     var weekdays = {
-        'nominative': 'воскресенье_понедельник_вторник_среда_четверг_пятница_суббота'.split('_'),
-        'accusative': 'воскресенье_понедельник_вторник_среду_четверг_пятницу_субботу'.split('_')
-    },
+            'nominative': 'воскресенье_понедельник_вторник_среда_четверг_пятница_суббота'.split('_'),
+            'accusative': 'воскресенье_понедельник_вторник_среду_четверг_пятницу_субботу'.split('_')
+        },
 
-    nounCase = (/\[ ?[Вв] ?(?:прошлую|следующую)? ?\] ?dddd/).test(format) ?
-        'accusative' :
-        'nominative';
+        nounCase = (/\[ ?[Вв] ?(?:прошлую|следующую)? ?\] ?dddd/).test(format) ?
+            'accusative' :
+            'nominative';
 
     return weekdays[nounCase][m.day()];
 }
@@ -86,16 +86,16 @@ moment.lang('ru', {
         },
         lastWeek: function () {
             switch (this.day()) {
-            case 0:
-                return '[В прошлое] dddd [в] LT';
-            case 1:
-            case 2:
-            case 4:
-                return '[В прошлый] dddd [в] LT';
-            case 3:
-            case 5:
-            case 6:
-                return '[В прошлую] dddd [в] LT';
+                case 0:
+                    return '[В прошлое] dddd [в] LT';
+                case 1:
+                case 2:
+                case 4:
+                    return '[В прошлый] dddd [в] LT';
+                case 3:
+                case 5:
+                case 6:
+                    return '[В прошлую] dddd [в] LT';
             }
         },
         sameElse: 'L'

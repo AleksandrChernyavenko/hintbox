@@ -51,17 +51,18 @@ HTML;
 		</div>
 		<div class="ranges">
 			<div class="range_inputs">
-				<div class="daterangepicker_start_input" style="float: left">
-					<label for="daterangepicker_start">{{ locale.fromLabel }}</label>
-					<input class="input-mini" type="text" name="daterangepicker_start" disabled="disabled">
-				</div>
-				<div class="daterangepicker_end_input" style="float: left; padding-left: 11px">
-					<label for="daterangepicker_end">{{ locale.toLabel }}</label>
-					<input class="input-mini" type="text" name="daterangepicker_end" disabled="disabled">
+			    <div style="display:none;">
+                    <div class="daterangepicker_start_input" style="float: left">
+                        <label for="daterangepicker_start">{{ locale.fromLabel }}</label>
+                        <input class="input-mini" type="text" name="daterangepicker_start" disabled="disabled">
+                    </div>
+                    <div class="daterangepicker_end_input" style="float: left; padding-left: 11px">
+                        <label for="daterangepicker_end">{{ locale.toLabel }}</label>
+                        <input class="input-mini" type="text" name="daterangepicker_end" disabled="disabled">
+                    </div>
 				</div>
 				<div class="btn-group">
 					<button class="{{ applyClass }} applyBtn">{{ locale.applyLabel }}</button>
-					{{! <button class="{{ clearClass }} clearBtn">{{ locale.clearLabel }}</button> }}
 				</div>
 			</div>
 		</div>
