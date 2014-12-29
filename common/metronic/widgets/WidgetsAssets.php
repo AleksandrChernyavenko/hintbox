@@ -21,16 +21,22 @@ class WidgetsAssets extends \yii\web\AssetBundle
     public $js = [
         'js/metronic.js',
         'js/layout.js',
+        'js/bootstrap-hover-dropdown.min.js',
+        'js/demo.js',
     ];
 
     public $jsOptions = [
       'position' => View::POS_HEAD,
+    ];
+    public $cssOptions = [
+      'type' => 'text/css',
     ];
 
     public $css = [
         'css/default.css',
         'css/fonts.css',
         'css/layout.css',
+        'css/font-awesome.min.css',
     ];
 
     public $sourcePath = '@metronic/widgets/assets';
