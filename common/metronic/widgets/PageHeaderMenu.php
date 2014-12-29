@@ -16,19 +16,28 @@ class PageHeaderMenu extends Widget
 <!-- BEGIN HEADER MENU -->
     <div class="page-header-menu">
          <div class="{containerClass}">
-            {content}
+            <!-- BEGIN HEADER SEARCH BOX -->
+                {search}
+            <!-- END HEADER SEARCH BOX -->
+            <!-- BEGIN MEGA MENU -->
+                <div class="hor-menu">
+                    {menu}
+                </div>
+            <!-- END MEGA MENU -->
         </div>
     </div>
 <!-- END HEADER MENU -->
 HTML;
-    public $headerTop = '';
+    public $search = '';
+    public $menu = '';
 
     public function run()
     {
         echo strtr($this->template,
             [
-                '{content}'=>$this->headerTop,
                 '{containerClass}'=>\Yii::$app->metronic->getContainerClass(),
+                '{search}'=>$this->search,
+                '{menu}'=>$this->menu,
             ]
         );
     }

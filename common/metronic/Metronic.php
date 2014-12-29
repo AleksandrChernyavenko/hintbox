@@ -41,4 +41,13 @@ class Metronic extends Component
     {
         return $this->layoutCssMap['containerClass'][$this->layoutType];
     }
+
+    public function init()
+    {
+        \Yii::setAlias('@metronic', __DIR__);
+
+        \common\metronic\widgets\WidgetsAssets::register(\Yii::$app->getView());
+
+        parent::init();
+    }
 }

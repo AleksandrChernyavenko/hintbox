@@ -13,6 +13,7 @@ use yii\base\InvalidConfigException;
 use yii\base\InvalidParamException;
 use yii\helpers\FileHelper;
 use yii\helpers\Url;
+use yii\helpers\VarDumper;
 
 /**
  * AssetManager manages asset bundle configuration and loading.
