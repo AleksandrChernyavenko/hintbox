@@ -30,6 +30,7 @@ class PageHeaderMenu extends Widget
 HTML;
     public $search = '';
     public $menu = '';
+    public $menu2 = '';
 
     public function run()
     {

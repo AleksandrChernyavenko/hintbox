@@ -7,16 +7,52 @@
  *
  */
 
+use \common\metronic\widgets\TopNavMenu;
+
 /* @var $this \yii\web\View */
 
 echo \common\metronic\widgets\PageHeaderMain::widget([
     'headerTop'=>\common\metronic\widgets\PageHeaderTop::widget(),
     'headerMenu'=>\common\metronic\widgets\PageHeaderMenu::widget(
         [
-            'menu'=>'<ul class="nav navbar-nav">
+            'menu' => \common\metronic\widgets\TopNavMenu::widget([
+                    'items'=>[
+                        [
+                            'label'=>'TYPE_CONTENT',
+                            'url'=>'site/index',
+                            'options'=>[
+                                'class'=>TopNavMenu::TYPE_CONTENT,
+                            ],
+                            'items'=>[
+
+                            ]
+                        ],
+                        [
+                            'label'=>'TYPE_DROPDOWN',
+                            'url'=>'site/index',
+                            'options'=>[
+                                'class'=>TopNavMenu::TYPE_DROPDOWN,
+                            ],
+                            'items'=>[
+                                [
+                                    'label'=>'TYPE_DROPDOWN_1',
+                                    'url'=>'site/index',
+                                    'iconClass'=>'icon-home'
+
+                                ],
+                                [
+                                    'label'=>'TYPE_DROPDOWN_2',
+                                    'url'=>'site/index',
+                                ],
+                            ]
+                        ],
+                    ]
+                ]),
+            'menu2'=>'<ul class="nav navbar-nav">
 					<li>
 						<a href="index.html">Dashboard</a>
 					</li>
+
 					<li class="menu-dropdown mega-menu-dropdown active">
 						<a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle hover-initialized">
 						Features <i class="fa fa-angle-down"></i>
@@ -353,7 +389,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 						</ul>
 					</li>
 					<li class="menu-dropdown classic-menu-dropdown">
-						<a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="hover-initialized">
+						<a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle hover-initialized">
 						Extra <i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu pull-left">
