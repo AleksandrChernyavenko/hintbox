@@ -8,6 +8,7 @@
 namespace common\metronic\widgets;
 
 use yii\helpers\VarDumper;
+use yii\web\View;
 
 class WidgetsAssets extends \yii\web\AssetBundle
 {
@@ -18,8 +19,12 @@ class WidgetsAssets extends \yii\web\AssetBundle
     ];
 
     public $js = [
-        'js/layout.js',
         'js/metronic.js',
+        'js/layout.js',
+    ];
+
+    public $jsOptions = [
+      'position' => View::POS_HEAD,
     ];
 
     public $css = [
