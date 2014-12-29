@@ -84,6 +84,10 @@ return [
             'showScriptName' => false,
         ],
 
+        'metronic' => [
+            'class' => 'common\metronic\Metronic',
+        ],
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

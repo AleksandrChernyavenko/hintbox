@@ -20,8 +20,11 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="<?= Yii::$app->metronic->getBodyClass() ?>">
     <?php $this->beginBody() ?>
+
+    <?= $this->render('_header'); ?>
+
     <div class="wrap">
         <?php
             NavBar::begin([
