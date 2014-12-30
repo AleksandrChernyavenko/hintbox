@@ -120,7 +120,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                             ],
                             'items'=>[
                                 [
-                                    'label'=>'TYPE_DROPDOWN_1',
+                                    'label'=>' Data Tables',
                                     'url'=>'site/index',
                                     'iconClass'=>'icon-home',
                                 ],

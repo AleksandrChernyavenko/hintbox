@@ -67,12 +67,14 @@ class TopNavMenu extends Menu
         $n = count($items);
         $lines = [];
         foreach ($items as $i => $item) {
-            $type = ArrayHelper::getValue($item, 'type', self::TYPE_DROPDOWN);
-            $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
-            $options = array_merge($options, $this->itemOptionsByTypes[$type]);
-            if($type == self::TYPE_DROPDOWN && $level>0){
+            $itemType = ArrayHelper::getValue($item, 'type', self::TYPE_DROPDOWN);
+            $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', $this->itemOptionsByTypes[$itemType]));
+
+
+            if(!empty($item['items']) && $itemType == self::TYPE_DROPDOWN && $level>0){
                 $options = array_merge($options, ['class'=>'dropdown-submenu']);
             }
+
 
             $tag = ArrayHelper::remove($options, 'tag', 'li');
             $class = [];
@@ -94,7 +96,7 @@ class TopNavMenu extends Menu
             }
 
             $menu = '';
-            if($type == self::TYPE_DROPDOWN)
+            if($itemType == self::TYPE_DROPDOWN)
             {
 
                 $menu = $this->renderItemDropdown($item,$level);
@@ -131,7 +133,7 @@ class TopNavMenu extends Menu
         }
         elseif(!empty($item['items']) && $level > 0) {
             $template = strtr( '<a href="javascript:;">{icon}{label}</a>', [
-                '{label}' => '{label}'.$this->firstLevelArrowIcon,
+                '{label}' => '{label}',
             ]);
         }
         else {
