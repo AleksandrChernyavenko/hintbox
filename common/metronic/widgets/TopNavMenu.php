@@ -109,6 +109,7 @@ class TopNavMenu extends Menu
                     $menu .= strtr($this->submenuTemplate, [
                         '{items}' => $this->renderItems($item['items'],$level),
                     ]);
+                    $level = 0;
                 }
             }
             else
@@ -116,6 +117,8 @@ class TopNavMenu extends Menu
                 $menu = $this->renderItemContent($item,$level);
 
             }
+
+
 
 
             $lines[] = Html::tag($tag, $menu, $options);

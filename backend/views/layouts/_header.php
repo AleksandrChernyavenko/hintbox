@@ -18,115 +18,162 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
             'menu' => \common\metronic\widgets\TopNavMenu::widget([
                     'items'=>[
                         [
-                            'label'=>'Dashboard',
-                            'url'=>'/user/default/login',
+                            'label'=>'Главная',
+                            'url' => ['/site/index'],
 							'type'=>TopNavMenu::TYPE_CONTENT,
                             'items'=>[
                             ]
                         ],
-						[
-                            'label'=>'Features',
-							'type'=>TopNavMenu::TYPE_CONTENT,
+                        [
+                            'label'=>'Контент',
+							'type'=>TopNavMenu::TYPE_DROPDOWN,
                             'items'=>[
-								[
-									'label'=>'eCommerce',
+                                [
+                                    'label'=>'Статьи',
+                                    'url'=>'/article/default/index',
+                                    'iconClass'=>'icon-home',
+                                ],
+                                [
+                                    'label'=>'Категории',
+                                    'url'=>'/category/default/index',
+                                    'iconClass'=>'icon-wallet',
+                                ],
+                                [
+                                    'label'=>'TYPE_DROPDOWN_3',
+                                    'url'=>'site/index',
+                                    'iconClass'=>'icon-puzzle',
 									'items'=>[
 										[
-											'label'=>'eCommerce',
-											'url'=>'/site/eCommerce',
+											'label'=>'TYPE_DROPDOWN_3_1',
+											'url'=>'site/index',
 											'iconClass'=>'icon-home',
+
 										],
 										[
-											'label'=>'Manage Orders',
-											'url'=>'/site/Manage_Orders',
-											'iconClass'=>'icon-basket',
+											'label'=>'TYPE_DROPDOWN_3_2',
+											'url'=>'site/index',
+											'iconClass'=>'icon-wallet',
 										],
+										[
+											'label'=>'TYPE_DROPDOWN_3_3',
+											'url'=>'site/index',
+											'iconClass'=>'icon-puzzle',
+										],
+										[
+											'label'=>'TYPE_DROPDOWN_3',
+											'url'=>'site/index',
+											'iconClass'=>'icon-puzzle',
+											'items'=>[
+												[
+													'label'=>'TYPE_DROPDOWN_3_1 active',
+													'url'=>'site/index',
+													'iconClass'=>'icon-home',
+
+												],
+												[
+													'label'=>'TYPE_DROPDOWN_3_2',
+													'url'=>'/user/login',
+													'iconClass'=>'icon-wallet',
+												],
+												[
+													'label'=>'TYPE_DROPDOWN_3_3',
+													'url'=>'site/index',
+													'iconClass'=>'icon-puzzle',
+												],
+
+											]
+										],
+
 									]
-								],
+                                ],
 								[
-									'label'=>'Layouts',
-									'items'=>[
-										[
-											'label'=>'Fluid Layout',
-											'url'=>'user/login',
-											'iconClass'=>'icon-cursor-move',
-										],
-										[
-											'label'=>'Fixed Mega Menu',
-											'url'=>'site/Fixed_Mega_Menu',
-											'iconClass'=>'icon-pin',
-										],
-									]
-								],
-                            ]
-                        ],
-						[
-                            'label'=>'Features full screen',
-							'type'=>TopNavMenu::TYPE_CONTENT_FULL,
-                            'items'=>[
-								[
-									'label'=>'eCommerce',
-									'items'=>[
-										[
-											'label'=>'eCommerce',
-											'url'=>'user/login',
-											'iconClass'=>'icon-home',
-										],
-										[
-											'label'=>'Manage Orders',
-											'url'=>'site/Manage_Orders',
-											'iconClass'=>'icon-basket',
-										],
-									]
-								],
-								[
-									'label'=>'Layouts',
-									'items'=>[
-										[
-											'label'=>'Fluid Layout',
-											'url'=>'site/Fluid_Layout',
-											'iconClass'=>'icon-cursor-move',
-										],
-										[
-											'label'=>'Fixed Mega Menu',
-											'url'=>'site/Fixed_Mega_Menu',
-											'iconClass'=>'icon-pin',
-										],
-									]
-								],
-								[
-									'label'=>'Layouts',
-									'items'=>[
-										[
-											'label'=>'Fluid Layout',
-											'url'=>'site/Fluid_Layout',
-											'iconClass'=>'icon-cursor-move',
-										],
-										[
-											'label'=>'Fixed Mega Menu',
-											'url'=>'site/Fixed_Mega_Menu',
-											'iconClass'=>'icon-pin',
-										],
-									]
+									'label'=>'TYPE_DROPDOWN_4',
+									'url'=>'site/index',
+									'iconClass'=>'icon-wallet',
 								],
                             ]
                         ],
                         [
-                            'label'=>'TYPE_DROPDOWN',
-                            'url'=>'/site/index',
+                            'label'=>'Трекер',
 							'type'=>TopNavMenu::TYPE_DROPDOWN,
-                            'options'=>[
-                                'class'=>TopNavMenu::TYPE_DROPDOWN,
-                            ],
                             'items'=>[
                                 [
-                                    'label'=>' Data Tables',
-                                    'url'=>'user/login',
+                                    'label'=>'Статьи',
+                                    'url'=>'/article/default/index',
                                     'iconClass'=>'icon-home',
                                 ],
                                 [
-                                    'label'=>'TYPE_DROPDOWN_2',
-                                    'url'=>'/site/index',
+                                    'label'=>'Категории',
+                                    'url'=>'/category/default/index',
+                                    'iconClass'=>'icon-wallet',
+                                ],
+                                [
+                                    'label'=>'TYPE_DROPDOWN_3',
+                                    'url'=>'site/index',
+                                    'iconClass'=>'icon-puzzle',
+									'items'=>[
+										[
+											'label'=>'TYPE_DROPDOWN_3_1',
+											'url'=>'site/index',
+											'iconClass'=>'icon-home',
+
+										],
+										[
+											'label'=>'TYPE_DROPDOWN_3_2',
+											'url'=>'site/index',
+											'iconClass'=>'icon-wallet',
+										],
+										[
+											'label'=>'TYPE_DROPDOWN_3_3',
+											'url'=>'site/index',
+											'iconClass'=>'icon-puzzle',
+										],
+										[
+											'label'=>'TYPE_DROPDOWN_3',
+											'url'=>'site/index',
+											'iconClass'=>'icon-puzzle',
+											'items'=>[
+												[
+													'label'=>'TYPE_DROPDOWN_3_1 active',
+													'url'=>'site/index',
+													'iconClass'=>'icon-home',
+
+												],
+												[
+													'label'=>'TYPE_DROPDOWN_3_2',
+													'url'=>'/user/login',
+													'iconClass'=>'icon-wallet',
+												],
+												[
+													'label'=>'TYPE_DROPDOWN_3_3',
+													'url'=>'site/index',
+													'iconClass'=>'icon-puzzle',
+												],
+
+											]
+										],
+
+									]
+                                ],
+								[
+									'label'=>'TYPE_DROPDOWN_4',
+									'url'=>'site/index',
+									'iconClass'=>'icon-wallet',
+								],
+                            ]
+                        ],
+                        [
+                            'label'=>'Дорвеи',
+							'type'=>TopNavMenu::TYPE_DROPDOWN,
+                            'items'=>[
+                                [
+                                    'label'=>'Статьи',
+                                    'url'=>'/article/default/index',
+                                    'iconClass'=>'icon-home',
+                                ],
+                                [
+                                    'label'=>'Категории',
+                                    'url'=>'/category/default/index',
                                     'iconClass'=>'icon-wallet',
                                 ],
                                 [
