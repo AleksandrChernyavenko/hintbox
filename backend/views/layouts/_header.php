@@ -20,6 +20,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                         [
                             'label'=>'Главная',
                             'url' => ['/site/index'],
+							'iconClass'=>'icon-home',
 							'type'=>TopNavMenu::TYPE_CONTENT,
                             'items'=>[
                             ]
@@ -27,6 +28,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                         [
                             'label'=>'Контент',
 							'type'=>TopNavMenu::TYPE_DROPDOWN,
+							'iconClass'=>'icon-home',
                             'items'=>[
                                 [
                                     'label'=>'Статьи',
@@ -38,59 +40,29 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                                     'url'=>'/category/default/index',
                                     'iconClass'=>'icon-wallet',
                                 ],
-                                [
-                                    'label'=>'TYPE_DROPDOWN_3',
-                                    'url'=>'site/index',
-                                    'iconClass'=>'icon-puzzle',
+								[
+                                    'label'=>'Пользователи',
+                                    'url'=>'/category/default/index',
+                                    'iconClass'=>'icon-wallet',
+                                ],
+								[
+                                    'label'=>'Виджеты',
+                                    'url'=>'/category/default/index',
+                                    'iconClass'=>'icon-envelope',
 									'items'=>[
 										[
-											'label'=>'TYPE_DROPDOWN_3_1',
+											'label'=>'Предсказания',
 											'url'=>'site/index',
-											'iconClass'=>'icon-home',
+											'iconClass'=>'icon-envelope',
 
 										],
 										[
-											'label'=>'TYPE_DROPDOWN_3_2',
+											'label'=>'Анекдоты',
 											'url'=>'site/index',
 											'iconClass'=>'icon-wallet',
 										],
-										[
-											'label'=>'TYPE_DROPDOWN_3_3',
-											'url'=>'site/index',
-											'iconClass'=>'icon-puzzle',
-										],
-										[
-											'label'=>'TYPE_DROPDOWN_3',
-											'url'=>'site/index',
-											'iconClass'=>'icon-puzzle',
-											'items'=>[
-												[
-													'label'=>'TYPE_DROPDOWN_3_1 active',
-													'url'=>'site/index',
-													'iconClass'=>'icon-home',
-
-												],
-												[
-													'label'=>'TYPE_DROPDOWN_3_2',
-													'url'=>'/user/login',
-													'iconClass'=>'icon-wallet',
-												],
-												[
-													'label'=>'TYPE_DROPDOWN_3_3',
-													'url'=>'site/index',
-													'iconClass'=>'icon-puzzle',
-												],
-
-											]
-										],
-
 									]
                                 ],
-								[
-									'label'=>'TYPE_DROPDOWN_4',
-									'url'=>'site/index',
-									'iconClass'=>'icon-wallet',
-								],
                             ]
                         ],
                         [
@@ -98,17 +70,17 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 							'type'=>TopNavMenu::TYPE_DROPDOWN,
                             'items'=>[
                                 [
-                                    'label'=>'Статьи',
-                                    'url'=>'/article/default/index',
+                                    'label'=>'Статистика',
+                                    'url'=>'/',
                                     'iconClass'=>'icon-home',
                                 ],
                                 [
-                                    'label'=>'Категории',
+                                    'label'=>'Сайты',
                                     'url'=>'/category/default/index',
                                     'iconClass'=>'icon-wallet',
                                 ],
                                 [
-                                    'label'=>'TYPE_DROPDOWN_3',
+                                    'label'=>'Коротки ссылки',
                                     'url'=>'site/index',
                                     'iconClass'=>'icon-puzzle',
 									'items'=>[
@@ -156,81 +128,44 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 									]
                                 ],
 								[
-									'label'=>'TYPE_DROPDOWN_4',
+									'label'=>'Коды js',
 									'url'=>'site/index',
 									'iconClass'=>'icon-wallet',
 								],
                             ]
                         ],
                         [
-                            'label'=>'Дорвеи',
+							'label'=>'Дорвеи',
 							'type'=>TopNavMenu::TYPE_DROPDOWN,
-                            'items'=>[
-                                [
-                                    'label'=>'Статьи',
-                                    'url'=>'/article/default/index',
-                                    'iconClass'=>'icon-home',
-                                ],
-                                [
-                                    'label'=>'Категории',
-                                    'url'=>'/category/default/index',
-                                    'iconClass'=>'icon-wallet',
-                                ],
-                                [
-                                    'label'=>'TYPE_DROPDOWN_3',
-                                    'url'=>'site/index',
-                                    'iconClass'=>'icon-puzzle',
-									'items'=>[
-										[
-											'label'=>'TYPE_DROPDOWN_3_1',
-											'url'=>'site/index',
-											'iconClass'=>'icon-home',
-
-										],
-										[
-											'label'=>'TYPE_DROPDOWN_3_2',
-											'url'=>'site/index',
-											'iconClass'=>'icon-wallet',
-										],
-										[
-											'label'=>'TYPE_DROPDOWN_3_3',
-											'url'=>'site/index',
-											'iconClass'=>'icon-puzzle',
-										],
-										[
-											'label'=>'TYPE_DROPDOWN_3',
-											'url'=>'site/index',
-											'iconClass'=>'icon-puzzle',
-											'items'=>[
-												[
-													'label'=>'TYPE_DROPDOWN_3_1 active',
-													'url'=>'site/index',
-													'iconClass'=>'icon-home',
-
-												],
-												[
-													'label'=>'TYPE_DROPDOWN_3_2',
-													'url'=>'/user/login',
-													'iconClass'=>'icon-wallet',
-												],
-												[
-													'label'=>'TYPE_DROPDOWN_3_3',
-													'url'=>'site/index',
-													'iconClass'=>'icon-puzzle',
-												],
-
-											]
-										],
-
-									]
-                                ],
+							'items'=>[
+								[
+									'label'=>'Статистика',
+									'url'=>'/dorvei/default/index',
+									'iconClass'=>'icon-home',
+								],
+								[
+									'label'=>'Категории',
+									'url'=>'/category/default/index',
+									'iconClass'=>'icon-wallet',
+								],
 								[
 									'label'=>'TYPE_DROPDOWN_4',
 									'url'=>'site/index',
 									'iconClass'=>'icon-wallet',
 								],
-                            ]
-                        ],
+							]
+						],
+						[
+							'label'=>'Система',
+							'type'=>TopNavMenu::TYPE_DROPDOWN,
+							'items'=>[
+								[
+									'label'=>'Настройки',
+									'url'=>'/dorvei/default/index',
+									'iconClass'=>'icon-home',
+								],
+							]
+						],
                     ]
                 ]),
         ]
