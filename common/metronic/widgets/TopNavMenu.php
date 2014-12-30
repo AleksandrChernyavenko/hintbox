@@ -115,7 +115,6 @@ class TopNavMenu extends Menu
             else
             {
                 $menu = $this->renderItemContent($item,$level);
-
             }
 
 
