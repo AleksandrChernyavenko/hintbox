@@ -21,6 +21,8 @@ class TopNavMenu extends Menu
     const TYPE_CONTENT = 'content';
     const TYPE_CONTENT_FULL = 'content_full';
 
+    public $activateParents = true;
+
     /**
      * @var array the HTML attributes for the menu's container tag. The following special options are recognized:
      *

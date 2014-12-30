@@ -156,9 +156,10 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 											'iconClass'=>'icon-puzzle',
 											'items'=>[
 												[
-													'label'=>'TYPE_DROPDOWN_3_1',
+													'label'=>'TYPE_DROPDOWN_3_1 active',
 													'url'=>'site/index',
 													'iconClass'=>'icon-home',
+													'active'=>true,
 
 												],
 												[
