@@ -82,6 +82,9 @@ return [
             'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'rules'=>[
+                'users/login' => 'users/default/login',
+            ]
         ],
 
         'metronic' => [

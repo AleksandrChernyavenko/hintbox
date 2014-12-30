@@ -19,7 +19,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                     'items'=>[
                         [
                             'label'=>'Dashboard',
-                            'url'=>'site/index',
+                            'url'=>'/user/default/login',
 							'type'=>TopNavMenu::TYPE_CONTENT,
                             'items'=>[
                             ]
@@ -48,7 +48,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 									'items'=>[
 										[
 											'label'=>'Fluid Layout',
-											'url'=>'site/Fluid_Layout',
+											'url'=>'user/login',
 											'iconClass'=>'icon-cursor-move',
 										],
 										[
@@ -69,7 +69,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 									'items'=>[
 										[
 											'label'=>'eCommerce',
-											'url'=>'site/eCommerce',
+											'url'=>'user/login',
 											'iconClass'=>'icon-home',
 										],
 										[
@@ -121,7 +121,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                             'items'=>[
                                 [
                                     'label'=>' Data Tables',
-                                    'url'=>'/site/index',
+                                    'url'=>'user/login',
                                     'iconClass'=>'icon-home',
                                 ],
                                 [
@@ -163,7 +163,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 												],
 												[
 													'label'=>'TYPE_DROPDOWN_3_2',
-													'url'=>'site/index',
+													'url'=>'/user/login',
 													'iconClass'=>'icon-wallet',
 												],
 												[

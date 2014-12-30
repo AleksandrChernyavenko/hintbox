@@ -11,6 +11,7 @@ namespace common\metronic\widgets;
 use yii\base\Exception;
 use yii\base\Widget;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 class PageHeaderTop extends Widget
 {
@@ -86,7 +87,7 @@ HTML;
 
         return Html::a(
             Html::img($this->imageSrc,$this->imageOptions),
-            \Yii::$app->request->baseUrl
+            Url::to('/',true)
         );
 
     }
