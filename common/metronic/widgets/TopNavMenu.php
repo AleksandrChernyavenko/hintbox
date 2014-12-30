@@ -247,36 +247,35 @@ HTML;
 
     }
 
-    protected function renderItem($item,$level=0)
+    protected function isItemActive($item)
     {
-        if(!empty($item['items'])) {
-            $template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
-            if($level == 0)
-            {
-                $template = strtr($template, [
-                    '{label}' => '{label}'.$this->firstLevelArrowIcon,
-                ]);
+        if(isset($item['url']) && !is_array($item['url'])) {
+            $item['url'] = [
+                0=>$item['url'],
+            ];
+        }
+        if (isset($item['url']) && is_array($item['url']) && isset($item['url'][0])) {
+            $route = $item['url'][0];
+
+
+            if ($route[0] !== '/' && \Yii::$app->controller) {
+                $route = \Yii::$app->controller->module->getUniqueId() . '/' . $route;
             }
+            if (ltrim($route, '/') !== $this->route) {
+                return false;
+            }
+            unset($item['url']['#']);
+            if (count($item['url']) > 1) {
+                foreach (array_splice($item['url'], 1) as $name => $value) {
+                    if ($value !== null && (!isset($this->params[$name]) || $this->params[$name] != $value)) {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
-        else {
-            $template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
-        }
-
-        exit;
-
-
-        if(!isset($item['label']))
-        {
-            VarDumper::dump($item,3,3);
-            exit;
-        }
-
-        return strtr($template, [
-            '{url}' => isset($item['url']) ? Url::to($item['url']) : '#',
-            '{icon}' => isset($item['iconClass']) ? Html::tag('i','',['class'=>$item['iconClass']]) : '',
-            '{label}' => $item['label'],
-        ]);
-
+        return false;
     }
 
 }

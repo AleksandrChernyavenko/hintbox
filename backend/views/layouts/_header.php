@@ -33,12 +33,12 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 									'items'=>[
 										[
 											'label'=>'eCommerce',
-											'url'=>'site/eCommerce',
+											'url'=>'/site/eCommerce',
 											'iconClass'=>'icon-home',
 										],
 										[
 											'label'=>'Manage Orders',
-											'url'=>'site/Manage_Orders',
+											'url'=>'/site/Manage_Orders',
 											'iconClass'=>'icon-basket',
 										],
 									]
@@ -113,7 +113,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                         ],
                         [
                             'label'=>'TYPE_DROPDOWN',
-                            'url'=>'site/index',
+                            'url'=>'/site/index',
 							'type'=>TopNavMenu::TYPE_DROPDOWN,
                             'options'=>[
                                 'class'=>TopNavMenu::TYPE_DROPDOWN,
@@ -121,12 +121,12 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                             'items'=>[
                                 [
                                     'label'=>' Data Tables',
-                                    'url'=>'site/index',
+                                    'url'=>'/site/index',
                                     'iconClass'=>'icon-home',
                                 ],
                                 [
                                     'label'=>'TYPE_DROPDOWN_2',
-                                    'url'=>'site/index',
+                                    'url'=>'/site/index',
                                     'iconClass'=>'icon-wallet',
                                 ],
                                 [
@@ -159,7 +159,6 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 													'label'=>'TYPE_DROPDOWN_3_1 active',
 													'url'=>'site/index',
 													'iconClass'=>'icon-home',
-													'active'=>true,
 
 												],
 												[
