@@ -34,6 +34,7 @@ HTML;
 
     public function run()
     {
+        $this->rejisterHoverDropdownJs();
         echo strtr($this->template,
             [
                 '{containerClass}'=>\Yii::$app->metronic->getContainerClass(),
@@ -42,4 +43,10 @@ HTML;
             ]
         );
     }
+
+    public function rejisterHoverDropdownJs()
+    {
+//        \Yii::$app->getView()->registerJs("$('.hover-initialized').dropdownHover();");
+    }
+
 }
