@@ -18,15 +18,12 @@ return [
                         'rbac-admin' => 'rbac-admin.php',
                     ],
                 ],
-                'user' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => 'amnah\yii2\user\messages',
-                    'sourceLanguage' => 'ru-RU',
-                    'fileMap' => [
-                        'user' => 'user.php',
-                    ],
-                ],
             ],
+        ],
+
+        'user' => [
+            'identityClass' => 'yii\web\User',
+            'enableAutoLogin' => true,
         ],
 
         'urlManager' => [
@@ -36,10 +33,6 @@ return [
         'image' => [
             'class' => 'yii\image\ImageDriver',
             'driver' => 'GD',  //GD or Imagick
-        ],
-        'user' => [
-            'class' => 'amnah\yii2\user\components\User',
-            'enableAutoLogin' => true,
         ],
 
         'mailer' => [
@@ -66,9 +59,6 @@ return [
 
     'modules' => [
 
-        'user' => [
-            'class' => 'amnah\yii2\user\Module',
-        ],
         'dynagrid' => [
             'class' => '\kartik\dynagrid\Module',
             // other module settings

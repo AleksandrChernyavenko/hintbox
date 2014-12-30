@@ -230,6 +230,5 @@ php yii user/copy --from=@vendor/amnah/yii2-user --to=@app/modules/user --namesp
 **Alternatively,** you can do this manually. Just copy/paste the files wherever you'd like and
 change the namespaces in the files. Replace ```amnah\yii2\user``` with ```app\modules\user```.
 
-## Todo
 * Tests
 * Issues/requests? Submit a [github issue](https://github.com/amnah/yii2-user/issues)

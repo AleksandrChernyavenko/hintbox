@@ -39,6 +39,10 @@ return [
             'class' => 'backend\modules\article\ArticleModule',
         ],
 
+        'user' => [
+            'class' => 'backend\modules\user\Module',
+        ],
+
         'category' => [
             'class' => 'backend\modules\category\CategoryModule',
 
@@ -77,6 +81,24 @@ return [
 
     ],
     'components' => [
+
+        'user' => [
+            'class' => 'backend\modules\user\components\User',
+            'enableAutoLogin' => true,
+        ],
+
+        'i18n' => [
+            'translations' => [
+                'user' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => 'backend\modules\user\messages',
+                    'sourceLanguage' => 'ru-RU',
+                    'fileMap' => [
+                        'user' => 'user.php',
+                    ],
+                ],
+            ],
+        ],
 
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
