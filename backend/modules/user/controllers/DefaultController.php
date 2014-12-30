@@ -77,9 +77,12 @@ class DefaultController extends Controller
             return $this->goBack(Yii::$app->getModule("user")->loginRedirect);
         }
 
+        $this->layout = false;
+
         // render
-        return $this->render('login', [
+        return $this->render('metronic_login1', [
             'model' => $model,
+            'pageTitle' => '$pageTitle - Войти',
         ]);
     }
 
