@@ -1,7 +1,7 @@
 <?
 
 use \yii\widgets\ActiveForm;
-
+use yii\helpers\Html;
 ?>
 <html lang="ru">
 <head>
@@ -37,7 +37,6 @@ use \yii\widgets\ActiveForm;
 		'id' => 'login-form',
 		'options' => ['class' => 'login-form'],
 		'fieldConfig' => [
-			//'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-7\">{error}</div>",
 			'labelOptions' => ['class' => 'control-label visible-ie8 visible-ie9'],
 			'inputOptions' => ['class' => 'form-control form-control-solid placeholder-no-fix'],
 		],
@@ -59,37 +58,21 @@ use \yii\widgets\ActiveForm;
 		</div>
 		<div class="form-actions">
 			<button type="submit" class="btn btn-success uppercase">Login</button>
-			<label class="rememberme check">
-				<div class="checker"><span><input type="checkbox" name="remember" value="1"></span></div>Remember </label>
-			<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+
+			<?= $form->field($model, 'rememberMe')->checkbox(
+				[
+					'labelOptions'=>['class'=>'rememberme check']
+				]
+			);
+			?>
+
+			<?= Html::a(Yii::t("user", "Forgot password") . "?", ["/user/forgot"], ['class'=>'forget-password']) ?>
 		</div>
-		<div class="login-options">
-			<h4>Or login with</h4>
-			<ul class="social-icons">
-				<li>
-					<a class="social-icon-color facebook" data-original-title="facebook" href="#"></a>
-				</li>
-				<li>
-					<a class="social-icon-color twitter" data-original-title="Twitter" href="#"></a>
-				</li>
-				<li>
-					<a class="social-icon-color googleplus" data-original-title="Goole Plus" href="#"></a>
-				</li>
-				<li>
-					<a class="social-icon-color linkedin" data-original-title="Linkedin" href="#"></a>
-				</li>
-			</ul>
-		</div>
-		<div class="create-account">
-			<p>
-				<a href="javascript:;" id="register-btn" class="uppercase">Create an account</a>
-			</p>
-		</div>
+
 	<?php ActiveForm::end(); ?>
 </div>
 <div class="copyright">
-	2014 © Metronic. Admin Dashboard Template.
-	http://www.keenthemes.com/preview/metronic/theme/templates/admin3/login.html
+	<?= Yii::$app->name; ?>
 </div>
 
 </body></html>

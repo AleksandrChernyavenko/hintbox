@@ -81,6 +81,7 @@ class DefaultController extends Controller
 
         // render
         return $this->render('metronic_login1', [
+//        return $this->render('login', [
             'model' => $model,
             'pageTitle' => '$pageTitle - Войти',
         ]);
