@@ -2,6 +2,7 @@
 
 namespace backend\modules\user\controllers;
 
+use common\metronic\widgets\LoginAssets;
 use Yii;
 use yii\web\Controller;
 use yii\web\Response;
@@ -77,7 +78,8 @@ class DefaultController extends Controller
             return $this->goBack(Yii::$app->getModule("user")->loginRedirect);
         }
 
-        $this->layout = false;
+        LoginAssets::register(Yii::$app->getView());
+        $this->layout = '//empty';
 
         // render
         return $this->render('metronic_login1', [

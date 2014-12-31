@@ -11,8 +11,55 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log','metronic'],
 
+    'components' => [
+
+        'user' => [
+            'class' => 'backend\modules\user\components\User',
+            'identityClass' => '\backend\modules\user\models\User',
+            'enableAutoLogin' => true,
+        ],
+
+        'i18n' => [
+            'translations' => [
+                'user' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => 'backend\modules\user\messages',
+                    'sourceLanguage' => 'ru-RU',
+                    'fileMap' => [
+                        'user' => 'user.php',
+                    ],
+                ],
+            ],
+        ],
+
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules'=>[
+                'users/login' => 'users/default/login',
+            ]
+        ],
+
+        'metronic' => [
+            'class' => 'common\metronic\Metronic',
+        ],
+
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+            ],
+        ],
+        'errorHandler' => [
+            'errorAction' => 'site/error',
+        ],
+    ],
 
     'modules' => [
         'admin' => [
@@ -80,51 +127,6 @@ return [
         ],
 
     ],
-    'components' => [
 
-        'user' => [
-            'class' => 'backend\modules\user\components\User',
-            'enableAutoLogin' => true,
-        ],
-
-        'i18n' => [
-            'translations' => [
-                'user' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => 'backend\modules\user\messages',
-                    'sourceLanguage' => 'ru-RU',
-                    'fileMap' => [
-                        'user' => 'user.php',
-                    ],
-                ],
-            ],
-        ],
-
-        'urlManager' => [
-            'class' => 'yii\web\UrlManager',
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules'=>[
-                'users/login' => 'users/default/login',
-            ]
-        ],
-
-        'metronic' => [
-            'class' => 'common\metronic\Metronic',
-        ],
-
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
-    ],
     'params' => $params,
 ];
