@@ -13,9 +13,32 @@ use \common\metronic\widgets\TopNavMenu;
 
 echo \common\metronic\widgets\PageHeaderMain::widget([
     'headerTop'=>\common\metronic\widgets\PageHeaderTop::widget([
-		'notification'=>\common\metronic\widgets\NotificationWidget::widget([
-
-		])
+		'notification'=>\common\metronic\widgets\NotificationWidget::widget([]),
+		'dropdownUser'=>\common\metronic\widgets\UserTopMenuWidget::widget([
+			'elements'=>[
+				[
+					'label'=>'My Profile',
+					'icon'=>'icon-user',
+					'link'=>1
+				],
+				[
+					'label'=>'My Profile',
+					'icon'=>'icon-user',
+					'link'=>1
+				],
+				'divider',
+				[
+					'label'=>'My Profile',
+					'icon'=>'icon-user',
+					'link'=>1
+				],
+				[
+					'label'=>'My Profile',
+					'icon'=>'icon-user',
+					'link'=>1
+				],
+			]
+		]),
 	]),
     'headerMenu'=>\common\metronic\widgets\PageHeaderMenu::widget(
         [
