@@ -84,7 +84,13 @@ HTML;
 
     public function getPageLogoHtml()
     {
-
+        if(isset($this->imageOptions['class']))
+        {
+            $this->imageOptions['class'] .=  ' logo-default';
+        }
+        else{
+            $this->imageOptions['class'] =  ' logo-default';
+        }
         return Html::a(
             Html::img($this->imageSrc,$this->imageOptions),
             Url::to('/',true)

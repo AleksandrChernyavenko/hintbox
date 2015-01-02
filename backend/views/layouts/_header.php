@@ -12,7 +12,11 @@ use \common\metronic\widgets\TopNavMenu;
 /* @var $this \yii\web\View */
 
 echo \common\metronic\widgets\PageHeaderMain::widget([
-    'headerTop'=>\common\metronic\widgets\PageHeaderTop::widget(),
+    'headerTop'=>\common\metronic\widgets\PageHeaderTop::widget([
+		'notification'=>\common\metronic\widgets\NotificationWidget::widget([
+
+		])
+	]),
     'headerMenu'=>\common\metronic\widgets\PageHeaderMenu::widget(
         [
             'menu' => \common\metronic\widgets\TopNavMenu::widget([
