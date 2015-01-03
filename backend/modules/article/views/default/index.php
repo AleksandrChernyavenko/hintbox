@@ -46,7 +46,6 @@ $columns = [
             return $category->getLink();
         },
         'format'=>'raw',
-        'width'=>'270px',
         'filterWidgetOptions'=>[
             'pluginOptions'=>['allowClear'=>true],
         ],
@@ -88,7 +87,7 @@ $columns = [
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Article', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Новая статья', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= DynaGrid::widget([
@@ -104,7 +103,6 @@ $columns = [
 
             'panel'=>[
                 'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i>  Library</h3>',
-                'before' =>  '<div style="padding-top: 7px;"><em>* The table header sticks to the top in this demo as you scroll</em></div>',
                 'after' => false
             ],
             'toolbar' =>  [
