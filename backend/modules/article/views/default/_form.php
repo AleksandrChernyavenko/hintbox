@@ -14,31 +14,29 @@ use common\widgets\ElFinder;
 <div class="article-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'category_id')->dropDownList(
-        \yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(), 'id', 'name'),
-        ['prompt'=>'Выберите категорию']
-    ); ?>
-
-    <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
-
-
-    <?= $form->field($model, 'article_decs')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-            'editorOptions' => ElFinder::ckeditorOptions(['/article/elfinder/manager','article_id'=>$model->id],[
-                    'disableNativeSpellChecker' => false,
-                    'height' => '950px',
-                ]),
-
-        ]);
+    
+    <?
+    echo \yii\bootstrap\Tabs::widget([
+         'items' => [
+            [
+             'label' => 'Основное',
+             'content' => $this->render('form/_form1',['form'=>$form,'model'=>$model]),
+             'active' => true
+            ],
+            [
+             'label' => 'Содержимое',
+                'content' => $this->render('form/_form2',['form'=>$form,'model'=>$model]),
+              'headerOptions' => [''],
+              'options' => ['id' => 'myveryownID'],
+            ],
+             [
+             'label' => 'Изображения',
+             'content' => 'Anim pariatur cliche...',
+              'headerOptions' => [''],
+            ],
+      ]
+    ]);
     ?>
-
-    <?= $form->field($model, 'origin_url')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'status')->dropDownList($model::getEnumClientValues('status'), ['prompt' => '']) ?>
-
-    <?= $form->field($model, 'default_image')->hiddenInput(['id'=>'hidden_default_image']) ?>
 
     <?php
         echo $this->render('_jCrop',[ 'model'=>$model]);
