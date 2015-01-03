@@ -13,7 +13,10 @@ $this->title = 'Статьи';
 $this->params['breadcrumbs'][] = $this->title;
 
 $columns = [
-    'id',
+    [
+        'attribute'=>'id',
+        'width'=>'100px',
+    ],
     [
         'attribute'=>'created',
         'filterType'=>'\common\widgets\intervalDatepicker\IntervalDatepicker',
