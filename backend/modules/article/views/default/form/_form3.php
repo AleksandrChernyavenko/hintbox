@@ -16,10 +16,10 @@ use dosamigos\fileupload\FileUploadUI;
 
 
 <?= FileUploadUI::widget([
-    'model' => $model,
-    'attribute' => 'id',
-    'url' => ['media/upload', 'id' => $model->id],
-    'gallery' => false,
+    'model' => new \common\models\UploadedFileModel(),
+    'attribute' => 'file',
+    'url' => ['/article/fileUpload/upload', 'id' => $model->id,'type'=>'article'],
+    'gallery' => true,
     'fieldOptions' => [
         'accept' => 'image/*'
     ],

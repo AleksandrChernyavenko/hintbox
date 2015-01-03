@@ -66,6 +66,7 @@ return [
             'class' => 'mdm\admin\Module',
             'layout' => 'left-menu', // it can be '@path/to/your/layout'.
             'controllerMap' => [
+
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
                     'userClassName' => 'amnah\yii2\user\models\User',
@@ -84,6 +85,14 @@ return [
 
         'article' => [
             'class' => 'backend\modules\article\ArticleModule',
+
+            'controllerMap' => [
+
+                'fileUpload' => [
+                    'class' => 'common\controllers\FileController', // add another controller
+                ],
+            ]
+
         ],
 
         'user' => [
