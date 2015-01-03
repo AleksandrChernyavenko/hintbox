@@ -9,12 +9,11 @@ use kartik\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $dataProvider \backend\models\ArticleSearch */
 
-$this->title = 'Articles';
+$this->title = 'Статьи';
 $this->params['breadcrumbs'][] = $this->title;
 
-
-
 $columns = [
+    'id',
     [
         'attribute'=>'created',
         'filterType'=>'\common\widgets\intervalDatepicker\IntervalDatepicker',
@@ -29,44 +28,49 @@ $columns = [
             'pluginOptions'=>['format'=>'yyyy-mm-dd']
         ],
     ],
-    'id',
     'title',
-    'description',
     'article_decs',
 
 
-//    [
-//        'attribute'=>'category_id',
-//        'filterType'=>GridView::FILTER_SELECT2,
-//        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
-//        'value'=>function ($model, $key, $index, $widget) {
-//
-//            $category = $model->category;
-//
-//            if(!$category)
-//            {
-//                return 'Не выбранна';
-//            }
-//            return Html::a($category->name, '#', [
-//                    'title'=>'View author detail',
-//                    'onclick'=>'alert("This will open the author page.\n\nDisabled for this demo!")'
-//                ]);
-//        },
-//        'format'=>'raw',
-//        'width'=>'270px',
-//        'filterWidgetOptions'=>[
-//            'pluginOptions'=>['allowClear'=>true],
-//        ],
-//        'filterInputOptions'=>[
-//            'placeholder'=>'Все категории'
-//        ],
-//    ],
+    [
+        'attribute'=>'category_id',
+        'filterType'=>GridView::FILTER_SELECT2,
+        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
+        'value'=>function ($model, $key, $index, $widget) {
+
+            $category = $model->category;
+            if(!$category)
+            {
+                return 'Не выбранна';
+            }
+            return $category->getLink();
+        },
+        'format'=>'raw',
+        'width'=>'270px',
+        'filterWidgetOptions'=>[
+            'pluginOptions'=>['allowClear'=>true],
+        ],
+        'filterInputOptions'=>[
+            'placeholder'=>'Все категории'
+        ],
+    ],
 
     [
-        'class'=>'kartik\grid\BooleanColumn',
         'attribute'=>'status',
-        'vAlign'=>'middle',
+        'filterType'=>GridView::FILTER_SELECT2,
+        'filter'=>\common\enums\ArticleEnum::getClientValues(),
+        'value'=>function ($model, $key, $index, $widget) {
+            return \common\enums\ArticleEnum::getLabel($model->status);
+        },
+        'format'=>'raw',
+        'filterWidgetOptions'=>[
+            'pluginOptions'=>['allowClear'=>true],
+        ],
+        'filterInputOptions'=>[
+            'placeholder'=>'Все статусы'
+        ],
     ],
+
     [
         'class'=>'kartik\grid\ActionColumn',
         'dropdown'=>false,

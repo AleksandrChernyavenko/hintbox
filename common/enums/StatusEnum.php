@@ -1,5 +1,6 @@
 <?php
 namespace common\enums;
+use yii\helpers\Html;
 
 class StatusEnum extends AbstractEnum
 {
@@ -76,5 +77,10 @@ class StatusEnum extends AbstractEnum
         ];
 
         return isset($classes[$key]) ? $classes[$key] : '';
+    }
+
+    public static function getLabel($value)
+    {
+        return Html::tag('span',self::getClientValue($value),['class'=>'label label-sm '.self::getHtmlClass($value)]);
     }
 }
