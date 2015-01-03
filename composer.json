@@ -19,7 +19,6 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "mdmsoft/yii2-admin": "dev-master",
-        "amnah/yii2-user": "dev-master",
         "kartik-v/yii2-widget-select2": "*",
         "mihaildev/yii2-ckeditor": "*",
         "mihaildev/yii2-elfinder": "*",
@@ -30,7 +29,8 @@
         "kartik-v/yii2-dynagrid": "*",
         "kartik-v/yii2-mpdf": "dev-master",
         "kartik-v/yii2-widgets": "dev-master",
-        "kartik-v/yii2-field-range": "dev-master"
+        "kartik-v/yii2-field-range": "dev-master",
+        "2amigos/yii2-file-upload-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

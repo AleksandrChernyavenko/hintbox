@@ -15,12 +15,27 @@ use dosamigos\fileupload\FileUploadUI;
 ?>
 
 
-
-<?= $form->field($model, 'content')->widget(CKEditor::className(), [
-    'editorOptions' => ElFinder::ckeditorOptions(['/article/elfinder/manager','article_id'=>$model->id],[
-        'disableNativeSpellChecker' => false,
-        'height' => '950px',
-    ]),
-
+<?= FileUploadUI::widget([
+    'model' => $model,
+    'attribute' => 'id',
+    'url' => ['media/upload', 'id' => $model->id],
+    'gallery' => false,
+    'fieldOptions' => [
+        'accept' => 'image/*'
+    ],
+    'clientOptions' => [
+        'maxFileSize' => 2000000
+    ],
+    // ...
+    'clientEvents' => [
+        'fileuploaddone' => 'function(e, data) {
+                                    console.log(e);
+                                    console.log(data);
+                                }',
+        'fileuploadfail' => 'function(e, data) {
+                                    console.log(e);
+                                    console.log(data);
+                                }',
+    ],
 ]);
 ?>

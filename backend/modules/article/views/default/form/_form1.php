@@ -33,3 +33,8 @@ use common\widgets\ElFinder;
 <?= $form->field($model, 'status')->dropDownList($model::getEnumClientValues('status'), ['prompt' => '']) ?>
 
 <?= $form->field($model, 'default_image')->hiddenInput(['id'=>'hidden_default_image']) ?>
+
+
+<div class="form-group">
+    <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+</div>
