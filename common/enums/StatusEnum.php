@@ -74,6 +74,8 @@ class StatusEnum extends AbstractEnum
             self::STATUS_VISIBLE => 'label-warning',
             self::STATUS_INVISIBLE => 'label-danger',
             self::STATUS_MODERATED => 'label-warning',
+            self::STATUS_ARCHIVED => 'label-warning',
+            self::STATUS_IN_PROGRESS => 'label-success',
         ];
 
         return isset($classes[$key]) ? $classes[$key] : '';
@@ -82,5 +84,15 @@ class StatusEnum extends AbstractEnum
     public static function getLabel($value)
     {
         return Html::tag('span',self::getClientValue($value),['class'=>'label label-sm '.self::getHtmlClass($value)]);
+    }
+
+    public static function getClientLabelValues()
+    {
+        return [
+            self::STATUS_ACTIVE => self::getLabel( self::STATUS_ACTIVE),
+            self::STATUS_DELETED => self::getLabel( self::STATUS_DELETED),
+            self::STATUS_ARCHIVED => self::getLabel( self::STATUS_ARCHIVED),
+            self::STATUS_IN_PROGRESS => self::getLabel( self::STATUS_IN_PROGRESS),
+        ];
     }
 }

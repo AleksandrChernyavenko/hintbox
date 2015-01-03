@@ -57,13 +57,16 @@ $columns = [
     [
         'attribute'=>'status',
         'filterType'=>GridView::FILTER_SELECT2,
-        'filter'=>\common\enums\ArticleEnum::getClientValues(),
+        'filter'=>\common\enums\ArticleEnum::getClientLabelValues(),
         'value'=>function ($model, $key, $index, $widget) {
             return \common\enums\ArticleEnum::getLabel($model->status);
         },
         'format'=>'raw',
         'filterWidgetOptions'=>[
-            'pluginOptions'=>['allowClear'=>true],
+            'pluginOptions'=>[
+                'allowClear'=>true,
+                'escapeMarkup'=>new \yii\web\JsExpression("function(m) { return m; }"),
+            ],
         ],
         'filterInputOptions'=>[
             'placeholder'=>'Все статусы'
