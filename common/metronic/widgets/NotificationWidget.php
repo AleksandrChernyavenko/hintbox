@@ -38,7 +38,7 @@ HTML;
     public $dropdownTemplate = <<< HTML
 <ul class="dropdown-menu">
 							<li class="external">
-								<h3>У вас <strong>{count} непрочитанных</strong> сообщений</h3>
+								<h3>Последние сообщения</h3>
 								<a href="javascript:;">Посмотреть все</a>
 							</li>
 							<li>
