@@ -69,23 +69,23 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                                 ],
 								[
                                     'label'=>'Пользователи',
-                                    'url'=>'/category/default/index',
+                                    'url'=>'/user/default/index',
                                     'iconClass'=>'icon-wallet',
                                 ],
 								[
                                     'label'=>'Виджеты',
-                                    'url'=>'/category/default/index',
+                                    'url'=>'/widgets/default/index',
                                     'iconClass'=>'icon-envelope',
 									'items'=>[
 										[
 											'label'=>'Предсказания',
-											'url'=>'site/index',
+											'url'=>'/widgets/prev/index',
 											'iconClass'=>'icon-envelope',
 
 										],
 										[
 											'label'=>'Анекдоты',
-											'url'=>'site/index',
+											'url'=>'/widgets/anec/index',
 											'iconClass'=>'icon-wallet',
 										],
 									]
@@ -103,7 +103,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
                                 ],
                                 [
                                     'label'=>'Сайты',
-                                    'url'=>'/category/default/index',
+                                    'url'=>'/sites/default/index',
                                     'iconClass'=>'icon-wallet',
                                 ],
                                 [
@@ -172,7 +172,7 @@ echo \common\metronic\widgets\PageHeaderMain::widget([
 								],
 								[
 									'label'=>'Категории',
-									'url'=>'/category/default/index',
+									'url'=>'/dorvei/category/index',
 									'iconClass'=>'icon-wallet',
 								],
 								[

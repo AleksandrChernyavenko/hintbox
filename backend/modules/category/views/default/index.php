@@ -8,7 +8,7 @@ use kartik\grid\GridView;
 /* @var $dataProvider \backend\models\Category */
 /* @var $dataProvider \backend\models\CategorySearch */
 
-$this->title = 'Categories';
+$this->title = 'Категории';
 $this->params['breadcrumbs'][] = $this->title;
 
 
