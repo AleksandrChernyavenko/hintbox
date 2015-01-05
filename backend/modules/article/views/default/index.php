@@ -108,7 +108,7 @@ $columns = [
             'pjax'=>true,
 
             'panel'=>[
-                'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i>  Library</h3>',
+                'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i>Список статей</h3>',
                 'after' => false
             ],
             'toolbar' =>  [
