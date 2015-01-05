@@ -28,7 +28,7 @@ class CategorySearch extends Category
     {
         return ArrayHelper::merge([
             [['id', 'parent_id'], 'integer'],
-            [['name', 'image', 'status'], 'safe'],
+            [['name', 'image', 'status', 'created'], 'safe'],
         ], self::traitRules());
     }
 
@@ -63,13 +63,14 @@ class CategorySearch extends Category
         $query->andFilterWhere([
                 'id' => $this->id,
                 'parent_id' => $this->parent_id,
-                'created' => $this->created,
-                'updated' => $this->updated,
             ]);
 
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['in', 'status', $this->status]);
+
+        $query->andFilterWhere($this->getDateRangeFilter('created'));
+        $query->andFilterWhere($this->getDateRangeFilter('updated'));
 
 
         return $dataProvider;

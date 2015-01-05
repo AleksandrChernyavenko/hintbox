@@ -14,4 +14,10 @@ class MainController extends Controller
     {
         return "{$this->uniqueId}/{$this->action->id}";
     }
+
+    public function setPageTitle($title)
+    {
+        $view = &Yii::$app->getView();
+        $view->title = $title;
+    }
 }

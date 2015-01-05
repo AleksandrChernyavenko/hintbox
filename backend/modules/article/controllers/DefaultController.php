@@ -52,6 +52,8 @@ class DefaultController extends MainController
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $this->setPageTitle('Статьи');
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,

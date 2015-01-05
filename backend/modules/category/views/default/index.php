@@ -8,17 +8,27 @@ use kartik\grid\GridView;
 /* @var $dataProvider \backend\models\Category */
 /* @var $dataProvider \backend\models\CategorySearch */
 
-$this->title = 'Категории';
 $this->params['breadcrumbs'][] = $this->title;
-
-
-
 
 $columns = [
     [
         'attribute'=>'id',
         'width'=>'100px',
     ],
+
+    [
+        'attribute'=>'created',
+        'filterType'=>'\common\widgets\intervalDatepicker\IntervalDatepicker',
+        'format'=>'raw',
+        'width'=>'270px',
+        'value'=>function ($model, $key, $index, $widget) {
+            return $model->created;
+        },
+        'filterWidgetOptions'=>[
+            'pluginOptions'=>['format'=>'yyyy-mm-dd']
+        ],
+    ],
+
     'name',
 
     [
@@ -30,20 +40,7 @@ $columns = [
             },
     ],
 
-    [
-        'attribute'=>'date_start',
-        'filterType'=>GridView::FILTER_DATE,
-        'format'=>'raw',
-        'width'=>'270px',
-        'filterWidgetOptions'=>[
-            'type'=>5,
-            'attribute2'=>'date_end',
-            'pluginOptions'=>['format'=>'yyyy-mm-dd']
-        ],
-        'value'=>function ($model, $key, $index, $widget) {
-               return $model->created;
-            },
-    ],
+
 
     [
         'attribute'=>'parent_id',

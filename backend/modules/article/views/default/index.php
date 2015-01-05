@@ -9,7 +9,6 @@ use kartik\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $dataProvider \backend\models\ArticleSearch */
 
-$this->title = 'Статьи';
 $this->params['breadcrumbs'][] = $this->title;
 
 $columns = [
@@ -22,15 +21,22 @@ $columns = [
         'filterType'=>'\common\widgets\intervalDatepicker\IntervalDatepicker',
         'format'=>'raw',
         'width'=>'270px',
-
-        'value'=>function ($model, $key, $index, $widget) {
-            return $model->created;
-        },
-
         'filterWidgetOptions'=>[
             'pluginOptions'=>['format'=>'yyyy-mm-dd']
         ],
     ],
+
+    [
+        'attribute'=>'updated',
+        'filterType'=>'\common\widgets\intervalDatepicker\IntervalDatepicker',
+        'format'=>'raw',
+        'width'=>'270px',
+        'filterWidgetOptions'=>[
+            'pluginOptions'=>['format'=>'yyyy-mm-dd']
+        ],
+        'visible'=>false,
+    ],
+
     'title',
     'article_decs',
 
