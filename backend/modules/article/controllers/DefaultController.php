@@ -7,6 +7,7 @@ use Yii;
 use backend\models\Article;
 use yii\data\ActiveDataProvider;
 use common\controllers\MainController;
+use yii\filters\AccessControl;
 use yii\helpers\FileHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -20,6 +21,17 @@ class DefaultController extends MainController
     public function behaviors()
     {
         return [
+
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow'   => true,
+                        'roles'   => ['@'],
+                    ],
+                ],
+            ],
+
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -28,6 +40,7 @@ class DefaultController extends MainController
             ],
         ];
     }
+
 
     /**
      * Lists all Article models.
