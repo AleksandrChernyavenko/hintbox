@@ -156,6 +156,11 @@ return [
                 'url'=>'/dorvei/default/index',
                 'iconClass'=>'icon-home',
             ],
+            [
+                'label'=>'Admin Module',
+                'url'=>'/admin/default/index',
+                'iconClass'=>'icon-home',
+            ],
         ]
     ],
 ];

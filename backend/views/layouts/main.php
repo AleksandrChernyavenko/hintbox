@@ -27,7 +27,7 @@ AppAsset::register($this);
 
     <? \frontend\widgets\Alert::widget([]);?>
 
-    <div class="wrap">
+    <div class="wrap page-content">
         <?php
 //            NavBar::begin([
 //                'brandLabel' => 'My Company',
@@ -63,7 +63,9 @@ AppAsset::register($this);
         <?= \common\metronic\widgets\MetronicBreadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= $content ?>
+        <div class="row portlet light">
+         <?= $content ?>
+        </div>
         </div>
     </div>
 
