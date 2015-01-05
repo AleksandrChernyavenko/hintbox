@@ -12,6 +12,9 @@
 echo \common\metronic\widgets\PageHeaderMain::widget([
     'headerTop'=>\common\metronic\widgets\PageHeaderTop::widget([
 		'notification'=>\common\metronic\widgets\NotificationWidget::widget([]),
+		'task'=>\common\metronic\widgets\TasksWidget::widget([
+			'tasks'=> require(__DIR__ . '/tasks.php'),
+		]),
 		'dropdownUser'=>\common\metronic\widgets\UserTopMenuWidget::widget([
 			'elements'=>[
 				[
