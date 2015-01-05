@@ -29,6 +29,17 @@ $columns = [
         ],
     ],
 
+    [
+        'attribute'=>'updated',
+        'filterType'=>'\common\widgets\intervalDatepicker\IntervalDatepicker',
+        'format'=>'raw',
+        'width'=>'270px',
+        'filterWidgetOptions'=>[
+            'pluginOptions'=>['format'=>'yyyy-mm-dd']
+        ],
+        'visible'=>false,
+    ],
+
     'name',
 
     [
