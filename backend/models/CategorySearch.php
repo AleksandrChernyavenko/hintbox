@@ -72,6 +72,9 @@ class CategorySearch extends Category
         $query->andFilterWhere($this->getDateRangeFilter('created'));
         $query->andFilterWhere($this->getDateRangeFilter('updated'));
 
+//        VarDumper::dump($query,3,3);
+//        exit;
+
 
         return $dataProvider;
     }

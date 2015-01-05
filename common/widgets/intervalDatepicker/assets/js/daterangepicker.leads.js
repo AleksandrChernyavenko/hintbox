@@ -361,6 +361,7 @@
 
             if (this.element.is('input')) {
                 this.element.val(this.cleared ? '' : this.startDate.format(this.format) + this.separator + this.endDate.format(this.format));
+                this.element.change();
             }
             var arg1 = (this.cleared ? null : this.startDate),
                 arg2 = (this.cleared ? null : this.endDate);
