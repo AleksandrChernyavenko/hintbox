@@ -51,7 +51,7 @@ class PageHeaderTop extends Widget
 <!-- END HEADER TOP -->
 HTML;
 
-    public $imageSrc = 'http://www.keenthemes.com/preview/metronic/theme/assets/admin/layout3/img/logo-default.png';
+    public $imageSrc;
     public $imageOptions = [];
 
     public $notification;
@@ -65,6 +65,11 @@ HTML;
 <!-- END RESPONSIVE MENU TOGGLER -->
 HTML;
 
+
+    public function getImageSrc()
+    {
+        return $this->imageSrc ? : \Yii::$app->params['logoSrc'];
+    }
 
 
     public function run()
@@ -92,7 +97,7 @@ HTML;
             $this->imageOptions['class'] =  ' logo-default';
         }
         return Html::a(
-            Html::img($this->imageSrc,$this->imageOptions),
+            Html::img($this->getImageSrc(),$this->imageOptions),
             Url::to('/',true)
         );
 

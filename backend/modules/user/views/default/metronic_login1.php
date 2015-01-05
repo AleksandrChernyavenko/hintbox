@@ -9,7 +9,7 @@ use yii\helpers\Html;
 
 <div class="logo">
 	<a href="index.html">
-		<img src="http://www.keenthemes.com/preview/metronic/theme/assets/admin/layout3/img/logo-big.png" alt="">
+		<img src="<?= \Yii::$app->params['logoSrc']; ?>" alt="">
 	</a>
 </div>
 
