@@ -25,6 +25,8 @@ AppAsset::register($this);
 
     <?= $this->render('_header'); ?>
 
+    <? \frontend\widgets\Alert::widget([]);?>
+
     <div class="wrap">
         <?php
 //            NavBar::begin([
