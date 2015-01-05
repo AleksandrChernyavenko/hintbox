@@ -71,15 +71,6 @@ class CategorySearch extends Category
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['in', 'status', $this->status]);
 
-//        VarDumper::dump($this->status,3,3);
-        $this->status = implode(', ', ['active', 'deleted']);
-//
-//        VarDumper::dump($this->status,3,3);
-//        exit;
-
-        $query->andFilterWhere($this->getDateRangeFilter('create'));
-
-
 
         return $dataProvider;
     }

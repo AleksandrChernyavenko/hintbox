@@ -36,13 +36,13 @@ class Category extends ActiveRecord
     public function rules()
     {
         return [
-            [['parent_id', 'name'], 'required'],
+            [['parent_id', 'name', 'status'], 'required'],
             [['parent_id'], 'integer'],
             [['image', 'status'], 'string'],
             [['status'], 'enumValidation'],
             [['name'], 'string', 'max' => 255],
             [['created', 'updated'], 'safe'],
-            [['image'], 'file', 'extensions' => 'jpg, gif, png'],
+            [['image'], 'file', 'extensions' => 'jpg, gif, png','skipOnEmpty'=>false],
         ];
     }
 
@@ -58,7 +58,7 @@ class Category extends ActiveRecord
 
     public function getTextWithImage()
     {
-        return Html::img($this->getSrc()).' '.$this->name;
+        return Html::img($this->getSrc(), ['style'=>'height: 25px;']).' '.$this->getIdName();
     }
 
     public function getSrc()

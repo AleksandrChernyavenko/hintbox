@@ -1,7 +1,7 @@
 <?php
 namespace common\enums;
 
-class CategoryStatusEnum extends StatusEnum
+class CategoryEnum extends StatusEnum
 {
     const STATUS_ACTIVE = 'active';
     const STATUS_DELETED = 'deleted';
@@ -30,5 +30,13 @@ class CategoryStatusEnum extends StatusEnum
         ];
 
         return isset($classes[$key]) ? $classes[$key] : '';
+    }
+
+    public static function getClientLabelValues()
+    {
+        return [
+            self::STATUS_ACTIVE => self::getLabel( self::STATUS_ACTIVE),
+            self::STATUS_DELETED => self::getLabel( self::STATUS_DELETED),
+        ];
     }
 }

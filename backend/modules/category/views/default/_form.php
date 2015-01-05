@@ -20,7 +20,6 @@ use kartik\select2\Select2;
     <?php $form = ActiveForm::begin(['options' => ['enctype'=>'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'parent_id')->widget(Select2::className(),
-
         [
         'data' => array_merge(["0" => "Основаня категори"], \yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(),'id','textWithImage')),
          'language' => 'ru',
@@ -46,7 +45,7 @@ use kartik\select2\Select2;
 
     ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'active' => 'Active', 'delete' => 'Delete', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->dropDownList($model::getEnumClientValues('status'), ['prompt' => '']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

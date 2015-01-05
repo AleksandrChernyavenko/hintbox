@@ -15,7 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 $columns = [
-    'id',
+    [
+        'attribute'=>'id',
+        'width'=>'100px',
+    ],
     'name',
 
     [
@@ -54,15 +57,15 @@ $columns = [
                 {
                     return  \common\helpers\YesNo::getLabel('');
                 }
-                return Html::a($category->name, '#', [
-                    'title'=>'View author detail',
-                    'onclick'=>'alert("This will open the author page.\n\nDisabled for this demo!")'
-                ]);
+                return $category->getLink();
             },
         'format'=>'raw',
         'width'=>'270px',
         'filterWidgetOptions'=>[
-            'pluginOptions'=>['allowClear'=>true],
+            'pluginOptions'=>[
+                'allowClear'=>true,
+                'escapeMarkup'=>new \yii\web\JsExpression("function(m) { return m; }"),
+            ],
         ],
         'filterInputOptions'=>[
             'placeholder'=>'Все категории'
@@ -73,23 +76,20 @@ $columns = [
     [
         'attribute'=>'status',
         'filterType'=>GridView::FILTER_SELECT2,
+        'filter'=>\common\enums\CategoryEnum::getClientLabelValues(),
         'format'=>'raw',
-        'width'=>'270px',
         'filterWidgetOptions'=>[
-            'options'=> [
-                'multiple'=>true,
+            'pluginOptions'=>[
+                'allowClear'=>true,
+                'escapeMarkup'=>new \yii\web\JsExpression("function(m) { return m; }"),
             ],
-            'data'=>[
-                \common\enums\CategoryStatusEnum::getClientValues()
-            ],
-            'pluginOptions' => [
-
-            ]
         ],
         'value'=>function ($model, $key, $index, $widget) {
-                $model->status = 'active, deleted';
-                return $model->status;
-            },
+            return \common\enums\CategoryEnum::getLabel($model->status);
+        },
+        'filterInputOptions'=>[
+            'placeholder'=>'Все статусы'
+        ],
     ],
 
     [

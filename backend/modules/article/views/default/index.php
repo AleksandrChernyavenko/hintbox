@@ -38,7 +38,7 @@ $columns = [
     [
         'attribute'=>'category_id',
         'filterType'=>GridView::FILTER_SELECT2,
-        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
+        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'textWithImage'),
         'value'=>function ($model, $key, $index, $widget) {
 
             $category = $model->category;
