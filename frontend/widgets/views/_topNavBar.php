@@ -64,10 +64,7 @@ foreach ($otherCategorys as $cat) {
 
 $html = <<<HTML
 <div class="container">
-        <h1>Congratulations!</h1>
-
         {$html}
-
     </div>
 HTML;
 

@@ -9,6 +9,7 @@ namespace frontend\widgets;
 
 
 
+use common\enums\CategoryEnum;
 use frontend\models\Category;
 
 class CategoryNavBar extends \yii\base\Widget
@@ -25,7 +26,7 @@ class CategoryNavBar extends \yii\base\Widget
 
     private function getActiveCategory()
     {
-        $category =  Category::find()->all();
+        $category =  Category::find()->andWhere('status = :status',[':status'=>CategoryEnum::STATUS_ACTIVE])->all();
         return $category;
     }
 
