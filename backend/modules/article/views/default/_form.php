@@ -27,18 +27,12 @@ use yii\widgets\ActiveForm;
               'options' => ['id' => 'myveryownID'],
             ],
              [
-             'label' => 'Изображения',
-                 'content' => $this->render('form/_form3',['form'=>$form,'model'=>$model]),
+             'label' => 'Изображение',
+              'content' => $this->render('form/_form3',['form'=>$form,'model'=>$model]),
               'headerOptions' => [''],
             ],
       ]
     ]);
     ?>
-
-    <?php
-        echo $this->render('_jCrop',[ 'model'=>$model]);
-    ?>
-
-
 
 </div>

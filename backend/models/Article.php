@@ -103,37 +103,19 @@ class Article extends \common\models\Article
 
     }
 
-    public function renderTableOfImage()
+    public function renderListOfImage()
     {
         $images = $this->getListOfImage();
-
-
-
-        $cols = 3; // Количество столбцов в будущей таблице с картинками
-        echo "<table>"; // Начинаем таблицу
-        $k = 0; // Вспомогательный счётчик для перехода на новые строки
-
-
         for ($i = 0; $i < count($images); $i++) { // Перебираем все файлы
 
-                if ($k % $cols == 0) {
-                    echo "<tr>"; // Добавляем новую строку
-                }
+            echo "<span class='tableImagejCrop'>"; // Начинаем столбец
 
-                echo "<td class='tableImagejCrop'>"; // Начинаем столбец
-
-                $path = \Yii::$app->staticUrlManager->baseUrl . "/images/article/{$this->id}/".$images[$i]; // Получаем путь к картинке
-                echo "<a href='$images[$i]' class='tableImagejCropHref'>"; // Делаем ссылку на картинку
-                echo "<img src='$path' alt='' width='100' />"; // Вывод превью картинки
-                echo "</a>"; // Закрываем ссылку
-                echo "</td>"; // Закрываем столбец
-                /* Закрываем строку, если необходимое количество было выведено, либо данная итерация последняя */
-                if ((($k + 1) % $cols == 0) || (($i + 1) == count($images))) echo "</tr>";
-                $k++; // Увеличиваем вспомогательный счётчик
+            $path = \Yii::$app->staticUrlManager->baseUrl . "/images/article/{$this->id}/".$images[$i]; // Получаем путь к картинке
+            echo "<a href='$images[$i]' class='tableImagejCropHref'>"; // Делаем ссылку на картинку
+            echo "<img src='$path' alt='' width='100px' />"; // Вывод превью картинки
+            echo "</a>"; // Закрываем ссылку
+            echo "</span>"; // Закрываем столбец
         }
-        echo "</table>"; // Закрываем таблицу
-
-
     }
 
 }

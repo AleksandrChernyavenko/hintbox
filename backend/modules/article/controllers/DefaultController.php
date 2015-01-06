@@ -144,6 +144,7 @@ class DefaultController extends MainController
         $imageId_y2 = Yii::$app->getRequest()->post('imageId_y2');
         $imageId_h = Yii::$app->getRequest()->post('imageId_h');
         $imageId_w = Yii::$app->getRequest()->post('imageId_w');
+        $factor= Yii::$app->getRequest()->post('factor');
 
 
         if(is_null($imageId_x) || is_null($imageId_x2) || is_null($imageId_y) || is_null($imageId_y2) || is_null($imageId_h) || is_null($imageId_w))
@@ -170,6 +171,14 @@ class DefaultController extends MainController
         $image = Yii::$app->image->load($file);
 
         $defaultname = 'prev_article_image.png';
+
+        $imageId_x *= $factor;
+        $imageId_x2 *= $factor;
+        $imageId_y *= $factor;
+        $imageId_y2 *= $factor;
+        $imageId_h *= $factor;
+        $imageId_w *= $factor;
+
         if($image->crop($imageId_h, $imageId_w, $imageId_x, $imageId_y)->save(\Yii::getAlias('@static/images/article/'.$articleId.'/'.$defaultname)))
         {
             return [
