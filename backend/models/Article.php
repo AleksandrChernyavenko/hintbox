@@ -46,8 +46,7 @@ class Article extends \common\models\Article
     public function delete()
     {
         $this->status = StatusEnum::STATUS_DELETED;
-        $this->save();
-        return true;
+        return  $this->save();
     }
 
 
