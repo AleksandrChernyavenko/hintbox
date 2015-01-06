@@ -30,8 +30,7 @@ return [
             'class' => 'yii\web\UrlManager',
             'showScriptName' => true,
             'rules'=>[
-                '<controller:\w+>/<action:\w+>/<id:\d+>'        => '<controller>/<action>',
-                '/<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>'        => '/<module>/<controller>/<action>',
+
             ]
         ],
         'image' => [

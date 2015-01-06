@@ -58,96 +58,6 @@ return [
         ]
     ],
     [
-        'label'=>'Трекер',
-        'type'=>TopNavMenu::TYPE_DROPDOWN,
-        'items'=>[
-            [
-                'label'=>'Статистика',
-                'url'=>'/',
-                'iconClass'=>'icon-home',
-            ],
-            [
-                'label'=>'Сайты',
-                'url'=>'/sites/default/index',
-                'iconClass'=>'icon-wallet',
-            ],
-            [
-                'label'=>'Коротки ссылки',
-                'url'=>'site/index',
-                'iconClass'=>'icon-puzzle',
-                'items'=>[
-                    [
-                        'label'=>'TYPE_DROPDOWN_3_1',
-                        'url'=>'site/index',
-                        'iconClass'=>'icon-home',
-
-                    ],
-                    [
-                        'label'=>'TYPE_DROPDOWN_3_2',
-                        'url'=>'site/index',
-                        'iconClass'=>'icon-wallet',
-                    ],
-                    [
-                        'label'=>'TYPE_DROPDOWN_3_3',
-                        'url'=>'site/index',
-                        'iconClass'=>'icon-puzzle',
-                    ],
-                    [
-                        'label'=>'TYPE_DROPDOWN_3',
-                        'url'=>'site/index',
-                        'iconClass'=>'icon-puzzle',
-                        'items'=>[
-                            [
-                                'label'=>'TYPE_DROPDOWN_3_1 active',
-                                'url'=>'site/index',
-                                'iconClass'=>'icon-home',
-
-                            ],
-                            [
-                                'label'=>'TYPE_DROPDOWN_3_2',
-                                'url'=>'/user/login',
-                                'iconClass'=>'icon-wallet',
-                            ],
-                            [
-                                'label'=>'TYPE_DROPDOWN_3_3',
-                                'url'=>'site/index',
-                                'iconClass'=>'icon-puzzle',
-                            ],
-
-                        ]
-                    ],
-
-                ]
-            ],
-            [
-                'label'=>'Коды js',
-                'url'=>'site/index',
-                'iconClass'=>'icon-wallet',
-            ],
-        ]
-    ],
-    [
-        'label'=>'Дорвеи',
-        'type'=>TopNavMenu::TYPE_DROPDOWN,
-        'items'=>[
-            [
-                'label'=>'Статистика',
-                'url'=>'/dorvei/default/index',
-                'iconClass'=>'icon-home',
-            ],
-            [
-                'label'=>'Категории',
-                'url'=>'/dorvei/category/index',
-                'iconClass'=>'icon-wallet',
-            ],
-            [
-                'label'=>'TYPE_DROPDOWN_4',
-                'url'=>'site/index',
-                'iconClass'=>'icon-wallet',
-            ],
-        ]
-    ],
-    [
         'label'=>'Система',
         'type'=>TopNavMenu::TYPE_DROPDOWN,
         'items'=>[
@@ -158,6 +68,11 @@ return [
             ],
             [
                 'label'=>'Admin Module',
+                'url'=>'/admin/default/index',
+                'iconClass'=>'icon-home',
+            ],
+            [
+                'label'=>'Очистка кеша',
                 'url'=>'/admin/default/index',
                 'iconClass'=>'icon-home',
             ],

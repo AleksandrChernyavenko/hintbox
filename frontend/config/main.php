@@ -36,6 +36,8 @@ return [
             'showScriptName' => false,
             'rules'=>
             [
+                'cat/<id:\d+>-<title:.*?>'=>'/category/default/view',
+                '/cat/<id:\d+>-<title:.*?>'=>'/category/default/view',
                 '<id:\d+>-<title:.*?>'=>'article/default/view',
             ]
         ],

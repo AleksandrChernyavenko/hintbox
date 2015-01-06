@@ -40,6 +40,9 @@ return [
             'showScriptName' => false,
             'rules'=>[
                 'users/login' => 'users/default/login',
+
+                '<controller:\w+>/<action:\w+>/<id:\d+>'        => '<controller>/<action>',
+                '/<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>'        => '/<module>/<controller>/<action>',
             ]
         ],
 
