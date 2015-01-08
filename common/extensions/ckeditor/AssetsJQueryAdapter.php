@@ -4,14 +4,14 @@
  * Time: 22:16
  */
 
-namespace mihaildev\widget;
+namespace common\extensions\ckeditor;
 
 use yii\web\AssetBundle;
 
 
 class AssetsJQueryAdapter extends AssetBundle{
 
-	public $sourcePath = '@mihaildev/ckeditor/editor/adapters';
+	public $sourcePath = '@common/extensions/ckeditor/editor/adapters';
 
     public $js = [
         'jquery.js',

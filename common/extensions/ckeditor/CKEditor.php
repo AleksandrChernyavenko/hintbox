@@ -4,7 +4,7 @@
  * Time: 1:18
  */
 
-namespace mihaildev\ckeditor;
+namespace common\extensions\ckeditor;
 
 
 use yii\helpers\ArrayHelper;

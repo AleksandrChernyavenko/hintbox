@@ -10,7 +10,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-use mihaildev\ckeditor\CKEditor;
+use common\extensions\ckeditor\CKEditor;
 use common\widgets\ElFinder;
 
 /* @var $this yii\web\View */
@@ -22,6 +22,7 @@ use common\widgets\ElFinder;
 
 <?= $form->field($model, 'content')->widget(CKEditor::className(), [
     'editorOptions' => ElFinder::ckeditorOptions(['/article/elfinder/manager','article_id'=>$model->id],[
+        'extraPlugins' => 'dragresize',
         'disableNativeSpellChecker' => false,
         'height' => '950px',
     ]),

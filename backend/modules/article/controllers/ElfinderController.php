@@ -126,7 +126,7 @@ class ElfinderController extends \mihaildev\elfinder\Controller
             $options['commands'] = new JsExpression('ElFinderGetCommands('.Json::encode($this->disabledCommands).')');
 
 
-        return $this->renderFile(parent::getDIR()."/views/manager.php", ['options'=>$options]);
+        return $this->renderFile(Yii::getAlias('@vendor/mihaildev/yii2-elfinder')."/views/manager.php", ['options'=>$options]);
     }
 
 
