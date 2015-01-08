@@ -59,4 +59,15 @@ class ActiveRecord extends \yii\db\ActiveRecord
         $calledNS = substr($calledClass, 0, $nsPosition);
         return forward_static_call([$calledNS . '\\'.$className, 'className']);
     }
+
+
+    /**
+     * @inheritdoc
+     * @return ActiveQuery the newly created [[ActiveQuery]] instance.
+     */
+    public function findActive()
+    {
+        return self::find();
+        return parent::find()->andWhere('status = :status',[':status'=>StatusEnum::STATUS_ACTIVE]);
+    }
 }
