@@ -29,7 +29,7 @@
 
                 <ul class="list-inline pull-right">
                     <?
-                    foreach (\frontend\models\Category::find()->all() as $category) {
+                    foreach (\frontend\models\Category::findActive()->all() as $category) {
                         echo \yii\helpers\Html::tag('li',\yii\helpers\Html::a($category->name,$category->getAbsoluteUrl(), ['target'=>'_blank']));
                     }
                     ?>
