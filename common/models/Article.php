@@ -57,7 +57,10 @@ class Article extends \common\models\ActiveRecord
 
     public function getSlug()
     {
-        return TransliteratorHelper::process($this->title,'','en');
+        $slug =  TransliteratorHelper::process($this->title,'','en');
+        $slug =  preg_replace('/[^a-zA-Z0-9=\s—–-]+/u', '', $slug);
+
+        return $slug;
     }
 
     /**
