@@ -8,6 +8,7 @@
 namespace common\models;
 
 use common\enums\StatusEnum;
+use yii\db\ActiveQuery;
 
 class ActiveRecord extends \yii\db\ActiveRecord
 {
@@ -63,11 +64,11 @@ class ActiveRecord extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return ActiveQuery the newly created [[ActiveQuery]] instance.
+     * @return \ActiveQuery the newly created [[ActiveQuery]] instance.
      */
     public function findActive()
     {
-        return self::find();
+        return \Yii::createObject(ActiveQuery::className(), [get_called_class()]);
         return parent::find()->andWhere('status = :status',[':status'=>StatusEnum::STATUS_ACTIVE]);
     }
 }
