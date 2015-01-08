@@ -81,8 +81,7 @@ class Controller extends BaseController{
         $options = [
             'url'=> Url::toRoute('connect'),
             'customData' => [
-                Yii::$app->request->csrfParam => Yii::$app->request->csrfToken,
-                'article_id' => Yii::$app->request->get('article_id', Yii::$app->request->post('article_id')),
+                Yii::$app->request->csrfParam => Yii::$app->request->csrfToken
             ],
             'resizable' => false
         ];
@@ -123,11 +122,6 @@ class Controller extends BaseController{
 
 
         return $this->renderFile(__DIR__."/views/manager.php", ['options'=>$options]);
-    }
-
-    public function getDIR()
-    {
-        return __DIR__;
     }
 
 } 
