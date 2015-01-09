@@ -22,6 +22,7 @@ return [
         ],
 
         'user' => [
+            'class'=>'yii\web\User',
             'identityClass' => 'yii\web\User',
             'enableAutoLogin' => true,
         ],

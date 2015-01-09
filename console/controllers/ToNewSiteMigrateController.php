@@ -67,6 +67,15 @@ SQL;
 
         $this->msgInfo("Замен произведено {$result}");
 
+        $sql = <<<SQL
+
+UPDATE article SET content = REPLACE(content, 'src="http://hint-box.ru/images', 'src="$host/images')
+SQL;
+;
+        $result = \Yii::$app->getDb()->createCommand($sql)->execute();
+
+        $this->msgInfo("Замен произведено {$result}");
+
     }
 
     private function msgInfo($text)
