@@ -7,7 +7,7 @@ use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $dataProvider \backend\models\ArticleSearch */
+/* @var $dataProvider \backend\models\search\ArticleSearch */
 
 $this->params['breadcrumbs'][] = $this->title;
 

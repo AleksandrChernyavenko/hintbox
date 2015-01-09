@@ -2,7 +2,7 @@
 
 namespace backend\modules\article\controllers;
 
-use backend\models\ArticleSearch;
+use backend\models\search\ArticleSearch;
 use Yii;
 use backend\models\Article;
 use yii\data\ActiveDataProvider;

@@ -6,7 +6,7 @@
  * Time: 9:20
  */
 
-namespace backend\models;
+namespace backend\models\search;
 
 use common\traits\DateRangeTrait;
 use Yii;
