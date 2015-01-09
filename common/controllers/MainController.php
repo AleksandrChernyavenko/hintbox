@@ -26,8 +26,14 @@ class MainController extends Controller
         \Yii::$app->getSession()->setFlash('error', $msg);
     }
 
-    public function setFlashSuccess($msg)
+    public function setFlashSuccess($msg = 'Действие выполненно успешно')
     {
         \Yii::$app->getSession()->setFlash('success', $msg);
+    }
+
+    public function goBack($defaultUrl = null)
+    {
+        $defaultUrl = $defaultUrl ? : Yii::$app->getRequest()->referrer;
+        return Yii::$app->getResponse()->redirect(Yii::$app->getUser()->getReturnUrl($defaultUrl));
     }
 }

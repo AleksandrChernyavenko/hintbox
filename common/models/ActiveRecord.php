@@ -8,6 +8,8 @@
 namespace common\models;
 
 use common\enums\StatusEnum;
+use yii\base\InvalidConfigException;
+use yii\helpers\VarDumper;
 
 class ActiveRecord extends \yii\db\ActiveRecord
 {
@@ -68,5 +70,16 @@ class ActiveRecord extends \yii\db\ActiveRecord
     public static function findActive()
     {
         return parent::find()->andWhere('status = :status',[':status'=>StatusEnum::STATUS_ACTIVE]);
+    }
+
+    public static function findByPk($pk)
+    {
+
+        $primaryKey = static::primaryKey();
+        if (isset($primaryKey[0])) {
+            return static::find()->andWhere([$primaryKey[0] => $pk])->one();
+        } else {
+            throw new InvalidConfigException(get_called_class() . ' must have a primary key.');
+        }
     }
 }

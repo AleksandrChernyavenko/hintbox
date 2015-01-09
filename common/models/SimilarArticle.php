@@ -44,7 +44,7 @@ class SimilarArticle extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'from_id' => 'Статьи',
+            'from_id' => 'Статья',
             'to_id' => 'Похожа на',
         ];
     }

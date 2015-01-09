@@ -84,3 +84,56 @@ a.desc:after {
     height: 50px;
     margin: 1px;
 }
+
+
+
+div.thumbnail div.text
+{
+    text-decoration: none;
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 4px;
+    margin-top: 1px;
+    padding: 7px;
+}
+
+div.thumbnail div.text:hover
+{
+    background-color: #fff;
+    color: green;
+}
+
+div.thumbnail div.text:hover p
+{
+    color: green;
+}
+
+div.thumbnail p
+{
+    color: #fff;
+    font-size: 16px;
+}
+
+div.thumbnail p:hover
+{
+    color: green;
+}
+
+div.thumbnail img {
+    min-width: 120px;
+
+    width: 100%;
+
+    max-width: 250px;
+    height: 204px;
+}
+
+div.thumbnail a
+{
+    text-decoration: none;
+}
+
+div.thumbnail a:hover
+{
+    color: #008000;
+}

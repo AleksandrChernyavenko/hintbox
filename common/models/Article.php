@@ -87,4 +87,28 @@ class Article extends \common\models\ActiveRecord
     {
         return $this->hasOne(self::getBackendOrFrontendModelClass('Category'),['id'=>'category_id']);
     }
+
+    public function getTextToPrew()
+    {
+        $arrayKeyWord = [
+            'Как',
+            'Что',
+            'Почему',
+            'Чем',
+        ];
+        $titleArray = explode(' ', $this->title);
+
+
+        $first_word = array_shift($titleArray);
+        $html = $first_word;
+        if(in_array($first_word,$arrayKeyWord))
+        {
+            $html .= '<br>';
+        }
+
+        $html .= ' <span>'.implode(' ', $titleArray).'</span>';
+
+
+        return $html;
+    }
 }

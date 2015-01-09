@@ -2,6 +2,7 @@
 
 namespace backend\modules\article\controllers;
 
+use backend\models\SimilarArticleSearch;
 use common\models\SimilarArticle;
 use Yii;
 use common\controllers\MainController;
@@ -37,7 +38,7 @@ class SimilarController extends MainController
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleSearch();
+        $searchModel = new SimilarArticleSearch();
 
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

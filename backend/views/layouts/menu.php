@@ -33,6 +33,11 @@ return [
                 'iconClass'=>'icon-wallet',
             ],
             [
+                'label'=>'Похожие статьи',
+                'url'=>'/article/similar/index',
+                'iconClass'=>'icon-wallet',
+            ],
+            [
                 'label'=>'Пользователи',
                 'url'=>'/user/default/index',
                 'iconClass'=>'icon-wallet',

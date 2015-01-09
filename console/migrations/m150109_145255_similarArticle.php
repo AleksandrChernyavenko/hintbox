@@ -18,8 +18,8 @@ class m150109_145255_similarArticle extends Migration
         );
 
         $this->createIndex('from_id_to_id_idx',self::TABLE,'from_id,to_id',true);
-        $this->createIndex('from_id_idx',self::TABLE,'from_id',true);
-        $this->createIndex('to_id_idx',self::TABLE,'to_id',true);
+        $this->createIndex('from_id_idx',self::TABLE,'from_id');
+        $this->createIndex('to_id_idx',self::TABLE,'to_id');
     }
 
     public function down()

@@ -67,9 +67,15 @@ class DefaultController extends MainController
                 \yii\helpers\FileHelper::removeDirectory($dir.$file);
         }
 
-        $this->setFlashError('setFleshError');
-        $this->setFlashSuccess('setFlashSuccess');
-        $this->goBack(Yii::$app->getRequest()->referrer);
+        $this->setFlashSuccess('Все файлы были удаленны и сгенерированны заново. Если необходимо обновите страницу используя ctrl+f5');
+        $this->goBack();
+    }
+
+    public function actionClearCache()
+    {
+        Yii::$app->getCache()->flush();
+        $this->setFlashSuccess();
+        $this->goBack();
     }
 
     /**
