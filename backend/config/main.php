@@ -102,6 +102,10 @@ return [
             'class' => 'backend\modules\user\Module',
         ],
 
+        'system' => [
+            'class' => 'backend\modules\system\SystemModule',
+        ],
+
         'category' => [
             'class' => 'backend\modules\category\CategoryModule',
 

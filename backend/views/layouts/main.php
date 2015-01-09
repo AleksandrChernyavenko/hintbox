@@ -25,17 +25,8 @@ AppAsset::register($this);
 
     <?= $this->render('_header'); ?>
 
-    <? \frontend\widgets\Alert::widget([]);?>
-
     <div class="wrap page-content">
         <?php
-//            NavBar::begin([
-//                'brandLabel' => 'My Company',
-//                'brandUrl' => Yii::$app->homeUrl,
-//                'options' => [
-//                    'class' => 'navbar-inverse navbar-fixed-top',
-//                ],
-//            ]);
 //            $menuItems = [
 //                ['label' => 'Главная', 'url' => ['/site/index']],
 //                ['label' => 'Меню', 'url' => ['/admin/default/index']],
@@ -51,16 +42,14 @@ AppAsset::register($this);
 //                    'url' => ['/site/logout'],
 //                    'linkOptions' => ['data-method' => 'post']
 //                ];
-//            }
-//            echo Nav::widget([
-//                'options' => ['class' => 'navbar-nav navbar-right'],
-//                'items' => $menuItems,
-//            ]);
-//            NavBar::end();
         ?>
 
         <div class="container">
-        <?= \common\metronic\widgets\MetronicBreadcrumbs::widget([
+
+            <?= \common\widgets\Alert::widget([]);?>
+
+
+            <?= \common\metronic\widgets\MetronicBreadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <div class="row portlet light">

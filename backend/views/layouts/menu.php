@@ -73,7 +73,12 @@ return [
             ],
             [
                 'label'=>'Очистка кеша',
-                'url'=>'/admin/default/index',
+                'url'=>'/system/default/clear-cache',
+                'iconClass'=>'icon-home',
+            ],
+            [
+                'label'=>'Очистка assets',
+                'url'=>'/system/default/clear-assets',
                 'iconClass'=>'icon-home',
             ],
         ]

@@ -20,4 +20,14 @@ class MainController extends Controller
         $view = &Yii::$app->getView();
         $view->title = $title;
     }
+
+    public function setFlashError($msg)
+    {
+        \Yii::$app->getSession()->setFlash('error', $msg);
+    }
+
+    public function setFlashSuccess($msg)
+    {
+        \Yii::$app->getSession()->setFlash('success', $msg);
+    }
 }
