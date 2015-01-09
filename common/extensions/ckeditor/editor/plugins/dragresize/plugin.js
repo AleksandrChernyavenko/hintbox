@@ -1,4 +1,4 @@
-﻿/**
+/**
  * CKEditor plugin: Dragable image resizing
  * - Shows semi-transparent overlay while resizing
  * - Enforces Aspect Ratio (unless holding shift)
