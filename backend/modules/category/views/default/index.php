@@ -56,7 +56,7 @@ $columns = [
     [
         'attribute'=>'parent_id',
         'filterType'=>GridView::FILTER_SELECT2,
-        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
+        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->all(), 'id', 'textWithImage'),
         'value'=>function ($model, $key, $index, $widget) {
 
                 $category = $model->parent;
@@ -68,11 +68,12 @@ $columns = [
                 return $category->getLink();
             },
         'format'=>'raw',
-        'width'=>'270px',
         'filterWidgetOptions'=>[
             'pluginOptions'=>[
-                'allowClear'=>true,
-                'escapeMarkup'=>new \yii\web\JsExpression("function(m) { return m; }"),
+                    'formatResult' => new \yii\web\JsExpression("function format(state) {  return state.text;}"),
+                    'formatSelection' => new \yii\web\JsExpression("function format(state) {  return state.text;}"),
+                    'escapeMarkup' => new \yii\web\JsExpression("function(m) { return m; }"),
+                    'allowClear' => true
             ],
         ],
         'filterInputOptions'=>[

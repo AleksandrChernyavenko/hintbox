@@ -8,6 +8,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\select2\Select2;
 
 
 /* @var $this yii\web\View */
@@ -20,9 +21,18 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(
-        \yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(), 'id', 'name'),
-        ['prompt'=>'Выберите категорию']
+    <?= $form->field($model, 'category_id')->widget(Select2::className(),
+        [
+            'data' => array_merge(["0" => "Основаня категори"], \yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(),'id','textWithImage')),
+            'language' => 'ru',
+            'options' => ['placeholder' => 'Выберите категорию ...'],
+            'pluginOptions' => [
+                'formatResult' => new \yii\web\JsExpression("function format(state) { return state.text;}"),
+                'formatSelection' => new \yii\web\JsExpression("function format(state) { return state.text;}"),
+                'allowClear' => true
+            ],
+        ]
+
     ); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>

@@ -58,7 +58,7 @@ class Category extends ActiveRecord
 
     public function getTextWithImage()
     {
-        return Html::img($this->getSrc(), ['style'=>'height: 25px;']).' '.$this->getIdName();
+        return Html::img($this->getSrc(), ['style'=>'height: 25px;width:25px']).' '.$this->getIdName();
     }
 
     public function getSrc()

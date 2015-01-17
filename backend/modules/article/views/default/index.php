@@ -44,7 +44,7 @@ $columns = [
     [
         'attribute'=>'category_id',
         'filterType'=>GridView::FILTER_SELECT2,
-        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'textWithImage'),
+        'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\Category::find()->orderBy('name')->all(), 'id', 'textWithImage'),
         'value'=>function ($model, $key, $index, $widget) {
 
             $category = $model->category;
@@ -56,7 +56,12 @@ $columns = [
         },
         'format'=>'raw',
         'filterWidgetOptions'=>[
-            'pluginOptions'=>['allowClear'=>true],
+            'pluginOptions'=>[
+                'formatResult' => new \yii\web\JsExpression("function format(state) { console.log(state); return state.text;}"),
+                'formatSelection' => new \yii\web\JsExpression("function format(state) { console.log(2); return state.text;}"),
+                'escapeMarkup' => new \yii\web\JsExpression("function(m) { console.log(3); return m; }"),
+                'allowClear' => true
+            ],
         ],
         'filterInputOptions'=>[
             'placeholder'=>'Все категории'

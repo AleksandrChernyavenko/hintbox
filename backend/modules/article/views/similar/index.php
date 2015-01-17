@@ -45,13 +45,13 @@ HTML;
 
             return $html;
         },
-        'width'=>'250px',
+        'width'=>'150px',
         'format'=>'raw',
         'filterWidgetOptions'=>[
             'pluginOptions'=>['allowClear'=>true],
         ],
         'filterInputOptions'=>[
-            'placeholder'=>'Все категории'
+            'placeholder'=>'Все статьи'
         ],
     ],
 
@@ -84,13 +84,13 @@ HTML;
 
             return $html;
         },
-        'width'=>'270px',
+        'width'=>'150px',
         'format'=>'raw',
         'filterWidgetOptions'=>[
             'pluginOptions'=>['allowClear'=>true],
         ],
         'filterInputOptions'=>[
-            'placeholder'=>'Все категории'
+            'placeholder'=>'Все статьи'
         ],
     ],
 
