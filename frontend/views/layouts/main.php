@@ -50,7 +50,7 @@ AppAsset::register($this);
                     <?= \frontend\widgets\RelatedArticleWidget::widget(
                         [
                             'countRelated'=>4,
-                            'htmlTemplate'=>'<div class="row related_article drop-shadow-article background-color-white">Случайные статьи</div><div class="wrapper"><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div></div>',
+                            'htmlTemplate'=>'<div class="row related_article drop-shadow-article background-color-white">Похожие статьи</div><div class="wrapper"><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div></div>',
                         ]
                     ); ?>
                 </div>

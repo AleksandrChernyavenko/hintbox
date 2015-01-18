@@ -9,10 +9,11 @@ namespace frontend\widgets;
 
 use frontend\models\Article;
 use yii\base\Widget;
+use yii\helpers\VarDumper;
 
 class RelatedArticleWidget extends Widget
 {
-    public $model;
+    public $models;
 
     public $countRelated = 8;
 
@@ -21,7 +22,14 @@ class RelatedArticleWidget extends Widget
 
     public function getRelatedArticles($count)
     {
-        $models = Article::find()->limit($count)->addOrderBy('RAND()')->all();
+        if($this->models)
+        {
+            return $this->models;
+        }
+        $id = \Yii::$app->request->get('id');
+        $model = Article::findByPk($id);
+
+        $models = $model ? $model->getSimilarArticle($count) : Article::find()->limit($count)->addOrderBy('RAND()')->all();
 
         return $models;
     }

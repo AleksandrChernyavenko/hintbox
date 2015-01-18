@@ -5,6 +5,7 @@ namespace common\models;
 use dosamigos\transliterator\TransliteratorHelper;
 use Yii;
 use yii\base\Model;
+use yii\helpers\ArrayHelper;
 use yii\helpers\VarDumper;
 
 /**
@@ -24,6 +25,7 @@ use yii\helpers\VarDumper;
  *
  * @property-read \common\models\Category $category
  * @property-read \common\models\SimilarArticle $similar
+ * @property-read \common\models\Article $similarArticle
  */
 class Article extends \common\models\ActiveRecord
 {
@@ -97,9 +99,22 @@ class Article extends \common\models\ActiveRecord
         return $this->hasMany(\common\models\SimilarArticle::className(),['from_id'=>'id']);
     }
 
+    public function getSimilarArticles()
+    {
+        return $this->hasMany(self::getBackendOrFrontendModelClass('Article'),['id'=>'to_id'])
+            ->viaTable(\common\models\SimilarArticle::tableName(),['from_id'=>'id']);
+    }
+
     public function getSimilarArticle($limit)
     {
-
+        $similar = $this->similarArticles;
+        if(count($this->similarArticles) < $limit) {
+            $similar =  ArrayHelper::merge(
+                $this->similarArticles,
+                \frontend\models\Article::find()->limit( ($limit - count($this->similarArticles)))->addOrderBy('RAND()')->all()
+            );
+        }
+        return $similar;
     }
 
     public function getTextToPrew()

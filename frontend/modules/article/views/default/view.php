@@ -30,7 +30,9 @@ use common\widgets\ExtDetailView;
 
     <div class="related_in_article_bottom">
         <h3>Вам также может быть интересно :</h3>
-        <?= \frontend\widgets\RelatedArticleWidget::widget(); ?>
+        <?= \frontend\widgets\RelatedArticleWidget::widget([
+            'models'=>\frontend\models\Article::find()->limit(8)->addOrderBy('RAND()')->all(),
+        ]); ?>
     </div>
 
 </div>
