@@ -26,13 +26,22 @@ use yii\widgets\ActiveForm;
               'headerOptions' => [''],
               'options' => ['id' => 'myveryownID'],
             ],
-             [
-             'label' => 'Изображение',
-              'content' => $this->render('form/_form3',['form'=>$form,'model'=>$model]),
-              'headerOptions' => [''],
+            [
+                'label' => 'Изображение',
+                'content' => $this->render('form/_form3',['form'=>$form,'model'=>$model]),
+                'headerOptions' => [''],
+            ],
+            [
+                'label' => 'Похожие статьи',
+                'content' => $this->render('form/_form4',['form'=>$form,'model'=>$model]),
+                'headerOptions' => [''],
             ],
       ]
     ]);
     ?>
+
+
+
+    <?php ActiveForm::end(); ?>
 
 </div>

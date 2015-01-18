@@ -9,6 +9,7 @@ use yii\data\ActiveDataProvider;
 use common\controllers\MainController;
 use yii\filters\AccessControl;
 use yii\helpers\FileHelper;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\Response;
@@ -38,6 +39,18 @@ class DefaultController extends MainController
                     'delete' => ['post'],
                 ],
             ],
+        ];
+    }
+
+    public function actions()
+    {
+        return [
+            'load'=>[
+                'class' => 'common\controllers\actions\LoadAction',
+                'fields' => ['id','title'],
+                'table' => 'article',
+                'format' => '{id},{title}',
+            ]
         ];
     }
 
@@ -103,7 +116,7 @@ class DefaultController extends MainController
         $model = $this->findModel($id);
         Yii::$app->getSession()->set('update_article_id',$model->id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->saveWithSimilar()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

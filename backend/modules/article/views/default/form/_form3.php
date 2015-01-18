@@ -163,6 +163,3 @@ $this->registerJs("
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
-
-
-<?php ActiveForm::end(); ?>

@@ -4,6 +4,8 @@ namespace common\models;
 
 use dosamigos\transliterator\TransliteratorHelper;
 use Yii;
+use yii\base\Model;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "article".
@@ -21,6 +23,7 @@ use Yii;
  * @property string $updated
  *
  * @property-read \common\models\Category $category
+ * @property-read \common\models\SimilarArticle $similar
  */
 class Article extends \common\models\ActiveRecord
 {
@@ -80,12 +83,23 @@ class Article extends \common\models\ActiveRecord
             'default_image' => 'Картинка по умолчанию',
             'created' => 'Дата создания',
             'updated' => 'Дата редактирования',
+            'similar' => 'Связанные статьи',
         ];
     }
 
     public function getCategory()
     {
         return $this->hasOne(self::getBackendOrFrontendModelClass('Category'),['id'=>'category_id']);
+    }
+
+    public function getSimilar()
+    {
+        return $this->hasMany(\common\models\SimilarArticle::className(),['from_id'=>'id']);
+    }
+
+    public function getSimilarArticle($limit)
+    {
+
     }
 
     public function getTextToPrew()
@@ -110,5 +124,25 @@ class Article extends \common\models\ActiveRecord
 
 
         return $html;
+    }
+
+    public function saveWithSimilar()
+    {
+
+        if($save = $this->save())
+        {
+
+            $similarIds = Yii::$app->request->post((new SimilarArticle())->formName(),[]);
+            SimilarArticle::deleteAll('from_id = :id',['id'=>$this->id]);
+            foreach($similarIds as $id)
+            {
+                $model = new SimilarArticle();
+                $model->from_id = $this->id;
+                $model->to_id = $id;
+                $model->save();
+            }
+        }
+
+        return $save;
     }
 }
