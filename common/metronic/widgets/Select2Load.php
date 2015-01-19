@@ -46,8 +46,6 @@ class Select2Load extends Select2
             $this->pluginOptions['initSelection'] =  new JsExpression("
                     function (element, callback) {
                         var id=$(element).val();
-                        console.log(id);
-                        console.log(id);
                         if (id !== '') {
                             $.ajax('{$url}?id=' + id, {
                                 dataType: 'json'
