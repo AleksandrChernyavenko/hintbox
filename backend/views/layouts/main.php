@@ -65,6 +65,8 @@ AppAsset::register($this);
         </div>
     </footer>
 
+    <?= \common\widgets\AjaxLoadingWidget::widget(); ?>
+
     <?php $this->endBody() ?>
 </body>
 </html>
