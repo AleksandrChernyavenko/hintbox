@@ -143,21 +143,16 @@ class Article extends \common\models\ActiveRecord
 
     public function saveWithSimilar()
     {
-
-        if($save = $this->save())
+        $similarIds = Yii::$app->request->post((new SimilarArticle())->formName(),[]);
+        SimilarArticle::deleteAll('from_id = :id',['id'=>$this->id]);
+        foreach($similarIds as $id)
         {
-
-            $similarIds = Yii::$app->request->post((new SimilarArticle())->formName(),[]);
-            SimilarArticle::deleteAll('from_id = :id',['id'=>$this->id]);
-            foreach($similarIds as $id)
-            {
-                $model = new SimilarArticle();
-                $model->from_id = $this->id;
-                $model->to_id = $id;
-                $model->save();
-            }
+            $model = new SimilarArticle();
+            $model->from_id = $this->id;
+            $model->to_id = $id;
+            $model->save();
         }
 
-        return $save;
+        return $this->save();
     }
 }
