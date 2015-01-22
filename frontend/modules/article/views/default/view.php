@@ -20,6 +20,19 @@ use common\widgets\ExtDetailView;
         <?= $model->article_decs ?>
         </div>
 
+        <div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- HINT-BOX.RU - 728*90 Центр 1 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-7268195266553329"
+                 data-ad-slot="2316334290"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+        </div>
+
         <div class="content">
         <?= $model->content ?>
         </div>
@@ -31,7 +44,6 @@ use common\widgets\ExtDetailView;
     <div class="related_in_article_bottom">
         <h3>Вам также может быть интересно :</h3>
         <?= \frontend\widgets\RelatedArticleWidget::widget([
-            'models'=>\frontend\models\Article::find()->limit(8)->addOrderBy('RAND()')->all(),
         ]); ?>
     </div>
 

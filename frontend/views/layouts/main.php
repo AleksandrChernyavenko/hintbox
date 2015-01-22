@@ -31,6 +31,24 @@ AppAsset::register($this);
 
         <div class="container">
 
+            <div class="row" style="margin: 0 auto 20px;width: 728px;  height: 90px;">
+
+
+
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- - 728*90 СНИЗУ 1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:728px;height:90px"
+                         data-ad-client="ca-pub-7268195266553329"
+                         data-ad-slot="7971531091"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+
+            </div>
+
+            <div class="clearfix "></div>
+
          <div class="row">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -40,17 +58,33 @@ AppAsset::register($this);
         <div class="row"> <?= Alert::widget() ?> </div>
 
 
+
+
             <div class="row">
 
                 <div class="col-md-10 drop-shadow-article background-color-white main-page-container">
                     <?= $content ?>
                 </div>
+                <?
+                $ads = <<< JS
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- - АДАПТИВНЫЙ -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7268195266553329"
+     data-ad-slot="6215596299"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+JS;
 
+                ?>
                 <div class="col-md-2 rigth-col">
                     <?= \frontend\widgets\RelatedArticleWidget::widget(
                         [
                             'countRelated'=>4,
-                            'htmlTemplate'=>'<div class="row related_article drop-shadow-article background-color-white">Похожие статьи</div><div class="wrapper"><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div></div>',
+                            'htmlTemplate'=>'<div class="row related_article drop-shadow-article background-color-white">Похожие статьи</div><div class="wrapper"><div class="row">{element}</div><div class="row">'.$ads.'</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div><div class="row">{element}</div></div>',
                         ]
                     ); ?>
                 </div>
@@ -58,6 +92,20 @@ AppAsset::register($this);
 
             </div>
 
+
+            <div class="row" style="margin: 20px auto ;width: 728px;  height: 90px;">
+
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!--  - 728*90 СНИЗУ 2 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-7268195266553329"
+                     data-ad-slot="1924997499"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
+            </div>
 
         </div>
 
