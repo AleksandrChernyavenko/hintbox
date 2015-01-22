@@ -23,7 +23,7 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'category_id')->widget(Select2::className(),
         [
-            'data' => array_merge(["0" => "Основаня категори"], \yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(),'id','textWithImage')),
+            'data' =>  \yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(),'id','textWithImage'),
             'language' => 'ru',
             'options' => ['placeholder' => 'Выберите категорию ...'],
             'pluginOptions' => [
