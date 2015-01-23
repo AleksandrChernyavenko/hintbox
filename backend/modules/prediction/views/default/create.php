@@ -18,7 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="category-form">
 
-        <?php $form = ActiveForm::begin(['options' => ['enctype'=>'multipart/form-data','id'=>'form_id']]); ?>
+        <?php $form = ActiveForm::begin(['options' => ['enctype'=>'multipart/form-data']]); ?>
+
+
 
         <? foreach($models as $model): ?>
         <div class="multiple_input">
@@ -26,13 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <? endforeach; ?>
 
+        <div id="append_id" ></div>
+
         <div class="form-group">
             <?= Html::submitButton('Добавить поле', [
                 'class' => 'btn btn-info',
                 'onClick'=>'{
-                    var input =  $( ".multiple_input" ).first().clone();
-                    input.prependTo( "#form_id" );
-                    $( ".multiple_input" ).last().find("input").val("");
+                    var input =  $(".multiple_input" ).first().clone();
+                    input.find("input").val("");
+                    input.appendTo( "#append_id" );
 
                 return false;
              }',
