@@ -5,7 +5,7 @@ return [
     'sourceLanguage'=>'ru-RU',
     'components' => [
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class' => 'yii\caching\MemCache',
         ],
 
         'i18n' => [

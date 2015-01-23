@@ -33,10 +33,7 @@
 
 
                     <div class="col-md-2">
-                        <!-- form-search-->
-                        <div class="form-search">
-
-                        </div>
+                        <?= \common\widgets\PredictionWidget::widget(); ?>
                     </div>
 
 

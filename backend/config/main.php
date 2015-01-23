@@ -106,6 +106,10 @@ return [
             'class' => 'backend\modules\system\SystemModule',
         ],
 
+        'prediction' => [
+            'class' => 'backend\modules\prediction\PredictionModule',
+        ],
+
         'category' => [
             'class' => 'backend\modules\category\CategoryModule',
 

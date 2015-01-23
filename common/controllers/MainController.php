@@ -21,7 +21,7 @@ class MainController extends Controller
         $view->title = $title;
     }
 
-    public function setFlashError($msg)
+    public function setFlashError($msg = 'Ошибка. Действие не выполненно')
     {
         \Yii::$app->getSession()->setFlash('error', $msg);
     }

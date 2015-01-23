@@ -49,7 +49,7 @@ return [
                 'items'=>[
                     [
                         'label'=>'Предсказания',
-                        'url'=>'/widgets/prev/index',
+                        'url'=>'/prediction/default/index',
                         'iconClass'=>'icon-envelope',
 
                     ],

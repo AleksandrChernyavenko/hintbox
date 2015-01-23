@@ -72,9 +72,12 @@ class ActiveRecord extends \yii\db\ActiveRecord
         return parent::find()->andWhere('status = :status',[':status'=>StatusEnum::STATUS_ACTIVE]);
     }
 
+    /**
+     * @inheritdoc
+     * @return $this the newly created [[ActiveQuery]] instance.
+     */
     public static function findByPk($pk)
     {
-
         $primaryKey = static::primaryKey();
         if (isset($primaryKey[0])) {
             return static::find()->andWhere([$primaryKey[0] => $pk])->one();
