@@ -18,10 +18,8 @@ class PredictionAsset extends \yii\web\AssetBundle
     ];
 
     public $css = [
-        '',
     ];
     public $js = [
-        ''
     ];
 
     public function init()

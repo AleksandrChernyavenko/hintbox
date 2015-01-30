@@ -22,7 +22,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error', 'count'],
                         'allow' => true,
                     ],
                     [
@@ -79,5 +79,13 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionCount()
+    {
+        $today = date('Y-m-d H:i:s', mktime(0, 0, 0, date("m")  , date("d"), date("Y")));
+        $count = \common\models\Article::find()->andWhere('created >= :date',[':date'=>$today])->count();
+        echo $count;
+        exit;
     }
 }

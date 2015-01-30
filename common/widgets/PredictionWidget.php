@@ -126,8 +126,13 @@ class PredictionWidget extends Widget
             $this->options['id'] = $this->getId();
         }
         if(empty($this->options['onclick'])) {
-            $this->options['onclick'] = "$('#{$this->modalId}').modal('show')";
+            $this->options['onclick'] = "$('#{$this->modalId}').modal('show'); yaCounter25145975.reachGoal('click_box');";
         }
         return $this->options;
+    }
+
+    public  function getId($autoGenerate = true)
+    {
+        return 'box_image_id';
     }
 }
