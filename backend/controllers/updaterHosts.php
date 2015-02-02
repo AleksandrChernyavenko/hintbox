@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Александр
- * Date: 30.01.2015
- * Time: 20:57
- */
-
-
 
 $path = 'C:\Windows\System32\drivers\etc\hosts';
 
