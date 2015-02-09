@@ -14,7 +14,7 @@ class DatePickerAsset extends  \kartik\base\AssetBundle
     {
         $this->setSourcePath(__DIR__ . '/assets');
         $this->setupAssets('css', ['css/daterangepicker', 'css/daterangepicker_costom']);
-        $this->setupAssets('js', ['js/mustache', 'js/moment.min', 'js/ru','js/daterangepicker.leads']);
+        $this->setupAssets('js', ['js/mustache', 'js/moment', 'js/ru','js/daterangepicker.leads']);
         parent::init();
     }
 }

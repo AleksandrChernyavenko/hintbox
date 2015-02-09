@@ -1,0 +1,33 @@
+.dpc-menu .nav .interval {
+}
+.dpc-menu .nav .interval input {
+    display: inline-block;
+    margin: 0; padding: 0;
+    background: none; border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: inherit;
+    color: inherit; line-height: inherit;
+}
+.daterangepicker .calendar.right,
+.daterangepicker .calendar.left {
+    display: block !important;
+}
+form.dpc-menu.tools .input-prepend {
+    width: 100%;
+}
+
+form.dpc-menu.tools .input-prepend input.date-range {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 34px;
+    left: -28px;
+    padding-left: 30px !important;
+    width: 100% !important;
+    cursor: pointer;
+}
